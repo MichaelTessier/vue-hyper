@@ -7,6 +7,6 @@ defineProps<{
 </script>
 
 <template>
-  <h1>{{ title }}</h1>
-  <p>{{ text }}</p>
+  <h1 data-test="hello-world__title">{{ title }}</h1>
+  <p data-test="hello-world__text">{{ text }}</p>
 </template>
