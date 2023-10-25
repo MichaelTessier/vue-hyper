@@ -10,7 +10,7 @@
     "test": "vitest",
     "test:coverage": "vitest run --coverage",
     "test:ui": "vitest --ui",
-    "lint": "eslint src --ext .ts,.vue",
+    "lint": "eslint src --ext .ts,.vue . && yarn stylelint 'src/**/*.{vue,css}'",
     "lint:fix": "yarn lint --fix"
   },
   "dependencies": {
@@ -30,7 +30,12 @@
     "eslint-plugin-vue": "^9.17.0",
     "eslint-plugin-vuejs-accessibility": "^2.2.0",
     "happy-dom": "^12.9.1",
+    "postcss": "^8.4.31",
+    "postcss-html": "^1.5.0",
     "prettier": "^3.0.3",
+    "stylelint": "^15.11.0",
+    "stylelint-config-recommended-vue": "^1.5.0",
+    "stylelint-config-standard": "^34.0.0",
     "typescript": "^5.0.2",
     "unocss": "^0.57.0",
     "unplugin-auto-import": "^0.16.6",
