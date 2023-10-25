@@ -5,15 +5,12 @@ import UnoCSS from 'unocss/vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 
-
 export default defineConfig({
   plugins: [
     vue(),
     UnoCSS(),
     AutoImport({
-      imports: [
-        'vue',
-      ]
+      imports: ['vue'],
     }),
     Components(),
   ],
@@ -21,8 +18,8 @@ export default defineConfig({
     globals: true,
     environment: 'happy-dom',
     coverage: {
-      provider: 'istanbul', // or 'v8',
-      reportsDirectory: 'coverage'
+      provider: 'istanbul',
+      reportsDirectory: 'coverage',
     },
-  }
+  },
 })

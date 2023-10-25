@@ -1,7 +1,6 @@
 import { mount } from '@vue/test-utils'
 import HelloWorld from './HelloWorld.vue'
 
-
 it('should displays props correctly', () => {
   const title = 'Vue hyper'
   const text = 'Hello world'
@@ -10,7 +9,7 @@ it('should displays props correctly', () => {
     props: {
       title,
       text,
-    }
+    },
   })
 
   expect(wrapper.get('[data-test="hello-world__title"]').text()).toContain(title)

@@ -3,4 +3,3 @@
     <HelloWorld title="Vue hyper" text="Hello world" />
   </div>
 </template>
-

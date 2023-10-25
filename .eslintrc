@@ -1,0 +1,18 @@
+{
+  "root": true,
+  "parser": "vue-eslint-parser",
+  "parserOptions": {
+    "parser": "@typescript-eslint/parser"
+  },
+  "extends": [
+    "plugin:vue/strongly-recommended",
+    "eslint:recommended",
+    "@vue/typescript/recommended",
+    "prettier",
+    "plugin:vuejs-accessibility/recommended"
+  ],
+  "plugins": ["@typescript-eslint", "prettier", "vuejs-accessibility"],
+  "rules": {
+    "vue/no-multiple-template-root": "off"
+  }
+}
