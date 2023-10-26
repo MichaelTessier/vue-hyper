@@ -11,7 +11,8 @@ export default defineConfig({
     vue(),
     UnoCSS(),
     AutoImport({
-      imports: ['vue', 'vue-router'],
+      imports: ['vue', 'vue-router', 'pinia'],
+      dirs: ['src/stores/*'],
     }),
     Components(),
   ],
@@ -21,6 +22,8 @@ export default defineConfig({
     coverage: {
       provider: 'istanbul',
       reportsDirectory: 'coverage',
+      all: true,
+      include: ['src/**/*.{ts,vue}'],
     },
   },
   resolve: {

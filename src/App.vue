@@ -10,6 +10,15 @@
       text="Hello world"
     />
 
+    <div>
+      <p>{{ counterStore.count }}</p>
+      <button @click="counterStore.increment">increment</button>
+    </div>
+
     <RouterView />
   </div>
 </template>
+
+<script setup lang="ts">
+  const counterStore = useCounterStore()
+</script>
