@@ -1,3 +1,3 @@
 <template>
-  <div>Contact</div>
+  <div data-test="contact">Contact</div>
 </template>
