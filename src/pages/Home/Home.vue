@@ -1,3 +1,3 @@
 <template>
-  <div>Home</div>
+  <div>{{ $t('home.title') }}</div>
 </template>

@@ -11,7 +11,7 @@ export default defineConfig({
     vue(),
     UnoCSS(),
     AutoImport({
-      imports: ['vue', 'vue-router', 'pinia'],
+      imports: ['vue', 'vue-i18n', 'vue-router', 'pinia'],
       dirs: ['src/stores/*'],
     }),
     Components(),
