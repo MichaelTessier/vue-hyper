@@ -4,12 +4,13 @@
       <RouterLink :to="{ name: 'home' }"> Home </RouterLink>
       <RouterLink
         data-test="app__router-link-contact"
-        to="/contact"
+        :to="{ name: 'contact' }"
       >
-        Contact</RouterLink
-      >
+        contact
+      </RouterLink>
+      <LocaleSwitcher />
     </div>
 
-    <RouterView />
+    <router-view></router-view>
   </div>
 </template>

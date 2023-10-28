@@ -2,11 +2,15 @@ import { RouterView, createRouter, createWebHistory } from 'vue-router'
 import Home from '@/pages/Home/Home.vue'
 import { Locale } from 'vue-i18n'
 import { i18n } from '@/i18n'
+import { useContextStore } from '@/stores/context/context'
 
 export const routes = [
   {
     path: '/',
-    redirect: i18n.global.locale.value,
+    redirect: () => {
+      const contextStore = useContextStore()
+      return { name: 'locale', params: { locale: contextStore.locale } }
+    },
   },
   {
     path: '/:locale',
@@ -33,12 +37,13 @@ const router = createRouter({
 })
 
 router.beforeEach((to, _from, next) => {
+  const contextStore = useContextStore()
   if (
     !(i18n.global.availableLocales as Locale[]).includes(
       to.params.locale as Locale
     )
   ) {
-    next(i18n.global.fallbackLocale.value as Locale)
+    next(contextStore.locale)
     return
   }
 

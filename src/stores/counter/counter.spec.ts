@@ -1,8 +1,4 @@
 describe('Counter store', () => {
-  beforeEach(() => {
-    setActivePinia(createPinia())
-  })
-
   it('should increments', () => {
     const counterStore = useCounterStore()
 

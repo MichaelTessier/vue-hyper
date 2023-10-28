@@ -9,8 +9,8 @@ import { i18n } from '@/i18n'
 const app = createApp(App)
 const pinia = createPinia()
 
-app.use(router)
 app.use(pinia)
+app.use(router)
 app.use(i18n)
 
 router.isReady().then(() => {

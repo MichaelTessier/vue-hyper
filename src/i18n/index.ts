@@ -1,5 +1,7 @@
 import { createI18n } from 'vue-i18n'
 
+export const DEFAULT_LOCALE = 'fr'
+
 const messages = {
   en: {
     home: {
@@ -15,7 +17,7 @@ const messages = {
 
 export const i18n = createI18n({
   legacy: false,
-  locale: 'fr',
-  fallbackLocale: 'en',
+  locale: DEFAULT_LOCALE,
+  fallbackLocale: DEFAULT_LOCALE,
   messages,
 })
