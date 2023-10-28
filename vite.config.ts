@@ -24,6 +24,7 @@ export default defineConfig({
       reportsDirectory: 'coverage',
       all: true,
       include: ['src/**/*.{ts,vue}'],
+      exclude: ['src/main.ts'],
     },
   },
   resolve: {

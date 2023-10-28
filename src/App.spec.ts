@@ -28,8 +28,6 @@ describe('App', () => {
       await vi.dynamicImportSettled()
 
       expect(wrapper.find('[data-test="contact"]').exists()).toBe(true)
-
-      console.log(wrapper.html())
     })
   })
 })
