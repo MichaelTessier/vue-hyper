@@ -4,9 +4,17 @@ import { Locale } from 'vue-i18n'
 import { i18n } from '@/i18n'
 import { useContextStore } from '@/stores/context/context'
 
+export const ROUTES = {
+  CONTACT: 'contact',
+  HOME: 'home',
+  LOCALE: 'locale',
+  ROOT: 'root',
+}
+
 export const routes = [
   {
     path: '/',
+    name: ROUTES.ROOT,
     redirect: () => {
       const contextStore = useContextStore()
       return { name: 'locale', params: { locale: contextStore.locale } }
@@ -14,17 +22,17 @@ export const routes = [
   },
   {
     path: '/:locale',
-    name: 'locale',
+    name: ROUTES.LOCALE,
     component: RouterView,
     children: [
       {
         path: '',
-        name: 'home',
+        name: ROUTES.HOME,
         component: Home,
       },
       {
         path: 'contact',
-        name: 'contact',
+        name: ROUTES.CONTACT,
         component: () => import('@/pages/Contact/Contact.vue'),
       },
     ],
