@@ -9,6 +9,7 @@ export const ROUTES = {
   HOME: 'home',
   LOCALE: 'locale',
   ROOT: 'root',
+  SUPABASE_TEST: 'supabase-test',
 }
 
 export const routes = [
@@ -34,6 +35,11 @@ export const routes = [
         path: 'contact',
         name: ROUTES.CONTACT,
         component: () => import('@/pages/Contact/Contact.vue'),
+      },
+      {
+        path: 'supabase-test',
+        name: ROUTES.SUPABASE_TEST,
+        component: () => import('@/pages/SupabaseTest/SupabaseTest.vue'),
       },
     ],
   },
