@@ -1,0 +1,10 @@
+query getCountries {
+  countriesCollection {
+    edges {
+      node {
+        name
+        id
+      }
+    }
+  }
+}

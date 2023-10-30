@@ -1,32 +1,18 @@
 <template>
   <div data-test="supabase-test">SupabaseTest</div>
 
-  <ul>
+  <ul v-if="data?.countriesCollection">
     <li
-      v-for="country in countries"
-      :key="country.id"
+      v-for="country in data.countriesCollection.edges"
+      :key="country.node.id"
     >
-      {{ country.name }}
+      {{ country.node.name }}
     </li>
   </ul>
 </template>
 
 <script lang="ts" setup>
-  import { Country } from '@/types/countries'
+  import { useGetCountriesQuery } from './Country.generated'
 
-  const { supabase } = useSupabase()
-
-  const countries = ref<Country[]>([])
-
-  async function getCountries() {
-    const { data } = await supabase.from('countries').select()
-
-    if (!data) return []
-
-    countries.value = data
-  }
-
-  onMounted(() => {
-    getCountries()
-  })
+  const { data } = useGetCountriesQuery({})
 </script>
