@@ -1,0 +1,19 @@
+name: 'install'
+description: 'Install yarn dependencies'
+
+inputs:
+  node_version:
+    description: 'Node version'
+    required: true
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Use Node.js ${{ inputs.node_version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ inputs.node_version }}
+    - name: Run install
+      run: |
+        yarn install --frozen-lockfile
+      shell: bash

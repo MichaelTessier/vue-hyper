@@ -16,8 +16,7 @@
       </RouterLink>
       <LocaleSwitcher />
     </div>
-
-    <router-view></router-view>
+    <RouterView />
   </div>
 </template>
 
