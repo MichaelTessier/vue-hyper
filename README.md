@@ -1,18 +1,56 @@
-`# Vue 3 + TypeScript + Vite
+# VUE HYPER
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+Vue 3 application with
 
-## Recommended IDE Setup
+- typescript
+- eslint
+- prettier
+- commitlint
+- vitest
+- unocss
+- auto-import
+- pinia
+- vue-router
+- supabase
+- graphql/urql
+- codegen
+- github workflows
+- vercel deployment
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+## SUPABASE
 
-## Type Support For `.vue` Imports in TS
+This project use [Supabase](https://supabase.com/)
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
+Set up a Supabase project with sample data
 
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
+```sql
+  -- Create the table
+  CREATE TABLE countries (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(255) NOT NULL
+  );
+  -- Insert some sample data into the table
+  INSERT INTO countries (name) VALUES ('United States');
+  INSERT INTO countries (name) VALUES ('Canada');
+  INSERT INTO countries (name) VALUES ('Mexico');
+```
 
-1. Disable the built-in TypeScript Extension
-   1. Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-   2. Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
+Add variables environments
+
+```.
+- VITE_SUPABASE_URL=(url of your supabase)
+- VITE_SUPABASE_KEY=(anon key)
+- VITE_SUPABASE_ID=(id from url)
+```
+
+## CI
+
+This project have a build step in CI github actions
+
+Set up actions secrets on your github repo
+
+```
+VERCEL_ID
+VERCEL_PROJECT_ID
+VERCEL_TOKEN
+```
