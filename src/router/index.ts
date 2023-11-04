@@ -18,7 +18,7 @@ export const routes = [
     name: ROUTES.ROOT,
     redirect: () => {
       const contextStore = useContextStore()
-      return { name: 'locale', params: { locale: contextStore.locale } }
+      return { name: 'home', params: { locale: contextStore.locale } }
     },
   },
   {
