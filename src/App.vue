@@ -15,6 +15,8 @@
         supabase
       </RouterLink>
       <LocaleSwitcher />
+
+      <ThemeSwitcher />
     </div>
     <RouterView />
   </div>
@@ -22,4 +24,8 @@
 
 <script lang="ts" setup>
   import { ROUTES } from '@/router'
+
+  const theme = useTheme()
+
+  theme.init()
 </script>
