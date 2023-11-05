@@ -11,9 +11,11 @@ export default defineConfig({
     UnoCSS(),
     AutoImport({
       imports: ['vue', 'vue-i18n', 'vue-router', 'pinia'],
-      dirs: ['src/stores/*', 'src/composables/*'],
+      dirs: ['src/stores/*', 'src/composables/*', 'src/**/composables/*'],
     }),
-    Components(),
+    Components({
+      dirs: ['src/components/*', 'src/**/components/*'],
+    }),
   ],
   test: {
     globals: true,
