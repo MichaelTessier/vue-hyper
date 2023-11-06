@@ -4,7 +4,6 @@
       <select
         data-test="color-scheme"
         v-model="selectedColorScheme"
-        name="color-scheme"
         id="color-scheme"
         @change="theme.setColorScheme(selectedColorScheme)"
       >
@@ -22,7 +21,6 @@
       <select
         data-test="variant-theme"
         v-model="selectedVariantTheme"
-        name="variant-theme"
         id="variant-theme"
         @change="theme.setVariantTheme(selectedVariantTheme)"
       >

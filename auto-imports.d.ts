@@ -9,6 +9,8 @@ declare global {
   const CONTEXT_LOCALE_STORAGE_KEY: typeof import('./src/stores/context/context')['CONTEXT_LOCALE_STORAGE_KEY']
   const ColorScheme: typeof import('./src/domains/Theme/composables/useTheme/useTheme')['ColorScheme']
   const EffectScope: typeof import('vue')['EffectScope']
+  const LAYOUT_THEME_STORAGE_KEY: typeof import('./src/domains/Theme/composables/useTheme/useTheme')['LAYOUT_THEME_STORAGE_KEY']
+  const LayoutTheme: typeof import('./src/domains/Theme/composables/useTheme/useTheme')['LayoutTheme']
   const VARIANT_THEME_STORAGE_KEY: typeof import('./src/domains/Theme/composables/useTheme/useTheme')['VARIANT_THEME_STORAGE_KEY']
   const VariantTheme: typeof import('./src/domains/Theme/composables/useTheme/useTheme')['VariantTheme']
   const acceptHMRUpdate: typeof import('pinia')['acceptHMRUpdate']
