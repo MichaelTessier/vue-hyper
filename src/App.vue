@@ -2,7 +2,8 @@
   <GlobalLayout>
     <template #header>
       <LocaleSwitcher />
-      <ThemeSwitcher />
+      <ThemeSchemeSwitcher />
+      <ThemeVariantSwitcher />
       <ThemeLayoutSwitcher />
     </template>
 
