@@ -13,7 +13,7 @@ export default defineConfig({
     UnoCSS(),
     AutoImport({
       imports: ['vue', 'vue-i18n', 'vue-router', 'pinia'],
-      dirs: ['src/**(!__generated__)/*.{ts,vue}'],
+      dirs: ['src/**/*.{ts,vue}'],
       vueTemplate: true,
     }),
     Components({

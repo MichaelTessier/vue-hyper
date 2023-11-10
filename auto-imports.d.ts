@@ -10,8 +10,11 @@ declare global {
   const ColorScheme: typeof import('./src/domains/theme/composables/useTheme/useTheme')['ColorScheme']
   const DEFAULT_LOCALE: typeof import('./src/i18n/index')['DEFAULT_LOCALE']
   const EffectScope: typeof import('vue')['EffectScope']
+  const FilterIs: typeof import('./src/graphql/__generated__/graphql')['FilterIs']
+  const GetCountriesDocument: typeof import('./src/pages/SupabaseTest/Country.generated')['GetCountriesDocument']
   const LAYOUT_THEME_STORAGE_KEY: typeof import('./src/domains/theme/composables/useTheme/useTheme')['LAYOUT_THEME_STORAGE_KEY']
   const LayoutTheme: typeof import('./src/domains/theme/composables/useTheme/useTheme')['LayoutTheme']
+  const OrderByDirection: typeof import('./src/graphql/__generated__/graphql')['OrderByDirection']
   const ROUTES: typeof import('./src/router/index')['ROUTES']
   const VARIANT_THEME_STORAGE_KEY: typeof import('./src/domains/theme/composables/useTheme/useTheme')['VARIANT_THEME_STORAGE_KEY']
   const VariantTheme: typeof import('./src/domains/theme/composables/useTheme/useTheme')['VariantTheme']
@@ -27,13 +30,16 @@ declare global {
   const getActivePinia: typeof import('pinia')['getActivePinia']
   const getCurrentInstance: typeof import('vue')['getCurrentInstance']
   const getCurrentScope: typeof import('vue')['getCurrentScope']
+  const graphql: typeof import('./src/graphql/__generated__/gql')['graphql']
   const h: typeof import('vue')['h']
   const i18n: typeof import('./src/i18n/index')['i18n']
   const inject: typeof import('vue')['inject']
+  const isFragmentReady: typeof import('./src/graphql/__generated__/fragment-masking')['isFragmentReady']
   const isProxy: typeof import('vue')['isProxy']
   const isReactive: typeof import('vue')['isReactive']
   const isReadonly: typeof import('vue')['isReadonly']
   const isRef: typeof import('vue')['isRef']
+  const makeFragmentData: typeof import('./src/graphql/__generated__/fragment-masking')['makeFragmentData']
   const mapActions: typeof import('pinia')['mapActions']
   const mapGetters: typeof import('pinia')['mapGetters']
   const mapState: typeof import('pinia')['mapState']
@@ -81,6 +87,8 @@ declare global {
   const useCounterStore: typeof import('./src/stores/counter/counter')['useCounterStore']
   const useCssModule: typeof import('vue')['useCssModule']
   const useCssVars: typeof import('vue')['useCssVars']
+  const useFragment: typeof import('./src/graphql/__generated__/fragment-masking')['useFragment']
+  const useGetCountriesQuery: typeof import('./src/pages/SupabaseTest/Country.generated')['useGetCountriesQuery']
   const useI18n: typeof import('vue-i18n')['useI18n']
   const useLink: typeof import('vue-router')['useLink']
   const useRoute: typeof import('vue-router')['useRoute']
@@ -102,9 +110,19 @@ declare global {
 import { UnwrapRef } from 'vue'
 declare module 'vue' {
   interface ComponentCustomProperties {
+    readonly COLOR_SCHEME_STORAGE_KEY: UnwrapRef<typeof import('./src/domains/theme/composables/useTheme/useTheme')['COLOR_SCHEME_STORAGE_KEY']>
+    readonly CONTEXT_LOCALE_STORAGE_KEY: UnwrapRef<typeof import('./src/stores/context/context')['CONTEXT_LOCALE_STORAGE_KEY']>
+    readonly ColorScheme: UnwrapRef<typeof import('./src/domains/theme/composables/useTheme/useTheme')['ColorScheme']>
     readonly DEFAULT_LOCALE: UnwrapRef<typeof import('./src/i18n/index')['DEFAULT_LOCALE']>
     readonly EffectScope: UnwrapRef<typeof import('vue')['EffectScope']>
+    readonly FilterIs: UnwrapRef<typeof import('./src/graphql/__generated__/graphql')['FilterIs']>
+    readonly GetCountriesDocument: UnwrapRef<typeof import('./src/pages/SupabaseTest/Country.generated')['GetCountriesDocument']>
+    readonly LAYOUT_THEME_STORAGE_KEY: UnwrapRef<typeof import('./src/domains/theme/composables/useTheme/useTheme')['LAYOUT_THEME_STORAGE_KEY']>
+    readonly LayoutTheme: UnwrapRef<typeof import('./src/domains/theme/composables/useTheme/useTheme')['LayoutTheme']>
+    readonly OrderByDirection: UnwrapRef<typeof import('./src/graphql/__generated__/graphql')['OrderByDirection']>
     readonly ROUTES: UnwrapRef<typeof import('./src/router/index')['ROUTES']>
+    readonly VARIANT_THEME_STORAGE_KEY: UnwrapRef<typeof import('./src/domains/theme/composables/useTheme/useTheme')['VARIANT_THEME_STORAGE_KEY']>
+    readonly VariantTheme: UnwrapRef<typeof import('./src/domains/theme/composables/useTheme/useTheme')['VariantTheme']>
     readonly acceptHMRUpdate: UnwrapRef<typeof import('pinia')['acceptHMRUpdate']>
     readonly computed: UnwrapRef<typeof import('vue')['computed']>
     readonly createApp: UnwrapRef<typeof import('vue')['createApp']>
@@ -117,13 +135,16 @@ declare module 'vue' {
     readonly getActivePinia: UnwrapRef<typeof import('pinia')['getActivePinia']>
     readonly getCurrentInstance: UnwrapRef<typeof import('vue')['getCurrentInstance']>
     readonly getCurrentScope: UnwrapRef<typeof import('vue')['getCurrentScope']>
+    readonly graphql: UnwrapRef<typeof import('./src/graphql/__generated__/gql')['graphql']>
     readonly h: UnwrapRef<typeof import('vue')['h']>
     readonly i18n: UnwrapRef<typeof import('./src/i18n/index')['i18n']>
     readonly inject: UnwrapRef<typeof import('vue')['inject']>
+    readonly isFragmentReady: UnwrapRef<typeof import('./src/graphql/__generated__/fragment-masking')['isFragmentReady']>
     readonly isProxy: UnwrapRef<typeof import('vue')['isProxy']>
     readonly isReactive: UnwrapRef<typeof import('vue')['isReactive']>
     readonly isReadonly: UnwrapRef<typeof import('vue')['isReadonly']>
     readonly isRef: UnwrapRef<typeof import('vue')['isRef']>
+    readonly makeFragmentData: UnwrapRef<typeof import('./src/graphql/__generated__/fragment-masking')['makeFragmentData']>
     readonly mapActions: UnwrapRef<typeof import('pinia')['mapActions']>
     readonly mapGetters: UnwrapRef<typeof import('pinia')['mapGetters']>
     readonly mapState: UnwrapRef<typeof import('pinia')['mapState']>
@@ -167,13 +188,19 @@ declare module 'vue' {
     readonly unref: UnwrapRef<typeof import('vue')['unref']>
     readonly urqlClient: UnwrapRef<typeof import('./src/graphql/urqlClient')['urqlClient']>
     readonly useAttrs: UnwrapRef<typeof import('vue')['useAttrs']>
+    readonly useContextStore: UnwrapRef<typeof import('./src/stores/context/context')['useContextStore']>
+    readonly useCounterStore: UnwrapRef<typeof import('./src/stores/counter/counter')['useCounterStore']>
     readonly useCssModule: UnwrapRef<typeof import('vue')['useCssModule']>
     readonly useCssVars: UnwrapRef<typeof import('vue')['useCssVars']>
+    readonly useFragment: UnwrapRef<typeof import('./src/graphql/__generated__/fragment-masking')['useFragment']>
+    readonly useGetCountriesQuery: UnwrapRef<typeof import('./src/pages/SupabaseTest/Country.generated')['useGetCountriesQuery']>
     readonly useI18n: UnwrapRef<typeof import('vue-i18n')['useI18n']>
     readonly useLink: UnwrapRef<typeof import('vue-router')['useLink']>
     readonly useRoute: UnwrapRef<typeof import('vue-router')['useRoute']>
     readonly useRouter: UnwrapRef<typeof import('vue-router')['useRouter']>
     readonly useSlots: UnwrapRef<typeof import('vue')['useSlots']>
+    readonly useSupabase: UnwrapRef<typeof import('./src/composables/useSupabase/useSupabase')['useSupabase']>
+    readonly useTheme: UnwrapRef<typeof import('./src/domains/theme/composables/useTheme/useTheme')['useTheme']>
     readonly watch: UnwrapRef<typeof import('vue')['watch']>
     readonly watchEffect: UnwrapRef<typeof import('vue')['watchEffect']>
     readonly watchPostEffect: UnwrapRef<typeof import('vue')['watchPostEffect']>
@@ -182,9 +209,19 @@ declare module 'vue' {
 }
 declare module '@vue/runtime-core' {
   interface ComponentCustomProperties {
+    readonly COLOR_SCHEME_STORAGE_KEY: UnwrapRef<typeof import('./src/domains/theme/composables/useTheme/useTheme')['COLOR_SCHEME_STORAGE_KEY']>
+    readonly CONTEXT_LOCALE_STORAGE_KEY: UnwrapRef<typeof import('./src/stores/context/context')['CONTEXT_LOCALE_STORAGE_KEY']>
+    readonly ColorScheme: UnwrapRef<typeof import('./src/domains/theme/composables/useTheme/useTheme')['ColorScheme']>
     readonly DEFAULT_LOCALE: UnwrapRef<typeof import('./src/i18n/index')['DEFAULT_LOCALE']>
     readonly EffectScope: UnwrapRef<typeof import('vue')['EffectScope']>
+    readonly FilterIs: UnwrapRef<typeof import('./src/graphql/__generated__/graphql')['FilterIs']>
+    readonly GetCountriesDocument: UnwrapRef<typeof import('./src/pages/SupabaseTest/Country.generated')['GetCountriesDocument']>
+    readonly LAYOUT_THEME_STORAGE_KEY: UnwrapRef<typeof import('./src/domains/theme/composables/useTheme/useTheme')['LAYOUT_THEME_STORAGE_KEY']>
+    readonly LayoutTheme: UnwrapRef<typeof import('./src/domains/theme/composables/useTheme/useTheme')['LayoutTheme']>
+    readonly OrderByDirection: UnwrapRef<typeof import('./src/graphql/__generated__/graphql')['OrderByDirection']>
     readonly ROUTES: UnwrapRef<typeof import('./src/router/index')['ROUTES']>
+    readonly VARIANT_THEME_STORAGE_KEY: UnwrapRef<typeof import('./src/domains/theme/composables/useTheme/useTheme')['VARIANT_THEME_STORAGE_KEY']>
+    readonly VariantTheme: UnwrapRef<typeof import('./src/domains/theme/composables/useTheme/useTheme')['VariantTheme']>
     readonly acceptHMRUpdate: UnwrapRef<typeof import('pinia')['acceptHMRUpdate']>
     readonly computed: UnwrapRef<typeof import('vue')['computed']>
     readonly createApp: UnwrapRef<typeof import('vue')['createApp']>
@@ -197,13 +234,16 @@ declare module '@vue/runtime-core' {
     readonly getActivePinia: UnwrapRef<typeof import('pinia')['getActivePinia']>
     readonly getCurrentInstance: UnwrapRef<typeof import('vue')['getCurrentInstance']>
     readonly getCurrentScope: UnwrapRef<typeof import('vue')['getCurrentScope']>
+    readonly graphql: UnwrapRef<typeof import('./src/graphql/__generated__/gql')['graphql']>
     readonly h: UnwrapRef<typeof import('vue')['h']>
     readonly i18n: UnwrapRef<typeof import('./src/i18n/index')['i18n']>
     readonly inject: UnwrapRef<typeof import('vue')['inject']>
+    readonly isFragmentReady: UnwrapRef<typeof import('./src/graphql/__generated__/fragment-masking')['isFragmentReady']>
     readonly isProxy: UnwrapRef<typeof import('vue')['isProxy']>
     readonly isReactive: UnwrapRef<typeof import('vue')['isReactive']>
     readonly isReadonly: UnwrapRef<typeof import('vue')['isReadonly']>
     readonly isRef: UnwrapRef<typeof import('vue')['isRef']>
+    readonly makeFragmentData: UnwrapRef<typeof import('./src/graphql/__generated__/fragment-masking')['makeFragmentData']>
     readonly mapActions: UnwrapRef<typeof import('pinia')['mapActions']>
     readonly mapGetters: UnwrapRef<typeof import('pinia')['mapGetters']>
     readonly mapState: UnwrapRef<typeof import('pinia')['mapState']>
@@ -247,13 +287,19 @@ declare module '@vue/runtime-core' {
     readonly unref: UnwrapRef<typeof import('vue')['unref']>
     readonly urqlClient: UnwrapRef<typeof import('./src/graphql/urqlClient')['urqlClient']>
     readonly useAttrs: UnwrapRef<typeof import('vue')['useAttrs']>
+    readonly useContextStore: UnwrapRef<typeof import('./src/stores/context/context')['useContextStore']>
+    readonly useCounterStore: UnwrapRef<typeof import('./src/stores/counter/counter')['useCounterStore']>
     readonly useCssModule: UnwrapRef<typeof import('vue')['useCssModule']>
     readonly useCssVars: UnwrapRef<typeof import('vue')['useCssVars']>
+    readonly useFragment: UnwrapRef<typeof import('./src/graphql/__generated__/fragment-masking')['useFragment']>
+    readonly useGetCountriesQuery: UnwrapRef<typeof import('./src/pages/SupabaseTest/Country.generated')['useGetCountriesQuery']>
     readonly useI18n: UnwrapRef<typeof import('vue-i18n')['useI18n']>
     readonly useLink: UnwrapRef<typeof import('vue-router')['useLink']>
     readonly useRoute: UnwrapRef<typeof import('vue-router')['useRoute']>
     readonly useRouter: UnwrapRef<typeof import('vue-router')['useRouter']>
     readonly useSlots: UnwrapRef<typeof import('vue')['useSlots']>
+    readonly useSupabase: UnwrapRef<typeof import('./src/composables/useSupabase/useSupabase')['useSupabase']>
+    readonly useTheme: UnwrapRef<typeof import('./src/domains/theme/composables/useTheme/useTheme')['useTheme']>
     readonly watch: UnwrapRef<typeof import('vue')['watch']>
     readonly watchEffect: UnwrapRef<typeof import('vue')['watchEffect']>
     readonly watchPostEffect: UnwrapRef<typeof import('vue')['watchPostEffect']>
