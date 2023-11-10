@@ -1,4 +1,4 @@
-import type * as Types from '../../graphql/generated/graphql';
+import type * as Types from '../../graphql/__generated__/graphql';
 
 import gql from 'graphql-tag';
 import * as Urql from '@urql/vue';

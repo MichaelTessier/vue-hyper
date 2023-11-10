@@ -1,5 +1,3 @@
-import router, { ROUTES } from '.'
-
 describe('router', () => {
   it('should have correct routes', () => {
     const routeNames = router

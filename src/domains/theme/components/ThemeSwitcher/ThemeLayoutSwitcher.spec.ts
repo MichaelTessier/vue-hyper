@@ -2,7 +2,7 @@ import { mount } from '@vue/test-utils'
 import ThemeLayoutSwitcher from './ThemeLayoutSwitcher.vue'
 import { Mock } from 'vitest'
 
-vi.mock('@/domains/Theme/composables/useTheme/useTheme.ts', () => ({
+vi.mock('@/domains/theme/composables/useTheme/useTheme.ts', () => ({
   useTheme: vi.fn(),
 }))
 
