@@ -13,8 +13,10 @@ vi.mock('vue-router', () => ({
 }))
 
 describe('LocaleSwitcher', () => {
-  ;(useRouter as Mock).mockReturnValue({
-    push: vi.fn(),
+  beforeEach(() => {
+    ;(useRouter as Mock).mockReturnValue({
+      push: vi.fn(),
+    })
   })
 
   afterEach(() => {
