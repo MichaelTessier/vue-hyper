@@ -1,6 +1,13 @@
 <template>
-  <div class="flex flex-col items-center justify-center h-screen">
-    <div class="flex gap-2">
+  <GlobalLayout>
+    <template #header>
+      <LocaleSwitcher />
+      <ThemeSchemeSwitcher />
+      <ThemeVariantSwitcher />
+      <ThemeLayoutSwitcher />
+    </template>
+
+    <template #aside>
       <RouterLink :to="{ name: ROUTES.HOME }"> Home </RouterLink>
       <RouterLink
         data-test="app__router-link-contact"
@@ -14,18 +21,14 @@
       >
         supabase
       </RouterLink>
-      <LocaleSwitcher />
+    </template>
 
-      <ThemeSwitcher />
-    </div>
-    <RouterView />
-  </div>
+    <template #content>
+      <RouterView />
+    </template>
+  </GlobalLayout>
 </template>
 
 <script lang="ts" setup>
   import { ROUTES } from '@/router'
-
-  const theme = useTheme()
-
-  theme.init()
 </script>
