@@ -1,6 +1,3 @@
-import { DEFAULT_LOCALE } from '@/i18n'
-import { CONTEXT_LOCALE_STORAGE_KEY } from './context'
-
 describe('Context store', () => {
   afterEach(() => {
     localStorage.clear()

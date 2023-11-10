@@ -28,7 +28,3 @@
     </template>
   </GlobalLayout>
 </template>
-
-<script lang="ts" setup>
-  import { ROUTES } from '@/router'
-</script>

@@ -1,4 +1,4 @@
 node_modules
 dist
 *.generated
-src/graphql/generated/*
+**/__generated__/*

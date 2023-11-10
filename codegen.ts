@@ -22,7 +22,7 @@ const config: CodegenConfig = {
     preResolveTypes: false,
   },
   generates: {
-    'src/graphql/generated/': {
+    'src/graphql/__generated__/': {
       preset: 'client',
       config: {
         useTypeImports: true,
@@ -33,7 +33,7 @@ const config: CodegenConfig = {
       preset: 'near-operation-file',
       plugins: ['typescript-operations', 'typescript-vue-urql'],
       presetConfig: {
-        baseTypesPath: 'graphql/generated/graphql.ts',
+        baseTypesPath: 'graphql/__generated__/graphql.ts',
       },
       config: {
         useTypeImports: true,

@@ -1,17 +1,20 @@
 /// <reference types="vitest" />
+
 import { defineConfig } from 'vite'
 import path from 'path'
 import vue from '@vitejs/plugin-vue'
 import UnoCSS from 'unocss/vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
+
 export default defineConfig({
   plugins: [
     vue(),
     UnoCSS(),
     AutoImport({
       imports: ['vue', 'vue-i18n', 'vue-router', 'pinia'],
-      dirs: ['src/stores/*', 'src/composables/*', 'src/**/composables/*'],
+      dirs: ['src/**(!__generated__)/*.{ts,vue}'],
+      vueTemplate: true,
     }),
     Components({
       dirs: ['src/components/*', 'src/**/components/*'],
