@@ -1,0 +1,10 @@
+{
+  "name": "vue-hyper-components",
+  "version": "0.0.0",
+  "description": "components library for vue hyper",
+  "repository": "https://github.com/MichaelTessier/vue-hyper.git",
+  "author": "mitessier <mitessier@maisonsdumonde.com>",
+  "main": "index.js",
+  "license": "MIT",
+  "private": true
+}

@@ -1,0 +1,22 @@
+{
+  "folders": [
+    {
+      "name": "ROOT",
+      "path": "../"
+    },
+    {
+      "name": "packages/admin",
+      "path": "../packages/admin"
+    },
+    {
+      "name": "packages/components",
+      "path": "../packages/components"
+    },
+  ],
+  "settings": {
+    "files.exclude": {
+      "node_modules/": true,
+      "packages/": true
+    },
+  }
+}
