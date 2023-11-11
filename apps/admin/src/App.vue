@@ -24,7 +24,6 @@
     </template>
 
     <template #content>
-      Test
       <RouterView />
     </template>
   </GlobalLayout>

@@ -1,0 +1,15 @@
+name: 'changes'
+description: 'Jod to run change detection'
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Detect changes
+      uses: dorny/paths-filter@v2
+      id: filter
+      with:
+        filters: |
+          admin:
+            - 'apps/admin/**'
+          components:
+            - 'packages/components/**'

@@ -24,7 +24,7 @@
     </template>
 
     <template #content>
-      VUE HYPER COMPONENTS 2
+      VUE HYPER COMPONENTS
       <RouterView />
     </template>
   </GlobalLayout>

@@ -5,6 +5,9 @@ inputs:
   node_version:
     description: 'Node version'
     required: true
+  context: 
+    description: 'Context application'
+    required: true
 
 runs:
   using: 'composite'
@@ -20,5 +23,10 @@ runs:
       shell: bash
     - name: Run lint
       run: |
-        yarn lint
+        if [[ "${{ inputs.context }}" == "admin" ]]; then
+          yarn admin:lint
+        fi
+        if ${{ inputs.context }} == "components" ]]; then
+          yarn components:lint
+        fi
       shell: bash

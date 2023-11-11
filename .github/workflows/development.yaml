@@ -10,6 +10,28 @@ on:
   workflow_call:
 
 jobs:
+
+  changes:
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: read
+    strategy:
+      matrix:
+        node: [18]
+    outputs:
+      admin: ${{ steps.filter.outputs.admin }}
+      components: ${{ steps.filter.outputs.components }}
+    steps:
+    - name: Detect changes
+      uses: dorny/paths-filter@v2
+      id: filter
+      with:
+        filters: |
+          admin:
+            - 'apps/admin/**'
+          components:
+            - 'packages/components/**'
+
   install:
     runs-on: ubuntu-latest
     strategy:
@@ -21,33 +43,67 @@ jobs:
         with:
           node_version: ${{ matrix.node }}
 
-  lint:
+  lint-admin:
     runs-on: ubuntu-latest
     strategy:
       matrix:
         node: [18]
-    needs: [install]
+    needs: [changes, install]
+    if: ${{ needs.changes.outputs.admin == 'true' }}
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/lint
         with:
           node_version: ${{ matrix.node }}
+          context: admin
 
-  test:
+  lint-components:
     runs-on: ubuntu-latest
     strategy:
       matrix:
         node: [18]
-    needs: [lint]
+    needs: [changes, install]
+    if: ${{ needs.changes.outputs.components == 'true' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/lint
+        with:
+          node_version: ${{ matrix.node }}
+          context: components
+
+  test-admin:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [18]
+    needs: [lint-admin]
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/test
         with:
           node_version: ${{ matrix.node }}
+          context: admin
+   
+  test-components:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [18]
+    needs: [lint-components]
+    if: ${{ needs.changes.outputs.components == 'true' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/test
+        with:
+          node_version: ${{ matrix.node }} 
+          context: components
+
 
   deploy-admin-preview:
     runs-on: ubuntu-latest
-    needs: [test]
+    needs: [
+      test-admin, 
+    ]
     steps:
       - uses: actions/checkout@v4
       - name: Install Vercel CLI
@@ -64,7 +120,9 @@ jobs:
 
   deploy-components-preview:
     runs-on: ubuntu-latest
-    needs: [test]
+    needs: [
+      test-components, 
+    ]
     steps:
       - uses: actions/checkout@v4
       - name: Install Vercel CLI
