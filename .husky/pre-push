@@ -1,6 +1,7 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-yarn test --changed main --passWithNoTests
+yarn admin:test --changed main --passWithNoTests
+yarn components:test --changed main --passWithNoTests
 
 bash ./scripts/branch-validator.sh

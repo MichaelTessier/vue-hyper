@@ -1,0 +1,20 @@
+{
+  "prettier.configPath": ".prettierrc",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "cSpell.words": [
+    "codegen",
+    "commitlint",
+    "composables",
+    "histoire",
+    "pinia",
+    "stylelint",
+    "supabase",
+    "unocss",
+    "unplugin",
+    "urql",
+    "Vercel",
+    "vuejs"
+  ],
+  "i18n-ally.localesPaths": ["src/i18n/locales", "coverage/src/i18n"]
+}
