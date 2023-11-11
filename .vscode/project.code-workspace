@@ -5,8 +5,8 @@
       "path": "../"
     },
     {
-      "name": "packages/admin",
-      "path": "../packages/admin"
+      "name": "apps/admin",
+      "path": "../apps/admin"
     },
     {
       "name": "packages/components",
@@ -16,7 +16,8 @@
   "settings": {
     "files.exclude": {
       "node_modules/": true,
-      "packages/": true
+      "packages/": true,
+      "apps/": true
     },
   }
 }

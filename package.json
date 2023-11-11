@@ -7,12 +7,13 @@
   "license": "MIT",
   "private": true,
   "workspaces": [
+    "apps/*",
     "packages/*"
   ],
   "scripts": {
-    "admin:dev": "yarn --cwd packages/admin dev",
-    "admin:lint": "yarn --cwd packages/admin lint",
-    "admin:test": "yarn --cwd packages/admin test",
+    "admin:dev": "yarn --cwd apps/admin dev",
+    "admin:lint": "yarn --cwd apps/admin lint",
+    "admin:test": "yarn --cwd apps/admin test",
     "components:dev": "yarn --cwd packages/components dev",
     "components:lint": "yarn --cwd packages/components lint",
     "components:test": "yarn --cwd packages/components test",
