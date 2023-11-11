@@ -11,8 +11,14 @@
   ],
   "scripts": {
     "admin:dev": "yarn --cwd packages/admin dev",
+    "admin:lint": "yarn --cwd packages/admin lint",
+    "admin:test": "yarn --cwd packages/admin test",
     "components:dev": "yarn --cwd packages/components dev",
+    "components:lint": "yarn --cwd packages/components lint",
+    "components:test": "yarn --cwd packages/components test",
     "dev": "npm-run-all --parallel admin:dev components:dev",
+    "lint": "npm-run-all --parallel admin:lint components:lint",
+    "test": "npm-run-all --parallel admin:test components:test",
     "prepare": "husky install"
   },
   "devDependencies": {
