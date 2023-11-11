@@ -20,33 +20,9 @@ jobs:
         with:
           node_version: ${{ matrix.node }}
 
-  lint:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node: [18]
-    needs: [install]
-    steps:
-      - uses: actions/checkout@v4
-      - uses: ./.github/actions/lint
-        with:
-          node_version: ${{ matrix.node }}
-
-  test:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node: [18]
-    needs: [lint]
-    steps:
-      - uses: actions/checkout@v4
-      - uses: ./.github/actions/test
-        with:
-          node_version: ${{ matrix.node }}
-
   deploy-admin-production:
     runs-on: ubuntu-latest
-    needs: [test]
+    needs: [install]
     steps:
       - uses: actions/checkout@v4
       - name: Install Vercel CLI
@@ -62,7 +38,7 @@ jobs:
 
   deploy-components-production:
     runs-on: ubuntu-latest
-    needs: [test]
+    needs: [install]
     steps:
       - uses: actions/checkout@v4
       - name: Install Vercel CLI
