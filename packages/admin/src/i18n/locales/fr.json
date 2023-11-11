@@ -1,6 +1,5 @@
 {
-
-  home: {
-    title: 'Bienvenue',
-  },
+  "home": {
+    "title": "Bienvenue"
+  }
 }

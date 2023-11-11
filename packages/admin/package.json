@@ -13,7 +13,6 @@
     "test:watch": "vitest",
     "lint": "eslint src --ext .ts,.vue . && yarn stylelint 'src/**/*.{vue,css}'",
     "lint:fix": "yarn lint --fix",
-    "prepare": "husky install",
     "codegen": "graphql-codegen",
     "codegen:supabase": "node ./scripts/codegen-supabase.js"
   },
