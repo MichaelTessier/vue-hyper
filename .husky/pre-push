@@ -4,4 +4,7 @@
 yarn admin:test --changed main --passWithNoTests
 yarn components:test --changed main --passWithNoTests
 
-bash ./scripts/branch-validator.sh
+bash ./scripts/disallow-main-push.sh
+bash ./scripts/validate-branch-name.sh
+
+
