@@ -24,12 +24,9 @@ runs:
     - name: Run lint
       run: |
         if [[ "${{ inputs.context }}" == "admin" ]]; then
-          yarn lint:admin
+          yarn admin:lint
         fi
         if ${{ inputs.context }} == "components" ]]; then
-          yarn lint:components
-        fi
-        if ${{ inputs.context }} == "all" ]]; then
-          yarn lint
+          yarn components:lint
         fi
       shell: bash
