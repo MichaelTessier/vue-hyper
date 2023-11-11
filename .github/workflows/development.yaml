@@ -48,12 +48,16 @@ jobs:
     strategy:
       matrix:
         node: [18]
-    needs: [install]
+    needs: [changes, install]
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/lint
         with:
           node_version: ${{ matrix.node }}
+          context: 
+            if ${{ needs.changes.outputs.admin == 'true' }} then 'admin' 
+            else if ${{ needs.changes.outputs.components == 'true' }} then 'components'
+            else 'all' fi
 
   test:
     runs-on: ubuntu-latest
@@ -70,7 +74,7 @@ jobs:
   deploy-admin-preview:
     runs-on: ubuntu-latest
     needs: [
-      # test, 
+      test, 
       changes
     ]
     if: ${{ needs.changes.outputs.admin == 'true' }}
@@ -91,7 +95,7 @@ jobs:
   deploy-components-preview:
     runs-on: ubuntu-latest
     needs: [
-      # test, 
+      test, 
       changes
     ]
     if: ${{ needs.changes.outputs.components == 'true' }}
