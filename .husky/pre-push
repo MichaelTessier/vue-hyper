@@ -1,8 +1,9 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-yarn admin:test --changed main --passWithNoTests
-yarn components:test --changed main --passWithNoTests
+yarn admin:test
+yarn components:test
+# yarn components:test --changed main --passWithNoTests
 
 bash ./scripts/disallow-main-push.sh
 bash ./scripts/validate-branch-name.sh
