@@ -6,20 +6,43 @@ import vue from '@vitejs/plugin-vue'
 import UnoCSS from 'unocss/vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
+import dts from 'vite-plugin-dts'
+// import { presetUno } from 'unocss'
+import { HstVue } from '@histoire/plugin-vue'
 
 export default defineConfig({
   plugins: [
     vue(),
     UnoCSS(),
+    dts({
+      entryRoot: './src',
+      rollupTypes: true,
+    }),
     AutoImport({
-      imports: ['vue', 'vue-i18n', 'vue-router', 'pinia'],
+      imports: ['vue'],
       dirs: ['src/**/*.{ts,vue}'],
       vueTemplate: true,
     }),
     Components({
-      dirs: ['src/components/*', 'src/**/components/*'],
+      dirs: ['src/lib/*', 'src/**/lib/*'],
     }),
   ],
+
+  build: {
+    lib: {
+      entry: path.resolve(__dirname, 'src/index.ts'),
+      name: 'vue-hyper-components',
+      fileName: 'index',
+    },
+    rollupOptions: {
+      external: ['vue'],
+      output: {
+        globals: {
+          vue: 'Vue',
+        },
+      },
+    },
+  },
   test: {
     globals: true,
     environment: 'happy-dom',
@@ -36,5 +59,10 @@ export default defineConfig({
     alias: {
       '@': path.resolve(__dirname, './src'),
     },
+  },
+  histoire: {
+    plugins: [HstVue()],
+    setupFile: 'histoire.setup.ts',
+    // viteIgnorePlugins: ['vite:dts'],
   },
 })

@@ -24,7 +24,13 @@
     </template>
 
     <template #content>
+      <HypButton
+        label="test"
+        variant="primary"
+      />
       <RouterView />
     </template>
   </GlobalLayout>
 </template>
+
+<script lang="ts" setup></script>
