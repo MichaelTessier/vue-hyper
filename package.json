@@ -14,7 +14,7 @@
     "admin:dev": "yarn --cwd apps/admin dev",
     "admin:lint": "yarn --cwd apps/admin lint",
     "admin:test": "yarn --cwd apps/admin test",
-    "components:dev": "yarn --cwd packages/components dev",
+    "components:dev": "yarn --cwd packages/components story:dev",
     "components:lint": "yarn --cwd packages/components lint",
     "components:test": "yarn --cwd packages/components test",
     "dev": "npm-run-all --parallel admin:dev components:dev",

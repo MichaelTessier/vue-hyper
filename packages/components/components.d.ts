@@ -7,6 +7,7 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
+    ControlsProvider: typeof import('./src/histoire/ControlsProvider/ControlsProvider.vue')['default']
     HypButton: typeof import('./src/lib/HypButton/HypButton.vue')['default']
     'HypButton.story': typeof import('./src/lib/HypButton/HypButton.story.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']

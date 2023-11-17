@@ -1,6 +1,7 @@
 import { createApp } from 'vue'
 import './assets/css/main.css'
 import 'virtual:uno.css'
+import 'vue-hyper-components/dist/style.css'
 import App from './App.vue'
 import router from '@/router'
 import { createPinia } from 'pinia'

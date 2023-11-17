@@ -7,24 +7,26 @@ import UnoCSS from 'unocss/vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import dts from 'vite-plugin-dts'
-// import { presetUno } from 'unocss'
+import { presetUno } from 'unocss'
 import { HstVue } from '@histoire/plugin-vue'
 
 export default defineConfig({
   plugins: [
     vue(),
-    UnoCSS(),
+    UnoCSS({
+      presets: [presetUno()],
+    }),
     dts({
       entryRoot: './src',
       rollupTypes: true,
     }),
     AutoImport({
-      imports: ['vue'],
+      imports: ['vue', 'vue-router'],
       dirs: ['src/**/*.{ts,vue}'],
       vueTemplate: true,
     }),
     Components({
-      dirs: ['src/lib/*', 'src/**/lib/*'],
+      dirs: ['src/lib/*', 'src/**/lib/*', 'src/histoire/*'],
     }),
   ],
 
@@ -46,7 +48,6 @@ export default defineConfig({
   test: {
     globals: true,
     environment: 'happy-dom',
-    setupFiles: ['vitest.setup.ts'],
     coverage: {
       provider: 'istanbul',
       reportsDirectory: 'coverage',
