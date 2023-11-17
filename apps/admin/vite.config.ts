@@ -6,6 +6,7 @@ import vue from '@vitejs/plugin-vue'
 import UnoCSS from 'unocss/vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
+import { HyperResolver } from 'vue-hyper-components'
 
 export default defineConfig({
   plugins: [
@@ -18,6 +19,7 @@ export default defineConfig({
     }),
     Components({
       dirs: ['src/components/*', 'src/**/components/*'],
+      resolvers: [HyperResolver()],
     }),
   ],
   test: {
