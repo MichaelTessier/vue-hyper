@@ -1,4 +1,6 @@
-import { defineConfig } from 'unocss'
+import { Preset, defineConfig, presetUno } from 'unocss'
+import presetRemToPx from '@unocss/preset-rem-to-px'
+import { TYPO_TYPES, TYPO_WEIGHTS } from './src/lib/HypTypo/HypTypo.model'
 
 const COLORS = {
   primary: 'var(--hyp-color-primary)',
@@ -20,7 +22,7 @@ const RADIUSES = {
   full: '9999px',
 }
 
-const safelistColorsGenerator = () => {
+const safelistColors = () => {
   const safelist: string[] = []
   const props = ['text', 'bg', 'border']
 
@@ -33,12 +35,32 @@ const safelistColorsGenerator = () => {
   return safelist
 }
 
-const safelistRadiusGenerator = () => {
+const safelistRadius = () => {
   const safelist: string[] = []
 
-    Object.keys(RADIUSES).forEach((radius) => {
-      safelist.push(`rounded-${radius}`)
-    })
+  Object.keys(RADIUSES).forEach((radius) => {
+    safelist.push(`rounded-${radius}`)
+  })
+
+  return safelist
+}
+
+const safelistTypo = () => {
+  const safelist: string[] = []
+
+  TYPO_TYPES.forEach((type) => {
+    safelist.push(`hyp-${type}`)
+  })
+
+  return safelist
+}
+
+const safelistFontWeight = () => {
+  const safelist: string[] = []
+
+  TYPO_WEIGHTS.forEach((weight) => {
+    safelist.push(`font-${weight}`)
+  })
 
   return safelist
 }
@@ -46,9 +68,29 @@ const safelistRadiusGenerator = () => {
 export default defineConfig({
   theme: {
     colors: COLORS,
-    borderRadius: RADIUSES
-
+    borderRadius: RADIUSES,
   },
 
-  safelist: [...safelistColorsGenerator(), ...safelistRadiusGenerator()],
+  rules: [[/^fz-(\d+)$/, ([, d]) => ({ 'font-size': `${Number(d) / 4}rem` })]],
+
+  safelist: [
+    ...safelistColors(),
+    ...safelistRadius(),
+    ...safelistTypo(),
+    ...safelistFontWeight(),
+  ],
+
+  presets: [presetUno(), presetRemToPx() as Preset],
+
+  shortcuts: {
+    'hyp-display-heading-large': 'fz-11  font-medium leading-tight',
+    'hyp-display-heading-medium': 'fz-9 font-medium leading-tight',
+    'hyp-display-heading-small': 'fz-8 font-medium leading-tight',
+    'hyp-heading-large': 'fz-7 font-bold leading-tight',
+    'hyp-heading-medium': 'fz-6 font-bold leading-tight',
+    'hyp-heading-small': 'fz-5 font-bold leading-tight',
+    'hyp-text-large': 'fz-5 leading-tight',
+    'hyp-text-medium': 'fz-4 leading-tight',
+    'hyp-text-small': 'fz-3 leading-tight',
+  },
 })

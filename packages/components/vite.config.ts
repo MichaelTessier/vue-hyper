@@ -7,15 +7,12 @@ import UnoCSS from 'unocss/vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import dts from 'vite-plugin-dts'
-import { presetUno } from 'unocss'
 import { HstVue } from '@histoire/plugin-vue'
 
 export default defineConfig({
   plugins: [
     vue(),
-    UnoCSS({
-      presets: [presetUno()],
-    }),
+    UnoCSS(),
     dts({
       entryRoot: './src',
       rollupTypes: true,

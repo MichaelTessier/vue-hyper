@@ -1,3 +1,9 @@
 {
-  "eslint.workingDirectories": ["./packages/admin", "./packages/components"],
+  "eslint.workingDirectories": [
+    "./packages/admin",
+    "./packages/components"
+  ],
+  "cSpell.words": [
+    "histoire"
+  ],
 }

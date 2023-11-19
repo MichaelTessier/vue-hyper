@@ -12,8 +12,15 @@ declare global {
   const BUTTON_VARIANT: typeof import('./src/lib/HypButton/HypButton.model')['BUTTON_VARIANT']
   const BUTTON_VARIANTS: typeof import('./src/lib/HypButton/HypButton.model')['BUTTON_VARIANTS']
   const EffectScope: typeof import('vue')['EffectScope']
+  const HYP_TYPO_TAG_DEFAULT: typeof import('./src/lib/HypTypo/HypTypo.model')['HYP_TYPO_TAG_DEFAULT']
   const HypButton: typeof import('./src/index')['HypButton']
+  const HypTypo: typeof import('./src/index')['HypTypo']
   const HyperResolver: typeof import('./src/plugins/auto-import')['HyperResolver']
+  const TYPO_TAG_DEFAULT: typeof import('./src/lib/HypTypo/HypTypo.model')['TYPO_TAG_DEFAULT']
+  const TYPO_TYPE: typeof import('./src/lib/HypTypo/HypTypo.model')['TYPO_TYPE']
+  const TYPO_TYPES: typeof import('./src/lib/HypTypo/HypTypo.model')['TYPO_TYPES']
+  const TYPO_WEIGHT: typeof import('./src/lib/HypTypo/HypTypo.model')['TYPO_WEIGHT']
+  const TYPO_WEIGHTS: typeof import('./src/lib/HypTypo/HypTypo.model')['TYPO_WEIGHTS']
   const computed: typeof import('vue')['computed']
   const createApp: typeof import('vue')['createApp']
   const customRef: typeof import('vue')['customRef']
@@ -88,7 +95,13 @@ declare module 'vue' {
     readonly BUTTON_VARIANTS: UnwrapRef<typeof import('./src/lib/HypButton/HypButton.model')['BUTTON_VARIANTS']>
     readonly EffectScope: UnwrapRef<typeof import('vue')['EffectScope']>
     readonly HypButton: UnwrapRef<typeof import('./src/index')['HypButton']>
+    readonly HypTypo: UnwrapRef<typeof import('./src/index')['HypTypo']>
     readonly HyperResolver: UnwrapRef<typeof import('./src/plugins/auto-import')['HyperResolver']>
+    readonly TYPO_TAG_DEFAULT: UnwrapRef<typeof import('./src/lib/HypTypo/HypTypo.model')['TYPO_TAG_DEFAULT']>
+    readonly TYPO_TYPE: UnwrapRef<typeof import('./src/lib/HypTypo/HypTypo.model')['TYPO_TYPE']>
+    readonly TYPO_TYPES: UnwrapRef<typeof import('./src/lib/HypTypo/HypTypo.model')['TYPO_TYPES']>
+    readonly TYPO_WEIGHT: UnwrapRef<typeof import('./src/lib/HypTypo/HypTypo.model')['TYPO_WEIGHT']>
+    readonly TYPO_WEIGHTS: UnwrapRef<typeof import('./src/lib/HypTypo/HypTypo.model')['TYPO_WEIGHTS']>
     readonly computed: UnwrapRef<typeof import('vue')['computed']>
     readonly createApp: UnwrapRef<typeof import('vue')['createApp']>
     readonly customRef: UnwrapRef<typeof import('vue')['customRef']>
@@ -157,7 +170,13 @@ declare module '@vue/runtime-core' {
     readonly BUTTON_VARIANTS: UnwrapRef<typeof import('./src/lib/HypButton/HypButton.model')['BUTTON_VARIANTS']>
     readonly EffectScope: UnwrapRef<typeof import('vue')['EffectScope']>
     readonly HypButton: UnwrapRef<typeof import('./src/index')['HypButton']>
+    readonly HypTypo: UnwrapRef<typeof import('./src/index')['HypTypo']>
     readonly HyperResolver: UnwrapRef<typeof import('./src/plugins/auto-import')['HyperResolver']>
+    readonly TYPO_TAG_DEFAULT: UnwrapRef<typeof import('./src/lib/HypTypo/HypTypo.model')['TYPO_TAG_DEFAULT']>
+    readonly TYPO_TYPE: UnwrapRef<typeof import('./src/lib/HypTypo/HypTypo.model')['TYPO_TYPE']>
+    readonly TYPO_TYPES: UnwrapRef<typeof import('./src/lib/HypTypo/HypTypo.model')['TYPO_TYPES']>
+    readonly TYPO_WEIGHT: UnwrapRef<typeof import('./src/lib/HypTypo/HypTypo.model')['TYPO_WEIGHT']>
+    readonly TYPO_WEIGHTS: UnwrapRef<typeof import('./src/lib/HypTypo/HypTypo.model')['TYPO_WEIGHTS']>
     readonly computed: UnwrapRef<typeof import('vue')['computed']>
     readonly createApp: UnwrapRef<typeof import('vue')['createApp']>
     readonly customRef: UnwrapRef<typeof import('vue')['customRef']>

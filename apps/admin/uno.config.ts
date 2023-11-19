@@ -13,5 +13,6 @@ export default defineConfig({
       warning: 'var(--color-warning)',
       danger: 'var(--color-danger)',
     },
+    
   },
 })

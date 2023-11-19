@@ -2110,6 +2110,11 @@
   resolved "https://registry.yarnpkg.com/@unocss/core/-/core-0.57.3.tgz#bcba54f06d7fd7a098e0c2acbdbfe21452d69e3b"
   integrity sha512-o6snDo5vwAenIqA+wjjI6BUsftJXXSqrPHYqplb+QX5bLfxW/OU1xhBRlnhiP0BOGGZXqgGEETU1ym8MM9bLwA==
 
+"@unocss/core@0.57.5":
+  version "0.57.5"
+  resolved "https://registry.yarnpkg.com/@unocss/core/-/core-0.57.5.tgz#6c1accad6cea406717909c440db2ec30be8a8a95"
+  integrity sha512-AeNS88zdHjNVlIoaP2+EeN5j6C/7dy6qxNs5BFC4NzmvZf9IyeLLaVxK6qPWjRihXBpkYEuXOtm7TPcVylhFOA==
+
 "@unocss/extractor-arbitrary-variants@0.57.3":
   version "0.57.3"
   resolved "https://registry.yarnpkg.com/@unocss/extractor-arbitrary-variants/-/extractor-arbitrary-variants-0.57.3.tgz#83ea4415d1b1bc162e5d038308d4ddddbf4fe93f"
@@ -2164,6 +2169,13 @@
     "@unocss/core" "0.57.3"
     "@unocss/extractor-arbitrary-variants" "0.57.3"
     "@unocss/rule-utils" "0.57.3"
+
+"@unocss/preset-rem-to-px@^0.57.5":
+  version "0.57.5"
+  resolved "https://registry.yarnpkg.com/@unocss/preset-rem-to-px/-/preset-rem-to-px-0.57.5.tgz#b91f118b27dd0c71bece5c560b4471fe342a0d05"
+  integrity sha512-ug0ou8S7iQ2TGmVrdLWlzYDHDhnUtF2UIsl6YcUac0ak/uhjsDcgDw46WhF/jYVO/2bdLb4MbNM90e29wMhv9Q==
+  dependencies:
+    "@unocss/core" "0.57.5"
 
 "@unocss/preset-tagify@0.57.3":
   version "0.57.3"

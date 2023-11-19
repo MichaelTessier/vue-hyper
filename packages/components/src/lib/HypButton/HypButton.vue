@@ -1,24 +1,3 @@
-<template>
-  <component
-    :is="buttonTag"
-    class="p-3 border-0 no-underline"
-    :class="{
-      'cursor-not-allowed opacity-50': disabled,
-      'w-full': full,
-      [textColor]: !outline,
-      [textOutlineColor]: outline,
-      [`bg-${variant}`]: !outline,
-      [`rounded-${radius}`]: true,
-      [`border-${variant} border-1! bg-white`]: outline,
-    }"
-    :disabled="disabled"
-    :href="href"
-    :to="to"
-  >
-    {{ label }}
-  </component>
-</template>
-
 <script setup lang="ts">
   import { type RouteLocationRaw } from 'vue-router'
   import type { ButtonSizes, ButtonVariants, ButtonRadiuses } from './HypButton.model';
@@ -87,4 +66,24 @@
   })
 
 </script>
-./HypButton.model
+
+<template>
+  <component
+    :is="buttonTag"
+    class="p-3 border-0 no-underline btn-primary"
+    :class="{
+      'cursor-not-allowed opacity-50': disabled,
+      'w-full': full,
+      [textColor]: !outline,
+      [textOutlineColor]: outline,
+      [`bg-${variant}`]: !outline,
+      [`rounded-${radius}`]: true,
+      [`border-${variant} border-1! bg-white`]: outline,
+    }"
+    :disabled="disabled"
+    :href="href"
+    :to="to"
+  >
+    {{ label }}
+  </component>
+</template>

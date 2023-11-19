@@ -18,9 +18,7 @@
   },
   "types": "./dist/index.d.ts",
   "scripts": {
-    "dev": "vite",
     "build": "vue-tsc && vite build",
-    "preview": "vite preview",
     "test": "vitest run",
     "test:coverage": "vitest run --coverage",
     "test:ui": "vitest --ui",
@@ -43,6 +41,7 @@
     "@histoire/plugin-vue": "^0.17.4",
     "@typescript-eslint/eslint-plugin": "^6.10.0",
     "@typescript-eslint/parser": "^6.10.0",
+    "@unocss/preset-rem-to-px": "^0.57.5",
     "@vitejs/plugin-vue": "^4.4.1",
     "@vitest/coverage-istanbul": "^0.34.6",
     "@vitest/ui": "^0.34.6",
