@@ -1,6 +1,10 @@
 <script setup lang="ts">
   import { type RouteLocationRaw } from 'vue-router'
-  import type { ButtonSizes, ButtonVariants, ButtonRadiuses } from './HypButton.model';
+  import type {
+    ButtonSizes,
+    ButtonVariants,
+    ButtonRadiuses,
+  } from './HypButton.model'
 
   const props = defineProps({
     label: {
@@ -13,7 +17,7 @@
     },
     size: {
       type: String as PropType<ButtonSizes>,
-      default: BUTTON_SIZE.SMALL,
+      default: BUTTON_SIZE.MEDIUM,
     },
     radius: {
       type: String as PropType<ButtonRadiuses>,
@@ -41,7 +45,11 @@
     },
     tag: {
       type: String,
-      default: 'button'
+      default: 'button',
+    },
+    shadow: {
+      type: Boolean,
+      default: false,
     },
   })
 
@@ -50,7 +58,7 @@
   )
 
   const textOutlineColor = computed(() =>
-    props.outline ? `text-${props.variant}` : 'black'
+    props.outline ? `text-${props.variant}` : 'text-black'
   )
 
   const buttonTag = computed(() => {
@@ -64,21 +72,23 @@
 
     return props.tag
   })
-
 </script>
 
 <template>
   <component
     :is="buttonTag"
-    class="p-3 border-0 no-underline btn-primary"
+    class="border-0 no-underline inline-flex items-center justify-center"
     :class="{
+      'hover:opacity-80': !disabled,
       'cursor-not-allowed opacity-50': disabled,
       'w-full': full,
-      [textColor]: !outline,
-      [textOutlineColor]: outline,
-      [`bg-${variant}`]: !outline,
+      [`${textColor} bg-${variant}`]: !outline,
+      [`border-${variant} border-1! bg-white ${textOutlineColor}`]: outline,
       [`rounded-${radius}`]: true,
-      [`border-${variant} border-1! bg-white`]: outline,
+      [`shadow-btn-${variant}`]: shadow,
+      [`px-4 h-9 hyp-text-medium`]: size === BUTTON_SIZE.SMALL,
+      [`px-5 h-11 hyp-text-medium`]: size === BUTTON_SIZE.MEDIUM,
+      [`px-6 h-13 hyp-text-large`]: size === BUTTON_SIZE.LARGE,
     }"
     :disabled="disabled"
     :href="href"

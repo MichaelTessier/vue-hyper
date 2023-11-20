@@ -49,8 +49,8 @@ export default defineConfig({
       provider: 'istanbul',
       reportsDirectory: 'coverage',
       all: true,
-      include: ['src/**/*.{ts,vue}'],
-      exclude: ['src/main.ts'],
+      include: ['src/lib/**/*.{ts,vue}'],
+      exclude: ['src/main.ts', 'src/lib/**/*.story.vue'],
     },
   },
   resolve: {

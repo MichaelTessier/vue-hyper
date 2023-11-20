@@ -19,6 +19,12 @@
       title: 'Radius',
       options: BUTTON_RADIUSES,
     },
+    size: {
+      model: BUTTON_SIZE.MEDIUM,
+      type: 'select',
+      title: 'Sizes',
+      options: BUTTON_SIZES,
+    },
     disabled: {
       model: false,
       type: 'boolean',
@@ -39,7 +45,6 @@
 
 <template>
   <Story :layout="{ type: 'grid', width: '100%' }">
-
     <template #controls>
       <ControlsProvider
         :controls="controls"
@@ -51,20 +56,23 @@
       title="Playground"
       auto-props-disabled
     >
-      <HypButton
-        :label="controls.label.model"
-        :variant="controls.variant.model"
-        :radius="controls.radius.model"
-        :disabled="controls.disabled.model"
-        :outline="controls.outline.model"
-      />
+      <div class="p-4 flex">
+        <HypButton
+          :label="controls.label.model"
+          :variant="controls.variant.model"
+          :radius="controls.radius.model"
+          :disabled="controls.disabled.model"
+          :outline="controls.outline.model"
+          :size="controls.size.model"
+        />
+      </div>
     </Variant>
 
     <Variant
       title="Variants"
       auto-props-disabled
     >
-      <div class="gap-4 flex">
+      <div class="gap-4 flex p-4">
         <HypButton
           v-for="variant in BUTTON_VARIANTS"
           :key="variant"
@@ -75,10 +83,25 @@
     </Variant>
 
     <Variant
+      title="Shadow"
+      auto-props-disabled
+    >
+      <div class="gap-4 flex p-4">
+        <HypButton
+          v-for="variant in BUTTON_VARIANTS"
+          :key="variant"
+          :label="variant"
+          :variant="variant"
+          shadow
+        />
+      </div>
+    </Variant>
+
+    <Variant
       title="Outline"
       auto-props-disabled
     >
-      <div class="gap-4 flex">
+      <div class="gap-4 flex p-4">
         <HypButton
           v-for="variant in BUTTON_VARIANTS"
           :key="variant"
@@ -89,12 +112,11 @@
       </div>
     </Variant>
 
-
     <Variant
       title="Disabled"
       auto-props-disabled
     >
-      <div class="gap-4 flex mb-4">
+      <div class="gap-4 flex mb-4 p-4">
         <HypButton
           v-for="variant in BUTTON_VARIANTS"
           :key="variant"
@@ -104,14 +126,28 @@
         />
       </div>
 
-      <div class="gap-4 flex">
+      <div class="gap-4 flex p-4">
         <HypButton
           v-for="variant in BUTTON_VARIANTS"
           :key="variant"
           :label="variant"
           :variant="variant"
           disabled
-          outlined
+          outline
+        />
+      </div>
+    </Variant>
+
+    <Variant
+      title="Size"
+      auto-props-disabled
+    >
+      <div class="gap-4 flex p-4 items-center">
+        <HypButton
+          v-for="size in BUTTON_SIZES"
+          :key="size"
+          :label="size"
+          :size="size"
         />
       </div>
     </Variant>
@@ -120,7 +156,7 @@
       title="Radius"
       auto-props-disabled
     >
-      <div class="gap-4 flex">
+      <div class="gap-4 flex p-4">
         <HypButton
           v-for="radius in BUTTON_RADIUSES"
           :key="radius"
@@ -130,18 +166,16 @@
       </div>
     </Variant>
 
-
     <Variant
       title="Full"
       auto-props-disabled
     >
-      <div class="gap-4 flex">
+      <div class="gap-4 flex p-4">
         <HypButton
           :label="'Full Button'"
           full
         />
       </div>
     </Variant>
-
   </Story>
 </template>

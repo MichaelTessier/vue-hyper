@@ -24,7 +24,7 @@ const RADIUSES = {
 
 const safelistColors = () => {
   const safelist: string[] = []
-  const props = ['text', 'bg', 'border']
+  const props = ['text', 'bg', 'border', 'shadow-btn']
 
   props.forEach((prop) => {
     Object.keys(COLORS).forEach((color) => {
@@ -71,8 +71,15 @@ export default defineConfig({
     borderRadius: RADIUSES,
   },
 
-  rules: [[/^fz-(\d+)$/, ([, d]) => ({ 'font-size': `${Number(d) / 4}rem` })]],
-
+  rules: [
+    [
+      /^shadow-btn-(.+)$/,
+      ([, name]) => ({
+        'box-shadow': `0px 2px 5px rgb(from var(--hyp-color-${name}) r g b / 0.5)`,
+      }),
+    ],
+    [/^fz-(\d+)$/, ([, d]) => ({ 'font-size': `${Number(d) / 4}rem` })],
+  ],
   safelist: [
     ...safelistColors(),
     ...safelistRadius(),
@@ -83,7 +90,7 @@ export default defineConfig({
   presets: [presetUno(), presetRemToPx() as Preset],
 
   shortcuts: {
-    'hyp-display-heading-large': 'fz-11  font-medium leading-tight',
+    'hyp-display-heading-large': 'fz-11  font-medium leading-tight ',
     'hyp-display-heading-medium': 'fz-9 font-medium leading-tight',
     'hyp-display-heading-small': 'fz-8 font-medium leading-tight',
     'hyp-heading-large': 'fz-7 font-bold leading-tight',
