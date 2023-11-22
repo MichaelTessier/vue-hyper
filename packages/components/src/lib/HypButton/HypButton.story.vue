@@ -46,10 +46,7 @@
 <template>
   <Story :layout="{ type: 'grid', width: '100%' }">
     <template #controls>
-      <ControlsProvider
-        :controls="controls"
-        v-model="controls"
-      />
+      <ControlsProvider :controls="controls" />
     </template>
 
     <Variant
