@@ -1,6 +1,6 @@
 import { Preset, defineConfig, presetUno } from 'unocss'
 import presetRemToPx from '@unocss/preset-rem-to-px'
-import { TYPO_TYPES, TYPO_WEIGHTS } from './src/lib/HypTypo/HypTypo.model'
+import { TYPO_TYPES, TYPO_WEIGHTS } from './src/lib/base/HypTypo/HypTypo.model'
 
 const COLORS = {
   primary: 'var(--hyp-color-primary)',

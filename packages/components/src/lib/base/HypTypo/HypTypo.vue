@@ -14,7 +14,7 @@
 </template>
 
 <script setup lang="ts">
-  import { TypoType, TypoWeight } from './HypTypo.model'
+  import { TypoTypes, TypoWeights } from './HypTypo.model'
 
   defineProps({
     tag: {
@@ -22,11 +22,11 @@
       default: TYPO_TAG_DEFAULT,
     },
     type: {
-      type: String as PropType<TypoType>,
+      type: String as PropType<TypoTypes>,
       default: TYPO_TYPE.TEXT_MEDIUM,
     },
     weight: {
-      type: String as PropType<TypoWeight>,
+      type: String as PropType<TypoWeights>,
       default: TYPO_WEIGHT.REGULAR,
     },
     strike: {

@@ -8,10 +8,10 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     ControlsProvider: typeof import('./src/histoire/ControlsProvider/ControlsProvider.vue')['default']
-    HypButton: typeof import('./src/lib/HypButton/HypButton.vue')['default']
-    'HypButton.story': typeof import('./src/lib/HypButton/HypButton.story.vue')['default']
-    HypTypo: typeof import('./src/lib/HypTypo/HypTypo.vue')['default']
-    'HypTypo.story': typeof import('./src/lib/HypTypo/HypTypo.story.vue')['default']
+    HypButton: typeof import('./src/lib/base/HypButton/HypButton.vue')['default']
+    'HypButton.story': typeof import('./src/lib/base/HypButton/HypButton.story.vue')['default']
+    HypTypo: typeof import('./src/lib/base/HypTypo/HypTypo.vue')['default']
+    'HypTypo.story': typeof import('./src/lib/base/HypTypo/HypTypo.story.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
   }

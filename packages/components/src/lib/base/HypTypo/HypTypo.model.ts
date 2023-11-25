@@ -1,4 +1,4 @@
-export const TYPO_TAG_DEFAULT = 'p';
+export const TYPO_TAG_DEFAULT = 'p'
 
 export const TYPO_TYPE = {
   DISPLAY_HEADING_LARGE: 'display-heading-large',
@@ -10,14 +10,14 @@ export const TYPO_TYPE = {
   TEXT_LARGE: 'text-large',
   TEXT_MEDIUM: 'text-medium',
   TEXT_SMALL: 'text-small',
-}
-export const TYPO_TYPES = Object.values(TYPO_TYPE);
-export type TypoType = typeof TYPO_TYPES[number];
+} as const
+export const TYPO_TYPES = Object.values(TYPO_TYPE)
+export type TypoTypes = (typeof TYPO_TYPES)[number]
 
 export const TYPO_WEIGHT = {
   BOLD: 'bold',
   MEDIUM: 'medium',
   REGULAR: 'regular',
-}
-export const TYPO_WEIGHTS = Object.values(TYPO_WEIGHT);
-export type TypoWeight = typeof TYPO_WEIGHTS[number];
+} as const
+export const TYPO_WEIGHTS = Object.values(TYPO_WEIGHT)
+export type TypoWeights = (typeof TYPO_WEIGHTS)[number]
