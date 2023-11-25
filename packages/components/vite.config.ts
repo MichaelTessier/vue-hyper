@@ -1,6 +1,6 @@
 /// <reference types="vitest" />
 
-import { defineConfig } from 'vite'
+import { defineConfig, searchForWorkspaceRoot } from 'vite'
 import path from 'path'
 import vue from '@vitejs/plugin-vue'
 import UnoCSS from 'unocss/vite'
@@ -19,7 +19,7 @@ export default defineConfig({
     }),
     AutoImport({
       imports: ['vue', 'vue-router'],
-      dirs: ['src/**/*.{ts,vue}'],
+      dirs: ['src/*/**/*'],
       vueTemplate: true,
     }),
     Components({
@@ -49,7 +49,7 @@ export default defineConfig({
       provider: 'istanbul',
       reportsDirectory: 'coverage',
       all: true,
-      include: ['src/lib/**/*.{ts,vue}'],
+      include: ['src/{lib,utils}/**/*.{ts,vue}'],
       exclude: ['src/main.ts', 'src/lib/**/*.story.vue'],
     },
   },
@@ -62,5 +62,10 @@ export default defineConfig({
     plugins: [HstVue()],
     setupFile: 'histoire.setup.ts',
     // viteIgnorePlugins: ['vite:dts'],
+  },
+  server: {
+    fs: {
+      allow: [searchForWorkspaceRoot(process.cwd()), '..'],
+    },
   },
 })
