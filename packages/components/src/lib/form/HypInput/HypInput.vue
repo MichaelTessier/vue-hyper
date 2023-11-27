@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import type { InputTypes } from './HypInput.model'
+  import type { InputType } from './HypInput.model'
   import { uid } from '@/utils/uid'
 
   const props = defineProps({
@@ -12,7 +12,7 @@
       default: '',
     },
     type: {
-      type: String as PropType<InputTypes>,
+      type: String as PropType<InputType>,
       default: INPUT_TYPE.TEXT,
     },
     id: {

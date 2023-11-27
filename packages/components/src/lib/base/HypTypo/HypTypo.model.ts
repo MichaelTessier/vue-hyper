@@ -12,7 +12,7 @@ export const TYPO_TYPE = {
   TEXT_SMALL: 'text-small',
 } as const
 export const TYPO_TYPES = Object.values(TYPO_TYPE)
-export type TypoTypes = (typeof TYPO_TYPES)[number]
+export type TypoType = (typeof TYPO_TYPES)[number]
 
 export const TYPO_WEIGHT = {
   BOLD: 'bold',
@@ -20,4 +20,4 @@ export const TYPO_WEIGHT = {
   REGULAR: 'regular',
 } as const
 export const TYPO_WEIGHTS = Object.values(TYPO_WEIGHT)
-export type TypoWeights = (typeof TYPO_WEIGHTS)[number]
+export type TypoWeight = (typeof TYPO_WEIGHTS)[number]

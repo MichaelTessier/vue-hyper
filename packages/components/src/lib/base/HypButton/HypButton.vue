@@ -1,9 +1,9 @@
 <script setup lang="ts">
   import { type RouteLocationRaw } from 'vue-router'
   import type {
-    ButtonSizes,
-    ButtonVariants,
-    ButtonRadiuses,
+    ButtonSize,
+    ButtonVariant,
+    ButtonRadius,
   } from './HypButton.model'
 
   const props = defineProps({
@@ -12,15 +12,15 @@
       required: true,
     },
     variant: {
-      type: String as PropType<ButtonVariants>,
+      type: String as PropType<ButtonVariant>,
       default: BUTTON_VARIANT.PRIMARY,
     },
     size: {
-      type: String as PropType<ButtonSizes>,
+      type: String as PropType<ButtonSize>,
       default: BUTTON_SIZE.MEDIUM,
     },
     radius: {
-      type: String as PropType<ButtonRadiuses>,
+      type: String as PropType<ButtonRadius>,
       default: BUTTON_RADIUS.SMALL,
     },
     to: {

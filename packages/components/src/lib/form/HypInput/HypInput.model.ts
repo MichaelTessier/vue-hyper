@@ -6,4 +6,4 @@ export const INPUT_TYPE = {
 } as const
 
 export const INPUT_TYPES = Object.values(INPUT_TYPE)
-export type InputTypes = (typeof INPUT_TYPES)[number]
+export type InputType = (typeof INPUT_TYPES)[number]
