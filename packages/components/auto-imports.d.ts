@@ -24,6 +24,8 @@ declare global {
   const TYPO_TYPES: typeof import('./src/lib/base/HypTypo/HypTypo.model')['TYPO_TYPES']
   const TYPO_WEIGHT: typeof import('./src/lib/base/HypTypo/HypTypo.model')['TYPO_WEIGHT']
   const TYPO_WEIGHTS: typeof import('./src/lib/base/HypTypo/HypTypo.model')['TYPO_WEIGHTS']
+  const UNO_COLORS: typeof import('./src/config/unocss/unocss.const')['UNO_COLORS']
+  const UNO_RADIUSES: typeof import('./src/config/unocss/unocss.const')['UNO_RADIUSES']
   const computed: typeof import('vue')['computed']
   const createApp: typeof import('vue')['createApp']
   const customRef: typeof import('vue')['customRef']
@@ -60,8 +62,8 @@ declare global {
   const readonly: typeof import('vue')['readonly']
   const ref: typeof import('vue')['ref']
   const resolveComponent: typeof import('vue')['resolveComponent']
-  const safelist: typeof import('./src/config/safelist')['safelist']
-  const safelistIcons: typeof import('./src/config/safelist')['safelistIcons']
+  const safelist: typeof import('./src/config/unocss/safelist')['safelist']
+  const safelistIcons: (typeof import('./src/config/unocss/safelist'))['safelistIcons']
   const shallowReactive: typeof import('vue')['shallowReactive']
   const shallowReadonly: typeof import('vue')['shallowReadonly']
   const shallowRef: typeof import('vue')['shallowRef']
@@ -112,6 +114,8 @@ declare module 'vue' {
     readonly TYPO_TYPES: UnwrapRef<typeof import('./src/lib/base/HypTypo/HypTypo.model')['TYPO_TYPES']>
     readonly TYPO_WEIGHT: UnwrapRef<typeof import('./src/lib/base/HypTypo/HypTypo.model')['TYPO_WEIGHT']>
     readonly TYPO_WEIGHTS: UnwrapRef<typeof import('./src/lib/base/HypTypo/HypTypo.model')['TYPO_WEIGHTS']>
+    readonly UNO_COLORS: UnwrapRef<typeof import('./src/config/unocss/unocss.const')['UNO_COLORS']>
+    readonly UNO_RADIUSES: UnwrapRef<typeof import('./src/config/unocss/unocss.const')['UNO_RADIUSES']>
     readonly computed: UnwrapRef<typeof import('vue')['computed']>
     readonly createApp: UnwrapRef<typeof import('vue')['createApp']>
     readonly customRef: UnwrapRef<typeof import('vue')['customRef']>
@@ -148,7 +152,7 @@ declare module 'vue' {
     readonly readonly: UnwrapRef<typeof import('vue')['readonly']>
     readonly ref: UnwrapRef<typeof import('vue')['ref']>
     readonly resolveComponent: UnwrapRef<typeof import('vue')['resolveComponent']>
-    readonly safelist: UnwrapRef<typeof import('./src/config/safelist')['safelist']>
+    readonly safelist: UnwrapRef<typeof import('./src/config/unocss/safelist')['safelist']>
     readonly shallowReactive: UnwrapRef<typeof import('vue')['shallowReactive']>
     readonly shallowReadonly: UnwrapRef<typeof import('vue')['shallowReadonly']>
     readonly shallowRef: UnwrapRef<typeof import('vue')['shallowRef']>
@@ -193,6 +197,8 @@ declare module '@vue/runtime-core' {
     readonly TYPO_TYPES: UnwrapRef<typeof import('./src/lib/base/HypTypo/HypTypo.model')['TYPO_TYPES']>
     readonly TYPO_WEIGHT: UnwrapRef<typeof import('./src/lib/base/HypTypo/HypTypo.model')['TYPO_WEIGHT']>
     readonly TYPO_WEIGHTS: UnwrapRef<typeof import('./src/lib/base/HypTypo/HypTypo.model')['TYPO_WEIGHTS']>
+    readonly UNO_COLORS: UnwrapRef<typeof import('./src/config/unocss/unocss.const')['UNO_COLORS']>
+    readonly UNO_RADIUSES: UnwrapRef<typeof import('./src/config/unocss/unocss.const')['UNO_RADIUSES']>
     readonly computed: UnwrapRef<typeof import('vue')['computed']>
     readonly createApp: UnwrapRef<typeof import('vue')['createApp']>
     readonly customRef: UnwrapRef<typeof import('vue')['customRef']>
@@ -229,7 +235,7 @@ declare module '@vue/runtime-core' {
     readonly readonly: UnwrapRef<typeof import('vue')['readonly']>
     readonly ref: UnwrapRef<typeof import('vue')['ref']>
     readonly resolveComponent: UnwrapRef<typeof import('vue')['resolveComponent']>
-    readonly safelist: UnwrapRef<typeof import('./src/config/safelist')['safelist']>
+    readonly safelist: UnwrapRef<typeof import('./src/config/unocss/safelist')['safelist']>
     readonly shallowReactive: UnwrapRef<typeof import('vue')['shallowReactive']>
     readonly shallowReadonly: UnwrapRef<typeof import('vue')['shallowReadonly']>
     readonly shallowRef: UnwrapRef<typeof import('vue')['shallowRef']>
