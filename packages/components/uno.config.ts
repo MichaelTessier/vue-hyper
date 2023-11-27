@@ -1,6 +1,7 @@
-import { Preset, defineConfig, presetUno } from 'unocss'
+import { type Preset, defineConfig, presetUno, presetIcons } from 'unocss'
 import presetRemToPx from '@unocss/preset-rem-to-px'
 import { TYPO_TYPES, TYPO_WEIGHTS } from './src/lib/base/HypTypo/HypTypo.model'
+import { safelist } from './src/config/safelist'
 
 const COLORS = {
   primary: 'var(--hyp-color-primary)',
@@ -78,26 +79,35 @@ export default defineConfig({
         'box-shadow': `0px 2px 5px rgb(from var(--hyp-color-${name}) r g b / 0.5)`,
       }),
     ],
-    [/^fz-(\d+)$/, ([, d]) => ({ 'font-size': `${Number(d) / 4}rem` })],
   ],
   safelist: [
     ...safelistColors(),
     ...safelistRadius(),
     ...safelistTypo(),
     ...safelistFontWeight(),
+    ...safelist,
   ],
 
-  presets: [presetUno(), presetRemToPx() as Preset],
+  presets: [
+    presetUno(),
+    presetRemToPx() as Preset,
+    presetIcons({
+      collections: {
+        mdi: () =>
+          import('@iconify-json/mdi/icons.json').then((i) => i.default),
+      },
+    }),
+  ],
 
   shortcuts: {
-    'hyp-display-heading-large': 'fz-11  font-medium leading-tight ',
-    'hyp-display-heading-medium': 'fz-9 font-medium leading-tight',
-    'hyp-display-heading-small': 'fz-8 font-medium leading-tight',
-    'hyp-heading-large': 'fz-7 font-bold leading-tight',
-    'hyp-heading-medium': 'fz-6 font-bold leading-tight',
-    'hyp-heading-small': 'fz-5 font-bold leading-tight',
-    'hyp-text-large': 'fz-5 leading-tight',
-    'hyp-text-medium': 'fz-4 leading-tight',
-    'hyp-text-small': 'fz-3 leading-tight',
+    'hyp-display-heading-large': 'text-11  font-medium leading-tight ',
+    'hyp-display-heading-medium': 'text-9 font-medium leading-tight',
+    'hyp-display-heading-small': 'text-8 font-medium leading-tight',
+    'hyp-heading-large': 'text-7 font-bold leading-tight',
+    'hyp-heading-medium': 'text-6 font-bold leading-tight',
+    'hyp-heading-small': 'text-5 font-bold leading-tight',
+    'hyp-text-large': 'text-5 leading-tight',
+    'hyp-text-medium': 'text-4 leading-tight',
+    'hyp-text-small': 'text-3 leading-tight',
   },
 })

@@ -13,6 +13,10 @@ declare global {
   const BUTTON_VARIANTS: typeof import('./src/lib/base/HypButton/HypButton.model')['BUTTON_VARIANTS']
   const EffectScope: typeof import('vue')['EffectScope']
   const HyperResolver: typeof import('./src/plugins/auto-import')['HyperResolver']
+  const ICON_NAME: typeof import('./src/lib/base/HypIcon/HypIcon.model')['ICON_NAME']
+  const ICON_NAMES: typeof import('./src/lib/base/HypIcon/HypIcon.model')['ICON_NAMES']
+  const ICON_SIZE: typeof import('./src/lib/base/HypIcon/HypIcon.model')['ICON_SIZE']
+  const ICON_SIZES: typeof import('./src/lib/base/HypIcon/HypIcon.model')['ICON_SIZES']
   const INPUT_TYPE: typeof import('./src/lib/form/HypInput/HypInput.model')['INPUT_TYPE']
   const INPUT_TYPES: typeof import('./src/lib/form/HypInput/HypInput.model')['INPUT_TYPES']
   const TYPO_TAG_DEFAULT: typeof import('./src/lib/base/HypTypo/HypTypo.model')['TYPO_TAG_DEFAULT']
@@ -56,6 +60,8 @@ declare global {
   const readonly: typeof import('vue')['readonly']
   const ref: typeof import('vue')['ref']
   const resolveComponent: typeof import('vue')['resolveComponent']
+  const safelist: typeof import('./src/config/safelist')['safelist']
+  const safelistIcons: typeof import('./src/config/safelist')['safelistIcons']
   const shallowReactive: typeof import('vue')['shallowReactive']
   const shallowReadonly: typeof import('vue')['shallowReadonly']
   const shallowRef: typeof import('vue')['shallowRef']
@@ -95,6 +101,10 @@ declare module 'vue' {
     readonly BUTTON_VARIANTS: UnwrapRef<typeof import('./src/lib/base/HypButton/HypButton.model')['BUTTON_VARIANTS']>
     readonly EffectScope: UnwrapRef<typeof import('vue')['EffectScope']>
     readonly HyperResolver: UnwrapRef<typeof import('./src/plugins/auto-import')['HyperResolver']>
+    readonly ICON_NAME: UnwrapRef<typeof import('./src/lib/base/HypIcon/HypIcon.model')['ICON_NAME']>
+    readonly ICON_NAMES: UnwrapRef<typeof import('./src/lib/base/HypIcon/HypIcon.model')['ICON_NAMES']>
+    readonly ICON_SIZE: UnwrapRef<typeof import('./src/lib/base/HypIcon/HypIcon.model')['ICON_SIZE']>
+    readonly ICON_SIZES: UnwrapRef<typeof import('./src/lib/base/HypIcon/HypIcon.model')['ICON_SIZES']>
     readonly INPUT_TYPE: UnwrapRef<typeof import('./src/lib/form/HypInput/HypInput.model')['INPUT_TYPE']>
     readonly INPUT_TYPES: UnwrapRef<typeof import('./src/lib/form/HypInput/HypInput.model')['INPUT_TYPES']>
     readonly TYPO_TAG_DEFAULT: UnwrapRef<typeof import('./src/lib/base/HypTypo/HypTypo.model')['TYPO_TAG_DEFAULT']>
@@ -138,6 +148,7 @@ declare module 'vue' {
     readonly readonly: UnwrapRef<typeof import('vue')['readonly']>
     readonly ref: UnwrapRef<typeof import('vue')['ref']>
     readonly resolveComponent: UnwrapRef<typeof import('vue')['resolveComponent']>
+    readonly safelist: UnwrapRef<typeof import('./src/config/safelist')['safelist']>
     readonly shallowReactive: UnwrapRef<typeof import('vue')['shallowReactive']>
     readonly shallowReadonly: UnwrapRef<typeof import('vue')['shallowReadonly']>
     readonly shallowRef: UnwrapRef<typeof import('vue')['shallowRef']>
@@ -171,6 +182,10 @@ declare module '@vue/runtime-core' {
     readonly BUTTON_VARIANTS: UnwrapRef<typeof import('./src/lib/base/HypButton/HypButton.model')['BUTTON_VARIANTS']>
     readonly EffectScope: UnwrapRef<typeof import('vue')['EffectScope']>
     readonly HyperResolver: UnwrapRef<typeof import('./src/plugins/auto-import')['HyperResolver']>
+    readonly ICON_NAME: UnwrapRef<typeof import('./src/lib/base/HypIcon/HypIcon.model')['ICON_NAME']>
+    readonly ICON_NAMES: UnwrapRef<typeof import('./src/lib/base/HypIcon/HypIcon.model')['ICON_NAMES']>
+    readonly ICON_SIZE: UnwrapRef<typeof import('./src/lib/base/HypIcon/HypIcon.model')['ICON_SIZE']>
+    readonly ICON_SIZES: UnwrapRef<typeof import('./src/lib/base/HypIcon/HypIcon.model')['ICON_SIZES']>
     readonly INPUT_TYPE: UnwrapRef<typeof import('./src/lib/form/HypInput/HypInput.model')['INPUT_TYPE']>
     readonly INPUT_TYPES: UnwrapRef<typeof import('./src/lib/form/HypInput/HypInput.model')['INPUT_TYPES']>
     readonly TYPO_TAG_DEFAULT: UnwrapRef<typeof import('./src/lib/base/HypTypo/HypTypo.model')['TYPO_TAG_DEFAULT']>
@@ -214,6 +229,7 @@ declare module '@vue/runtime-core' {
     readonly readonly: UnwrapRef<typeof import('vue')['readonly']>
     readonly ref: UnwrapRef<typeof import('vue')['ref']>
     readonly resolveComponent: UnwrapRef<typeof import('vue')['resolveComponent']>
+    readonly safelist: UnwrapRef<typeof import('./src/config/safelist')['safelist']>
     readonly shallowReactive: UnwrapRef<typeof import('vue')['shallowReactive']>
     readonly shallowReadonly: UnwrapRef<typeof import('vue')['shallowReadonly']>
     readonly shallowRef: UnwrapRef<typeof import('vue')['shallowRef']>

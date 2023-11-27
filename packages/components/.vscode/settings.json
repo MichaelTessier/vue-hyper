@@ -14,7 +14,8 @@
     "unplugin",
     "urql",
     "Vercel",
-    "vuejs"
+    "vuejs",
+    "iconify"
   ],
   "i18n-ally.localesPaths": ["src/i18n/locales", "coverage/src/i18n"]
 }

@@ -1524,7 +1524,14 @@
   resolved "https://registry.yarnpkg.com/@humanwhocodes/object-schema/-/object-schema-2.0.1.tgz#e5211452df060fa8522b55c7b3c0c4d1981cb044"
   integrity sha512-dvuCeX5fC9dXgJn9t+X5atfmgQAzUOWqS1254Gh0m6i8wKd10ebXkfNKiRK+1GWi/yTvvLDHpoxLr0xxxeslWw==
 
-"@iconify/types@^2.0.0":
+"@iconify-json/mdi@^1.1.55":
+  version "1.1.55"
+  resolved "https://registry.yarnpkg.com/@iconify-json/mdi/-/mdi-1.1.55.tgz#af13d2b95542f6894a77a905263696ed84b9e269"
+  integrity sha512-ycnFub+EQx+3D/aDCg6iC7sjexOUa5GzxUNIZFFl0Pq7aDxbmhIludoyYnguEO3REyWf9FcOOmvVcQkdtwKHTw==
+  dependencies:
+    "@iconify/types" "*"
+
+"@iconify/types@*", "@iconify/types@^2.0.0":
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/@iconify/types/-/types-2.0.0.tgz#ab0e9ea681d6c8a1214f30cd741fe3a20cc57f57"
   integrity sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg==
@@ -2115,6 +2122,11 @@
   resolved "https://registry.yarnpkg.com/@unocss/core/-/core-0.57.5.tgz#6c1accad6cea406717909c440db2ec30be8a8a95"
   integrity sha512-AeNS88zdHjNVlIoaP2+EeN5j6C/7dy6qxNs5BFC4NzmvZf9IyeLLaVxK6qPWjRihXBpkYEuXOtm7TPcVylhFOA==
 
+"@unocss/core@0.57.7":
+  version "0.57.7"
+  resolved "https://registry.yarnpkg.com/@unocss/core/-/core-0.57.7.tgz#4fe79e3d7327d5f25de0f82b80567fd8f5f82602"
+  integrity sha512-1d36M0CV3yC80J0pqOa5rH1BX6g2iZdtKmIb3oSBN4AWnMCSrrJEPBrUikyMq2TEQTrYWJIVDzv5A9hBUat3TA==
+
 "@unocss/extractor-arbitrary-variants@0.57.3":
   version "0.57.3"
   resolved "https://registry.yarnpkg.com/@unocss/extractor-arbitrary-variants/-/extractor-arbitrary-variants-0.57.3.tgz#83ea4415d1b1bc162e5d038308d4ddddbf4fe93f"
@@ -2159,6 +2171,15 @@
   dependencies:
     "@iconify/utils" "^2.1.11"
     "@unocss/core" "0.57.3"
+    ofetch "^1.3.3"
+
+"@unocss/preset-icons@^0.57.7":
+  version "0.57.7"
+  resolved "https://registry.yarnpkg.com/@unocss/preset-icons/-/preset-icons-0.57.7.tgz#8465a439ea8a667cb7c88f741d71167a698a4195"
+  integrity sha512-s3AelKCS9CL1ArP1GanYv0XxxPrcFi+XOuQoQCwCRHDo2CiBEq3fLLMIhaUCFEWGtIy7o7wLeL5BRjMvJ2QnMg==
+  dependencies:
+    "@iconify/utils" "^2.1.11"
+    "@unocss/core" "0.57.7"
     ofetch "^1.3.3"
 
 "@unocss/preset-mini@0.57.3":
