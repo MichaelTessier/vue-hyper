@@ -1,0 +1,29 @@
+import { type VueWrapper, mount } from '@vue/test-utils'
+import HypIcon from './HypIcon.vue'
+
+describe('HypIcon', () => {
+  let wrapper: VueWrapper
+
+  beforeEach(() => {
+    wrapper = mount(HypIcon, {
+      props: {
+        name: 'chevron-left',
+      },
+    })
+  })
+
+  it('should display icon', async () => {
+    expect(wrapper.attributes('class')).toContain('i-mdi-chevron-left')
+  })
+
+  it('should display icon', async () => {
+    // Default size is medium
+    await expect(wrapper.attributes('class')).toContain('text-6')
+
+    await wrapper.setProps({ size: 'small' })
+    await expect(wrapper.attributes('class')).toContain('text-4')
+
+    await wrapper.setProps({ size: 'large' })
+    await expect(wrapper.attributes('class')).toContain('text-9')
+  })
+})
