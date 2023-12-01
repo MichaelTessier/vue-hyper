@@ -12,9 +12,12 @@
   ],
   "scripts": {
     "admin:dev": "yarn --cwd apps/admin dev",
+    "admin:install": "yarn --cwd apps/admin install:deps",
     "admin:lint": "yarn --cwd apps/admin lint",
     "admin:test": "yarn --cwd apps/admin test",
+    "components:build:lib": "yarn --cwd packages/components build:lib",
     "components:dev": "yarn --cwd packages/components story:dev",
+    "components:install": "yarn --cwd packages/components install:deps",
     "components:lint": "yarn --cwd packages/components lint",
     "components:test": "yarn --cwd packages/components test",
     "dev": "npm-run-all --parallel admin:dev components:dev",

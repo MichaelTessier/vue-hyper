@@ -19,14 +19,20 @@ runs:
       with:
         node-version: ${{ inputs.node_version }}
         cache: 'yarn'
-    - run: yarn install --frozen-lockfile
+    - run: |
+        if [[ "${{ inputs.context }}" == "admin" ]]; then
+          yarn components:install && yarn components:build:lib && yarn admin:install
+        fi
+        if [[ "${{ inputs.context }}" == "components" ]]; then
+          yarn components:install
+        fi
       shell: bash
     - name: Run test
       run: |
         if [[ "${{ inputs.context }}" == "admin" ]]; then
           yarn admin:test
         fi
-        if ${{ inputs.context }} == "components" ]]; then
+        if [[ "${{ inputs.context }}" == "components" ]]; then
           yarn components:test
         fi
       shell: bash

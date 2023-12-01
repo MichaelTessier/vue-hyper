@@ -18,7 +18,9 @@
   },
   "types": "./dist/index.d.ts",
   "scripts": {
-    "build": "vue-tsc && vite build",
+    "install:deps": "yarn install --frozen-lockfile",
+    "build": "histoire build",
+    "build:lib": "vue-tsc && vite build",
     "test": "vitest run",
     "test:coverage": "vitest run --coverage",
     "test:ui": "vitest --ui",

@@ -59,9 +59,10 @@ export default defineConfig({
     },
   },
   histoire: {
+    outDir: 'dist-histoire',
     plugins: [HstVue()],
     setupFile: 'histoire.setup.ts',
-    // viteIgnorePlugins: ['vite:dts'],
+    viteIgnorePlugins: ['vite:dts'],
   },
   server: {
     fs: {

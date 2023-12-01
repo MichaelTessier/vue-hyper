@@ -32,7 +32,8 @@ jobs:
           components:
             - 'packages/components/**'
 
-  install:
+  ## required for all workflows
+  install-components:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -42,27 +43,15 @@ jobs:
       - uses: ./.github/actions/install
         with:
           node_version: ${{ matrix.node }}
-
-  lint-admin:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node: [18]
-    needs: [changes, install]
-    if: ${{ needs.changes.outputs.admin == 'true' }}
-    steps:
-      - uses: actions/checkout@v4
-      - uses: ./.github/actions/lint
-        with:
-          node_version: ${{ matrix.node }}
-          context: admin
-
+          context: components
+  
+  ## Components Workflow
   lint-components:
     runs-on: ubuntu-latest
     strategy:
       matrix:
         node: [18]
-    needs: [changes, install]
+    needs: [changes, install-components]
     if: ${{ needs.changes.outputs.components == 'true' }}
     steps:
       - uses: actions/checkout@v4
@@ -71,19 +60,6 @@ jobs:
           node_version: ${{ matrix.node }}
           context: components
 
-  test-admin:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node: [18]
-    needs: [lint-admin]
-    steps:
-      - uses: actions/checkout@v4
-      - uses: ./.github/actions/test
-        with:
-          node_version: ${{ matrix.node }}
-          context: admin
-   
   test-components:
     runs-on: ubuntu-latest
     strategy:
@@ -97,27 +73,7 @@ jobs:
         with:
           node_version: ${{ matrix.node }} 
           context: components
-
-
-  deploy-admin-preview:
-    runs-on: ubuntu-latest
-    needs: [
-      test-admin, 
-    ]
-    steps:
-      - uses: actions/checkout@v4
-      - name: Install Vercel CLI
-        run: npm install --global vercel@latest
-      - name: Link admin to Vercel
-        run: VERCEL_PROJECT_ID=${{ secrets.VERCEL_PROJECT_ADMIN_ID }} vercel link --cwd ./apps/admin --yes --token=${{ secrets.VERCEL_TOKEN }}
-      - name: Pull Vercel Environment Information
-        run: VERCEL_PROJECT_ID=${{ secrets.VERCEL_PROJECT_ADMIN_ID }} vercel pull --yes --environment=preview --token=${{ secrets.VERCEL_TOKEN }}
-      - name: Build Project Artifacts
-        run: VERCEL_PROJECT_ID=${{ secrets.VERCEL_PROJECT_ADMIN_ID }} vercel build --token=${{ secrets.VERCEL_TOKEN }}
-      - name: Deploy Project Artifacts to Vercel
-        run: VERCEL_PROJECT_ID=${{ secrets.VERCEL_PROJECT_ADMIN_ID }} vercel deploy --prebuilt --token=${{ secrets.VERCEL_TOKEN }}
-
-
+    
   deploy-components-preview:
     runs-on: ubuntu-latest
     needs: [
@@ -135,6 +91,79 @@ jobs:
         run: VERCEL_PROJECT_ID=${{ secrets.VERCEL_PROJECT_COMPONENT_ID }} vercel build --token=${{ secrets.VERCEL_TOKEN }}
       - name: Deploy Project Artifacts to Vercel
         run: VERCEL_PROJECT_ID=${{ secrets.VERCEL_PROJECT_COMPONENT_ID }} vercel deploy --prebuilt --token=${{ secrets.VERCEL_TOKEN }}
+
+  ## Admin Workflow
+  build-components:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [18]
+    needs: [changes, install-components]
+    if: ${{ needs.changes.outputs.admin == 'true' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/build-components
+        with:
+          node_version: ${{ matrix.node }}
+
+  install-admin:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [18]
+    needs: [build-components]
+    if: ${{ needs.changes.outputs.admin == 'true' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/install
+        with:
+          node_version: ${{ matrix.node }}
+          context: admin
+
+  lint-admin:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [18]
+    needs: [install-admin]
+    if: ${{ needs.changes.outputs.admin == 'true' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/lint
+        with:
+          node_version: ${{ matrix.node }}
+          context: admin
+
+  test-admin:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [18]
+    needs: [lint-admin]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/test
+        with:
+          node_version: ${{ matrix.node }}
+          context: admin
+
+  deploy-admin-preview:
+    runs-on: ubuntu-latest
+    needs: [test-admin]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Vercel CLI
+        run: npm install --global vercel@latest
+      - name: Link admin to Vercel
+        run: VERCEL_PROJECT_ID=${{ secrets.VERCEL_PROJECT_ADMIN_ID }} vercel link --cwd ./apps/admin --yes --token=${{ secrets.VERCEL_TOKEN }}
+      - name: Pull Vercel Environment Information
+        run: VERCEL_PROJECT_ID=${{ secrets.VERCEL_PROJECT_ADMIN_ID }} vercel pull --yes --environment=preview --token=${{ secrets.VERCEL_TOKEN }}
+      - name: Build Project Artifacts
+        run: VERCEL_PROJECT_ID=${{ secrets.VERCEL_PROJECT_ADMIN_ID }} vercel build --token=${{ secrets.VERCEL_TOKEN }}
+      - name: Deploy Project Artifacts to Vercel
+        run: VERCEL_PROJECT_ID=${{ secrets.VERCEL_PROJECT_ADMIN_ID }} vercel deploy --prebuilt --token=${{ secrets.VERCEL_TOKEN }}
+
+
 
   
   
