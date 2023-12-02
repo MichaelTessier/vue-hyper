@@ -73,4 +73,32 @@ describe('HypInput', () => {
 
     expect(wrapper.find('[data-test="hyp-input__hint"]').text()).toEqual('hint')
   })
+
+  it('should can show password', async () => {
+    await wrapper.setProps({ type: 'text', showPassword: true })
+
+    let showPassword = wrapper.find('[data-test="hyp-input__show-password"]')
+
+    expect(
+      wrapper.find('[data-test="hyp-input__show-password"]').exists()
+    ).toBe(false)
+
+    await wrapper.setProps({ type: 'password', showPassword: true })
+
+    showPassword = wrapper.find('[data-test="hyp-input__show-password"]')
+
+    expect(showPassword.findComponent({ name: 'HypIcon' }).props('name')).toBe(
+      'eye-outline'
+    )
+
+    expect(showPassword.exists()).toBe(true)
+
+    await showPassword.trigger('click')
+
+    expect(input.attributes('type')).toBe('text')
+
+    expect(showPassword.findComponent({ name: 'HypIcon' }).props('name')).toBe(
+      'eye-off-outline'
+    )
+  })
 })

@@ -43,7 +43,14 @@
       model: false,
       title: 'Readonly',
     },
+    showPassword: {
+      type: 'boolean',
+      model: false,
+      title: 'Show Password',
+    },
   })
+
+  const password = ref('')
 </script>
 
 <template>
@@ -65,6 +72,22 @@
           :hint="controls.hint.model"
           :disabled="controls.disabled.model"
           :readonly="controls.readonly.model"
+          :show-password="controls.showPassword.model"
+        />
+      </div>
+    </Variant>
+
+    <Variant
+      title="Show/Hide Password"
+      auto-props-disabled
+    >
+      <div class="p-4">
+        <HypInput
+          v-model="password"
+          :placeholder="'Enter your password'"
+          type="password"
+          label="password"
+          show-password
         />
       </div>
     </Variant>

@@ -35,6 +35,10 @@
       type: Boolean,
       default: false,
     },
+    showPassword: {
+      type: Boolean,
+      default: false,
+    },
   })
 
   const emit = defineEmits<{
@@ -51,6 +55,20 @@
   })
 
   const idProxy = computed(() => props.id || uid())
+
+  const isPasswordVisible = ref(false)
+
+  function togglePasswordVisibility() {
+    isPasswordVisible.value = !isPasswordVisible.value
+  }
+
+  const typeProxy = computed(() => {
+    if (props.type === INPUT_TYPE.PASSWORD && isPasswordVisible.value) {
+      return INPUT_TYPE.TEXT
+    }
+
+    return props.type
+  })
 </script>
 
 <template>
@@ -62,15 +80,37 @@
     >
       {{ label }}
     </HypTypo>
-    <input
-      class="px-5 py-3 border-1 focus:outline-gray-200 rounded-small text-dark w-full"
-      :type="type"
-      :id="idProxy"
-      :placeholder="placeholder"
-      v-model="modelValueProxy"
-      :disabled="disabled"
-      :readonly="readonly"
-    />
+    <div class="group">
+      <div
+        class="flex items-stretch justify-between border-1 rounded-small text-dark group-focus-within:outline-1 group-focus-within:outline group-focus-within:outline-gray-200"
+      >
+        <input
+          class="px-5 py-3 w-full outline-none"
+          :type="typeProxy"
+          :id="idProxy"
+          :placeholder="placeholder"
+          v-model="modelValueProxy"
+          :disabled="disabled"
+          :readonly="readonly"
+        />
+        <div
+          v-if="showPassword && type === INPUT_TYPE.PASSWORD"
+          data-test="hyp-input__show-password"
+          class="flex items-center px-3 bg-gray-100"
+          @click="togglePasswordVisibility"
+          @keydown.enter="togglePasswordVisibility"
+          role="button"
+          tabIndex="0"
+        >
+          <HypIcon
+            data-test="hyp-input__show-password-icon"
+            :name="isPasswordVisible ? 'eye-off-outline' : 'eye-outline'"
+            class="text-gray-400"
+            size="small"
+          />
+        </div>
+      </div>
+    </div>
     <HypTypo
       v-if="hint"
       data-test="hyp-input__hint"
