@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils'
 import ThemeVariantSwitcher from './ThemeVariantSwitcher.vue'
-import { Mock } from 'vitest'
+import type { Mock } from 'vitest'
 
 vi.mock('@/domains/theme/composables/useTheme/useTheme.ts', () => ({
   useTheme: vi.fn(),

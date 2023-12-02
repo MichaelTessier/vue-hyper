@@ -5,6 +5,9 @@ inputs:
   node_version:
     description: 'Node version'
     required: true
+  context: 
+    description: 'Context application'
+    required: true
 
 runs:
   using: 'composite'
@@ -15,5 +18,10 @@ runs:
         node-version: ${{ inputs.node_version }}
     - name: Run install
       run: |
-        yarn install --frozen-lockfile
+        if [[ "${{ inputs.context }}" == "admin" ]]; then
+          yarn admin:install
+        fi
+        if [[ "${{ inputs.context }}" == "components" ]]; then
+          yarn components:install
+        fi
       shell: bash

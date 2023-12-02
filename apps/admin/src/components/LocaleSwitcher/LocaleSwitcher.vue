@@ -1,3 +1,20 @@
+<script lang="ts" setup>
+  const contextStore = useContextStore()
+  const router = useRouter()
+  const route = useRoute()
+
+  const onChange = (locale: string) => {
+    contextStore.setLocale(locale)
+
+    router.push({
+      name: route.name ?? '/',
+      params: {
+        locale: locale,
+      },
+    })
+  }
+</script>
+
 <template>
   <div data-test="locale-switcher">
     <label for="switcher-locale">
@@ -19,20 +36,3 @@
     </label>
   </div>
 </template>
-
-<script lang="ts" setup>
-  const contextStore = useContextStore()
-  const router = useRouter()
-  const route = useRoute()
-
-  const onChange = (locale: string) => {
-    contextStore.setLocale(locale)
-
-    router.push({
-      name: route.name ?? '/',
-      params: {
-        locale: locale,
-      },
-    })
-  }
-</script>

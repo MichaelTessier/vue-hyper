@@ -1,3 +1,9 @@
+<script setup lang="ts">
+  const theme = useTheme()
+
+  const selectedColorScheme = theme.colorScheme
+</script>
+
 <template>
   <label for="color-scheme">
     <select
@@ -16,9 +22,3 @@
     </select>
   </label>
 </template>
-
-<script setup lang="ts">
-  const theme = useTheme()
-
-  const selectedColorScheme = theme.colorScheme
-</script>

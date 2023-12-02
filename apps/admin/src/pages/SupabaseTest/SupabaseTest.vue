@@ -1,3 +1,9 @@
+<script lang="ts" setup>
+  import { useGetCountriesQuery } from './Country.generated'
+
+  const { data } = useGetCountriesQuery({})
+</script>
+
 <template>
   <div data-test="supabase-test">SupabaseTest</div>
 
@@ -10,9 +16,3 @@
     </li>
   </ul>
 </template>
-
-<script lang="ts" setup>
-  import { useGetCountriesQuery } from './Country.generated'
-
-  const { data } = useGetCountriesQuery({})
-</script>

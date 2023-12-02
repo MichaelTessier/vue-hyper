@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { Controls, Type } from './types'
+  import type { Controls, Type } from './types'
 
   const props = defineProps<{
     controls: Record<string, Controls>
@@ -9,6 +9,7 @@
     select: 'HstSelect',
     text: 'HstText',
     boolean: 'HstCheckbox',
+    number: 'HstNumber',
   }
 
   const internalControls = computed(() => props.controls)
@@ -23,6 +24,9 @@
       :is="components[control.type]"
       :title="control.title"
       :options="control.options"
+      :steps="control.steps"
+      :min="control.min"
+      :max="control.max"
     />
   </div>
 </template>

@@ -1,28 +1,25 @@
 /// <reference types="vitest" />
 
-import { defineConfig } from 'vite'
+import { defineConfig, searchForWorkspaceRoot } from 'vite'
 import path from 'path'
 import vue from '@vitejs/plugin-vue'
 import UnoCSS from 'unocss/vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import dts from 'vite-plugin-dts'
-import { presetUno } from 'unocss'
 import { HstVue } from '@histoire/plugin-vue'
 
 export default defineConfig({
   plugins: [
     vue(),
-    UnoCSS({
-      presets: [presetUno()],
-    }),
+    UnoCSS(),
     dts({
       entryRoot: './src',
       rollupTypes: true,
     }),
     AutoImport({
       imports: ['vue', 'vue-router'],
-      dirs: ['src/**/*.{ts,vue}'],
+      dirs: ['src/*/**/*'],
       vueTemplate: true,
     }),
     Components({
@@ -52,8 +49,8 @@ export default defineConfig({
       provider: 'istanbul',
       reportsDirectory: 'coverage',
       all: true,
-      include: ['src/**/*.{ts,vue}'],
-      exclude: ['src/main.ts'],
+      include: ['src/{lib,utils}/**/*.{ts,vue}'],
+      exclude: ['src/main.ts', 'src/lib/**/*.story.vue'],
     },
   },
   resolve: {
@@ -62,8 +59,14 @@ export default defineConfig({
     },
   },
   histoire: {
+    outDir: 'dist-histoire',
     plugins: [HstVue()],
     setupFile: 'histoire.setup.ts',
-    // viteIgnorePlugins: ['vite:dts'],
+    viteIgnorePlugins: ['vite:dts'],
+  },
+  server: {
+    fs: {
+      allow: [searchForWorkspaceRoot(process.cwd()), '..'],
+    },
   },
 })

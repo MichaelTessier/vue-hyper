@@ -1,6 +1,6 @@
 import { RouterView, createRouter, createWebHistory } from 'vue-router'
 import Home from '@/pages/Home/Home.vue'
-import { Locale } from 'vue-i18n'
+import type { Locale } from 'vue-i18n'
 
 export const ROUTES = {
   CONTACT: 'contact',

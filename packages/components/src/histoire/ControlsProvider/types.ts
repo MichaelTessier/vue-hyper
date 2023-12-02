@@ -5,4 +5,7 @@ export interface Controls {
   type: Type
   title: string
   options?: string[]
+  steps?: number
+  min?: number
+  max?: number
 }

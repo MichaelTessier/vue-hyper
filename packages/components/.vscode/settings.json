@@ -2,6 +2,9 @@
   "prettier.configPath": ".prettierrc",
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true
+  },
   "cSpell.words": [
     "codegen",
     "commitlint",
@@ -14,7 +17,8 @@
     "unplugin",
     "urql",
     "Vercel",
-    "vuejs"
+    "vuejs",
+    "iconify"
   ],
   "i18n-ally.localesPaths": ["src/i18n/locales", "coverage/src/i18n"]
 }

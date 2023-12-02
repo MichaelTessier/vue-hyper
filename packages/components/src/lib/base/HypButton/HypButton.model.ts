@@ -9,7 +9,7 @@ export const BUTTON_VARIANT = {
   DARK: 'dark',
 } as const
 export const BUTTON_VARIANTS = Object.values(BUTTON_VARIANT)
-export type ButtonVariants = (typeof BUTTON_VARIANTS)[number]
+export type ButtonVariant = (typeof BUTTON_VARIANTS)[number]
 
 export const BUTTON_SIZE = {
   SMALL: 'small',
@@ -17,14 +17,14 @@ export const BUTTON_SIZE = {
   LARGE: 'large',
 } as const
 export const BUTTON_SIZES = Object.values(BUTTON_SIZE)
-export type ButtonSizes = (typeof BUTTON_SIZES)[number]
+export type ButtonSize = (typeof BUTTON_SIZES)[number]
 
 export const BUTTON_RADIUS = {
   NONE: 'none',
   SMALL: 'small',
   MEDIUM: 'medium',
   LARGE: 'large',
-  FULL: 'full'
+  FULL: 'full',
 } as const
 export const BUTTON_RADIUSES = Object.values(BUTTON_RADIUS)
-export type ButtonRadiuses = (typeof BUTTON_RADIUSES)[number]
+export type ButtonRadius = (typeof BUTTON_RADIUSES)[number]

@@ -19,5 +19,6 @@
       "packages/": true,
       "apps/": true
     },
+    "liveServer.settings.multiRootWorkspaceName": "ROOT",
   }
 }

@@ -1,7 +1,7 @@
 import { mount } from '@vue/test-utils'
 import LocaleSwitcherVue from './LocaleSwitcher.vue'
 import { createTestingPinia } from '@pinia/testing'
-import { Mock } from 'vitest'
+import type { Mock } from 'vitest'
 
 vi.mock('vue-router', () => ({
   useRouter: vi.fn(() => ({

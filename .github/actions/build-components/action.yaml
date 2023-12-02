@@ -1,0 +1,23 @@
+name: 'Build library'
+description: 'Build components'
+
+inputs:
+  node_version:
+    description: 'Node version'
+    required: true
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Checkout Commit
+      uses: actions/checkout@v4
+    - name: Use Node.js ${{ inputs.node_version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ inputs.node_version }}
+        cache: 'yarn'
+    - run: yarn components:install
+      shell: bash
+    - name: Run test
+      run: yarn components:build:lib
+      shell: bash

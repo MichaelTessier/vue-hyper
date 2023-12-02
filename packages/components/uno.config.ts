@@ -1,54 +1,44 @@
-import { defineConfig } from 'unocss'
-
-const COLORS = {
-  primary: 'var(--hyp-color-primary)',
-  secondary: 'var(--hyp-color-secondary)',
-  white: 'var(--hyp-color-white)',
-  light: 'var(--hyp-color-light)',
-  dark: 'var(--hyp-color-dark)',
-  info: 'var(--hyp-color-info)',
-  success: 'var(--hyp-color-success)',
-  warning: 'var(--hyp-color-warning)',
-  danger: 'var(--hyp-color-danger)',
-}
-
-const RADIUSES = {
-  none: '0',
-  small: '0.15rem',
-  medium: '0.30rem',
-  large: '0.45rem',
-  full: '9999px',
-}
-
-const safelistColorsGenerator = () => {
-  const safelist: string[] = []
-  const props = ['text', 'bg', 'border']
-
-  props.forEach((prop) => {
-    Object.keys(COLORS).forEach((color) => {
-      safelist.push(`${prop}-${color}`)
-    })
-  })
-
-  return safelist
-}
-
-const safelistRadiusGenerator = () => {
-  const safelist: string[] = []
-
-    Object.keys(RADIUSES).forEach((radius) => {
-      safelist.push(`rounded-${radius}`)
-    })
-
-  return safelist
-}
+import { type Preset, defineConfig, presetUno, presetIcons } from 'unocss'
+import presetRemToPx from '@unocss/preset-rem-to-px'
+import { safelist } from './src/config/unocss/safelist'
+import { UNO_COLORS, UNO_RADIUSES } from './src/config/unocss/unocss.const'
 
 export default defineConfig({
   theme: {
-    colors: COLORS,
-    borderRadius: RADIUSES
-
+    colors: UNO_COLORS,
+    borderRadius: UNO_RADIUSES,
   },
 
-  safelist: [...safelistColorsGenerator(), ...safelistRadiusGenerator()],
+  rules: [
+    [
+      /^shadow-btn-(.+)$/,
+      ([, name]) => ({
+        'box-shadow': `0px 2px 5px rgb(from var(--hyp-color-${name}) r g b / 0.5)`,
+      }),
+    ],
+  ],
+  safelist: [...safelist],
+
+  presets: [
+    presetUno(),
+    presetRemToPx() as Preset,
+    presetIcons({
+      collections: {
+        mdi: () =>
+          import('@iconify-json/mdi/icons.json').then((i) => i.default),
+      },
+    }),
+  ],
+
+  shortcuts: {
+    'hyp-display-heading-large': 'text-11  font-medium leading-tight ',
+    'hyp-display-heading-medium': 'text-9 font-medium leading-tight',
+    'hyp-display-heading-small': 'text-8 font-medium leading-tight',
+    'hyp-heading-large': 'text-7 font-bold leading-tight',
+    'hyp-heading-medium': 'text-6 font-bold leading-tight',
+    'hyp-heading-small': 'text-5 font-bold leading-tight',
+    'hyp-text-large': 'text-5 leading-tight',
+    'hyp-text-medium': 'text-4 leading-tight',
+    'hyp-text-small': 'text-3 leading-tight',
+  },
 })
