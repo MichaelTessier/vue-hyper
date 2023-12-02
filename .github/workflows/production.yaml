@@ -11,8 +11,6 @@ on:
 jobs:
   changes:
     runs-on: ubuntu-latest
-    permissions:
-      pull-requests: read
     strategy:
       matrix:
         node: [18]
@@ -20,10 +18,12 @@ jobs:
       admin: ${{ steps.filter.outputs.admin }}
       components: ${{ steps.filter.outputs.components }}
     steps:
+    - uses: actions/checkout@v4
     - name: Detect changes
       uses: dorny/paths-filter@v2
       id: filter
       with:
+        base: ${{ github.ref }}
         filters: |
           admin:
             - 'apps/admin/**'
