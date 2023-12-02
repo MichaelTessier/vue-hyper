@@ -1,3 +1,7 @@
+<script setup lang="ts">
+  const theme = useTheme()
+</script>
+
 <template>
   <div
     class="global-layout min-h-screen grid grid-cols-4"
@@ -16,10 +20,6 @@
     </section>
   </div>
 </template>
-
-<script setup lang="ts">
-  const theme = useTheme()
-</script>
 
 <style>
   .global-layout,

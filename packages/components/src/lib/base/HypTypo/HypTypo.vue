@@ -1,18 +1,3 @@
-<template>
-  <component
-    :is="tag"
-    :class="[
-      `hyp-${type}`,
-      `font-${weight}`,
-      {
-        'line-through': strike,
-      },
-    ]"
-  >
-    <slot />
-  </component>
-</template>
-
 <script setup lang="ts">
   import type { TypoType, TypoWeight } from './HypTypo.model'
 
@@ -35,3 +20,18 @@
     },
   })
 </script>
+
+<template>
+  <component
+    :is="tag"
+    :class="[
+      `hyp-${type}`,
+      `font-${weight}`,
+      {
+        'line-through': strike,
+      },
+    ]"
+  >
+    <slot />
+  </component>
+</template>

@@ -1,3 +1,9 @@
+<script setup lang="ts">
+  const theme = useTheme()
+
+  const selectedVariantTheme = theme.variantTheme
+</script>
+
 <template>
   <label for="variant-theme">
     <select
@@ -16,9 +22,3 @@
     </select>
   </label>
 </template>
-
-<script setup lang="ts">
-  const theme = useTheme()
-
-  const selectedVariantTheme = theme.variantTheme
-</script>
