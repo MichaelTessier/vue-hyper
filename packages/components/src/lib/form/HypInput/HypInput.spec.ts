@@ -1,4 +1,5 @@
-import { DOMWrapper, VueWrapper, mount } from '@vue/test-utils'
+import type { DOMWrapper, VueWrapper } from '@vue/test-utils'
+import { mount } from '@vue/test-utils'
 import HypInput from './HypInput.vue'
 
 vi.mock('@/utils/uid', () => ({

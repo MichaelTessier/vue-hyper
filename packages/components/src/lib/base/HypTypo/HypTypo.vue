@@ -14,7 +14,7 @@
 </template>
 
 <script setup lang="ts">
-  import { TypoType, TypoWeight } from './HypTypo.model'
+  import type { TypoType, TypoWeight } from './HypTypo.model'
 
   defineProps({
     tag: {

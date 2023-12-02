@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { Controls, Type } from './types'
+  import type { Controls, Type } from './types'
 
   const props = defineProps<{
     controls: Record<string, Controls>

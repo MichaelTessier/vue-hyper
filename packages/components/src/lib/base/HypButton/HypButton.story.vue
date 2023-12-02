@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-  import { Controls } from '@/histoire/ControlsProvider/types'
+  import type { Controls } from '@/histoire/ControlsProvider/types'
 
   const controls: Record<string, Controls> = reactive({
     label: {
