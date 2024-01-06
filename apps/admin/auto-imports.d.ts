@@ -11,9 +11,10 @@ declare global {
   const DEFAULT_LOCALE: typeof import('./src/i18n/index')['DEFAULT_LOCALE']
   const EffectScope: typeof import('vue')['EffectScope']
   const FilterIs: typeof import('./src/graphql/__generated__/graphql')['FilterIs']
-  const GetCountriesDocument: typeof import('./src/pages/SupabaseTest/Country.generated')['GetCountriesDocument']
+  const GetCountriesDocument: typeof import('./src/graphql/__generated__/graphql')['GetCountriesDocument']
   const LAYOUT_THEME_STORAGE_KEY: typeof import('./src/domains/app/composables/useTheme/useTheme')['LAYOUT_THEME_STORAGE_KEY']
   const LayoutTheme: typeof import('./src/domains/app/composables/useTheme/useTheme')['LayoutTheme']
+  const Logo: typeof import('./src/domains/app/components/Logo/Logo.vue')['default']
   const OrderByDirection: typeof import('./src/graphql/__generated__/graphql')['OrderByDirection']
   const ROUTES: typeof import('./src/router/index')['ROUTES']
   const VARIANT_THEME_STORAGE_KEY: typeof import('./src/domains/app/composables/useTheme/useTheme')['VARIANT_THEME_STORAGE_KEY']
@@ -116,7 +117,7 @@ declare module 'vue' {
     readonly DEFAULT_LOCALE: UnwrapRef<typeof import('./src/i18n/index')['DEFAULT_LOCALE']>
     readonly EffectScope: UnwrapRef<typeof import('vue')['EffectScope']>
     readonly FilterIs: UnwrapRef<typeof import('./src/graphql/__generated__/graphql')['FilterIs']>
-    readonly GetCountriesDocument: UnwrapRef<typeof import('./src/pages/SupabaseTest/Country.generated')['GetCountriesDocument']>
+    readonly GetCountriesDocument: UnwrapRef<typeof import('./src/graphql/__generated__/graphql')['GetCountriesDocument']>
     readonly LAYOUT_THEME_STORAGE_KEY: UnwrapRef<typeof import('./src/domains/app/composables/useTheme/useTheme')['LAYOUT_THEME_STORAGE_KEY']>
     readonly LayoutTheme: UnwrapRef<typeof import('./src/domains/app/composables/useTheme/useTheme')['LayoutTheme']>
     readonly OrderByDirection: UnwrapRef<typeof import('./src/graphql/__generated__/graphql')['OrderByDirection']>
@@ -215,7 +216,7 @@ declare module '@vue/runtime-core' {
     readonly DEFAULT_LOCALE: UnwrapRef<typeof import('./src/i18n/index')['DEFAULT_LOCALE']>
     readonly EffectScope: UnwrapRef<typeof import('vue')['EffectScope']>
     readonly FilterIs: UnwrapRef<typeof import('./src/graphql/__generated__/graphql')['FilterIs']>
-    readonly GetCountriesDocument: UnwrapRef<typeof import('./src/pages/SupabaseTest/Country.generated')['GetCountriesDocument']>
+    readonly GetCountriesDocument: UnwrapRef<typeof import('./src/graphql/__generated__/graphql')['GetCountriesDocument']>
     readonly LAYOUT_THEME_STORAGE_KEY: UnwrapRef<typeof import('./src/domains/app/composables/useTheme/useTheme')['LAYOUT_THEME_STORAGE_KEY']>
     readonly LayoutTheme: UnwrapRef<typeof import('./src/domains/app/composables/useTheme/useTheme')['LayoutTheme']>
     readonly OrderByDirection: UnwrapRef<typeof import('./src/graphql/__generated__/graphql')['OrderByDirection']>
