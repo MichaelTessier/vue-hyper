@@ -1,30 +1,14 @@
-<script lang="ts" setup>
-  import LocaleSwitcher from '@/components/LocaleSwitcher/LocaleSwitcher.vue'
-</script>
-
 <template>
   <GlobalLayout>
     <template #header>
-      <LocaleSwitcher />
       <ThemeSchemeSwitcher />
       <ThemeVariantSwitcher />
       <ThemeLayoutSwitcher />
+      <LocaleSwitcher />
     </template>
 
     <template #aside>
-      <RouterLink :to="{ name: ROUTES.HOME }"> Home </RouterLink>
-      <RouterLink
-        data-test="app__router-link-contact"
-        :to="{ name: ROUTES.CONTACT }"
-      >
-        contact
-      </RouterLink>
-      <RouterLink
-        data-test="app__router-link-contact"
-        :to="{ name: ROUTES.SUPABASE_TEST }"
-      >
-        supabase
-      </RouterLink>
+      <Aside />
     </template>
 
     <template #content>

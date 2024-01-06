@@ -5,6 +5,9 @@ import 'uno.css'
 // Plugins
 export { HyperResolver } from './plugins/auto-import'
 
+// Unocss
+export { theme } from './config/unocss/theme'
+
 // Components
 // Base
 export { default as HypButton } from './lib/base/HypButton/HypButton.vue'

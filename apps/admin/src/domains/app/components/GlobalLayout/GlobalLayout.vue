@@ -7,15 +7,15 @@
     class="global-layout min-h-screen grid grid-cols-4"
     :class="[`layout-${theme.settings.layout}`]"
   >
-    <header class="global-layout-header bg-primary">
+    <header class="global-layout-header bg-white">
       <slot name="header"></slot>
     </header>
 
-    <aside class="global-layout-aside bg-secondary">
+    <aside class="global-layout-aside bg-dark">
       <slot name="aside"></slot>
     </aside>
 
-    <section class="global-layout-content bg-info">
+    <section class="global-layout-content bg-light">
       <slot name="content"></slot>
     </section>
   </div>
