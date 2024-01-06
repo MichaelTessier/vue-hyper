@@ -19,6 +19,8 @@ declare global {
   const ICON_SIZES: typeof import('./src/lib/base/HypIcon/HypIcon.model')['ICON_SIZES']
   const INPUT_TYPE: typeof import('./src/lib/form/HypInput/HypInput.model')['INPUT_TYPE']
   const INPUT_TYPES: typeof import('./src/lib/form/HypInput/HypInput.model')['INPUT_TYPES']
+  const LINK_COLOR: typeof import('./src/lib/base/HypLink/HypLink.model')['LINK_COLOR']
+  const LINK_COLORS: typeof import('./src/lib/base/HypLink/HypLink.model')['LINK_COLORS']
   const TYPO_COLOR: typeof import('./src/lib/base/HypTypo/HypTypo.model')['TYPO_COLOR']
   const TYPO_COLORS: typeof import('./src/lib/base/HypTypo/HypTypo.model')['TYPO_COLORS']
   const TYPO_COLOR_DEFAULT: typeof import('./src/lib/base/HypTypo/HypTypo.model')['TYPO_COLOR_DEFAULT']
@@ -113,6 +115,8 @@ declare module 'vue' {
     readonly ICON_SIZES: UnwrapRef<typeof import('./src/lib/base/HypIcon/HypIcon.model')['ICON_SIZES']>
     readonly INPUT_TYPE: UnwrapRef<typeof import('./src/lib/form/HypInput/HypInput.model')['INPUT_TYPE']>
     readonly INPUT_TYPES: UnwrapRef<typeof import('./src/lib/form/HypInput/HypInput.model')['INPUT_TYPES']>
+    readonly LINK_COLOR: UnwrapRef<typeof import('./src/lib/base/HypLink/HypLink.model')['LINK_COLOR']>
+    readonly LINK_COLORS: UnwrapRef<typeof import('./src/lib/base/HypLink/HypLink.model')['LINK_COLORS']>
     readonly TYPO_COLOR: UnwrapRef<typeof import('./src/lib/base/HypTypo/HypTypo.model')['TYPO_COLOR']>
     readonly TYPO_COLORS: UnwrapRef<typeof import('./src/lib/base/HypTypo/HypTypo.model')['TYPO_COLORS']>
     readonly TYPO_TAG_DEFAULT: UnwrapRef<typeof import('./src/lib/base/HypTypo/HypTypo.model')['TYPO_TAG_DEFAULT']>
@@ -199,6 +203,8 @@ declare module '@vue/runtime-core' {
     readonly ICON_SIZES: UnwrapRef<typeof import('./src/lib/base/HypIcon/HypIcon.model')['ICON_SIZES']>
     readonly INPUT_TYPE: UnwrapRef<typeof import('./src/lib/form/HypInput/HypInput.model')['INPUT_TYPE']>
     readonly INPUT_TYPES: UnwrapRef<typeof import('./src/lib/form/HypInput/HypInput.model')['INPUT_TYPES']>
+    readonly LINK_COLOR: UnwrapRef<typeof import('./src/lib/base/HypLink/HypLink.model')['LINK_COLOR']>
+    readonly LINK_COLORS: UnwrapRef<typeof import('./src/lib/base/HypLink/HypLink.model')['LINK_COLORS']>
     readonly TYPO_COLOR: UnwrapRef<typeof import('./src/lib/base/HypTypo/HypTypo.model')['TYPO_COLOR']>
     readonly TYPO_COLORS: UnwrapRef<typeof import('./src/lib/base/HypTypo/HypTypo.model')['TYPO_COLORS']>
     readonly TYPO_TAG_DEFAULT: UnwrapRef<typeof import('./src/lib/base/HypTypo/HypTypo.model')['TYPO_TAG_DEFAULT']>
