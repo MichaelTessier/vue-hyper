@@ -19,6 +19,9 @@ declare global {
   const ICON_SIZES: typeof import('./src/lib/base/HypIcon/HypIcon.model')['ICON_SIZES']
   const INPUT_TYPE: typeof import('./src/lib/form/HypInput/HypInput.model')['INPUT_TYPE']
   const INPUT_TYPES: typeof import('./src/lib/form/HypInput/HypInput.model')['INPUT_TYPES']
+  const TYPO_COLOR: typeof import('./src/lib/base/HypTypo/HypTypo.model')['TYPO_COLOR']
+  const TYPO_COLORS: typeof import('./src/lib/base/HypTypo/HypTypo.model')['TYPO_COLORS']
+  const TYPO_COLOR_DEFAULT: typeof import('./src/lib/base/HypTypo/HypTypo.model')['TYPO_COLOR_DEFAULT']
   const TYPO_TAG_DEFAULT: typeof import('./src/lib/base/HypTypo/HypTypo.model')['TYPO_TAG_DEFAULT']
   const TYPO_TYPE: typeof import('./src/lib/base/HypTypo/HypTypo.model')['TYPO_TYPE']
   const TYPO_TYPES: typeof import('./src/lib/base/HypTypo/HypTypo.model')['TYPO_TYPES']
@@ -110,6 +113,8 @@ declare module 'vue' {
     readonly ICON_SIZES: UnwrapRef<typeof import('./src/lib/base/HypIcon/HypIcon.model')['ICON_SIZES']>
     readonly INPUT_TYPE: UnwrapRef<typeof import('./src/lib/form/HypInput/HypInput.model')['INPUT_TYPE']>
     readonly INPUT_TYPES: UnwrapRef<typeof import('./src/lib/form/HypInput/HypInput.model')['INPUT_TYPES']>
+    readonly TYPO_COLOR: UnwrapRef<typeof import('./src/lib/base/HypTypo/HypTypo.model')['TYPO_COLOR']>
+    readonly TYPO_COLORS: UnwrapRef<typeof import('./src/lib/base/HypTypo/HypTypo.model')['TYPO_COLORS']>
     readonly TYPO_TAG_DEFAULT: UnwrapRef<typeof import('./src/lib/base/HypTypo/HypTypo.model')['TYPO_TAG_DEFAULT']>
     readonly TYPO_TYPE: UnwrapRef<typeof import('./src/lib/base/HypTypo/HypTypo.model')['TYPO_TYPE']>
     readonly TYPO_TYPES: UnwrapRef<typeof import('./src/lib/base/HypTypo/HypTypo.model')['TYPO_TYPES']>
@@ -194,6 +199,8 @@ declare module '@vue/runtime-core' {
     readonly ICON_SIZES: UnwrapRef<typeof import('./src/lib/base/HypIcon/HypIcon.model')['ICON_SIZES']>
     readonly INPUT_TYPE: UnwrapRef<typeof import('./src/lib/form/HypInput/HypInput.model')['INPUT_TYPE']>
     readonly INPUT_TYPES: UnwrapRef<typeof import('./src/lib/form/HypInput/HypInput.model')['INPUT_TYPES']>
+    readonly TYPO_COLOR: UnwrapRef<typeof import('./src/lib/base/HypTypo/HypTypo.model')['TYPO_COLOR']>
+    readonly TYPO_COLORS: UnwrapRef<typeof import('./src/lib/base/HypTypo/HypTypo.model')['TYPO_COLORS']>
     readonly TYPO_TAG_DEFAULT: UnwrapRef<typeof import('./src/lib/base/HypTypo/HypTypo.model')['TYPO_TAG_DEFAULT']>
     readonly TYPO_TYPE: UnwrapRef<typeof import('./src/lib/base/HypTypo/HypTypo.model')['TYPO_TYPE']>
     readonly TYPO_TYPES: UnwrapRef<typeof import('./src/lib/base/HypTypo/HypTypo.model')['TYPO_TYPES']>

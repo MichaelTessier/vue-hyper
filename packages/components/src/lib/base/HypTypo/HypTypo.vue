@@ -1,10 +1,14 @@
 <script setup lang="ts">
-  import type { TypoType, TypoWeight } from './HypTypo.model'
+  import type { TypoType, TypoWeight, TypoColor } from './HypTypo.model'
 
   defineProps({
     tag: {
       type: String,
       default: TYPO_TAG_DEFAULT,
+    },
+    color: {
+      type: String as PropType<TypoColor>,
+      default: TYPO_COLOR.DARK,
     },
     type: {
       type: String as PropType<TypoType>,
@@ -27,6 +31,7 @@
     :class="[
       `hyp-${type}`,
       `font-${weight}`,
+      `text-${color}`,
       {
         'line-through': strike,
       },

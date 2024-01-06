@@ -12,6 +12,12 @@
       type: 'text',
       title: 'p',
     },
+    color: {
+      model: TYPO_COLOR.DARK,
+      type: 'select',
+      title: 'Color',
+      options: TYPO_COLORS,
+    },
     type: {
       model: TYPO_TYPE.TEXT_MEDIUM,
       type: 'select',
@@ -45,6 +51,7 @@
       <HypTypo
         :tag="controls.tag.model"
         :type="controls.type.model"
+        :color="controls.color.model"
         :weight="controls.weight.model"
         :strike="controls.strike.model"
       >

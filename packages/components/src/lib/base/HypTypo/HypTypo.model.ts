@@ -21,3 +21,11 @@ export const TYPO_WEIGHT = {
 } as const
 export const TYPO_WEIGHTS = Object.values(TYPO_WEIGHT)
 export type TypoWeight = (typeof TYPO_WEIGHTS)[number]
+
+export const TYPO_COLOR = {
+  DARK: 'dark',
+  WHITE: 'white',
+  LIGHT: 'light',
+} as const
+export const TYPO_COLORS = Object.values(TYPO_COLOR)
+export type TypoColor = (typeof TYPO_COLORS)[number]
