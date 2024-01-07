@@ -25,7 +25,7 @@
         @update:model-value="onChange"
       >
         <option
-          v-for="(locale, index) in $i18n.availableLocales"
+          v-for="(locale, index) in AVAILABLE_LOCALES"
           :data-test="`locale-switcher__${index}`"
           :key="`locale-${locale}`"
           :value="locale"

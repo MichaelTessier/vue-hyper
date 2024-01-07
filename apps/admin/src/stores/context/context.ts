@@ -1,23 +1,18 @@
-import { i18n } from '@/i18n'
-
 export const CONTEXT_LOCALE_STORAGE_KEY = 'context-locale'
 
 const getLocale = () => {
   const locale = localStorage.getItem(CONTEXT_LOCALE_STORAGE_KEY)
 
   if (!locale) {
-    localStorage.setItem(
-      CONTEXT_LOCALE_STORAGE_KEY,
-      i18n.global.fallbackLocale.value as string
-    )
+    localStorage.setItem(CONTEXT_LOCALE_STORAGE_KEY, DEFAULT_LOCALE)
 
-    return i18n.global.fallbackLocale.value
+    return DEFAULT_LOCALE
   }
 
   return locale
 }
 
-interface ContextState {
+export interface ContextState {
   locale: string
 }
 
