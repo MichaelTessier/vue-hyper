@@ -1,32 +1,14 @@
 {
-  "name": "vue-hyper-admin",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
-  "scripts": {
-    "install:deps": "yarn install --frozen-lockfile",
-    "dev": "vite",
-    "build": "vue-tsc && vite build",
-    "preview": "vite preview",
-    "test": "vitest run",
-    "test:coverage": "vitest run --coverage",
-    "test:ui": "vitest --ui",
-    "test:watch": "vitest",
-    "lint": "eslint src --ext .ts,.vue . && yarn stylelint 'src/**/*.{vue,css}'",
-    "lint:fix": "yarn lint --fix",
-    "codegen": "graphql-codegen",
-    "codegen:supabase": "node ./scripts/codegen-supabase.js"
-  },
   "dependencies": {
     "@supabase/supabase-js": "^2.38.4",
     "@urql/exchange-auth": "^2.1.6",
     "@urql/vue": "^1.1.2",
     "graphql": "^16.8.1",
     "pinia": "^2.1.7",
-    "vue": "^3.3.8",
-    "vue-i18n": "^9.6.5",
-    "vue-router": "^4.2.5",
-    "vue-hyper-components": "0.0.0"
+    "vue": "^3.4.0",
+    "vue-hyper-components": "0.0.0",
+    "vue-i18n": "^9.9.0",
+    "vue-router": "^4.2.5"
   },
   "devDependencies": {
     "@graphql-codegen/cli": "^5.0.0",
@@ -64,5 +46,23 @@
     "vitest": "^0.34.6",
     "vue-eslint-parser": "^9.3.2",
     "vue-tsc": "^1.8.22"
-  }
+  },
+  "name": "vue-hyper-admin",
+  "private": true,
+  "scripts": {
+    "build": "vue-tsc && vite build",
+    "codegen": "graphql-codegen",
+    "codegen:supabase": "node ./scripts/codegen-supabase.js",
+    "dev": "vite",
+    "install:deps": "yarn install --frozen-lockfile",
+    "lint": "eslint src --ext .ts,.vue . && yarn stylelint 'src/**/*.{vue,css}'",
+    "lint:fix": "yarn lint --fix",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "test:ui": "vitest --ui",
+    "test:watch": "vitest"
+  },
+  "type": "module",
+  "version": "0.0.0"
 }
