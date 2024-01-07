@@ -24,7 +24,7 @@
       default: BUTTON_RADIUS.SMALL,
     },
     to: {
-      type: String as PropType<RouteLocationRaw>,
+      type: [String, Object] as PropType<RouteLocationRaw>,
       default: '',
     },
     href: {

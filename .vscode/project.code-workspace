@@ -20,5 +20,6 @@
       "apps/": true
     },
     "liveServer.settings.multiRootWorkspaceName": "ROOT",
+    "i18n-ally.keystyle": "nested",
   }
 }

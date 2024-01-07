@@ -7,14 +7,18 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
-    GlobalLayout: typeof import('./src/components/GlobalLayout/GlobalLayout.vue')['default']
-    HelloWorld: typeof import('./src/components/HelloWorld/HelloWorld.vue')['default']
+    Aside: typeof import('./src/domains/app/components/Aside/Aside.vue')['default']
+    GlobalLayout: typeof import('./src/domains/app/components/GlobalLayout/GlobalLayout.vue')['default']
+    Header: typeof import('./src/domains/app/components/Header/Header.vue')['default']
     HypButton: typeof import('vue-hyper-components')['HypButton']
-    LocaleSwitcher: typeof import('./src/components/LocaleSwitcher/LocaleSwitcher.vue')['default']
+    HypLink: typeof import('vue-hyper-components')['HypLink']
+    HypTypo: typeof import('vue-hyper-components')['HypTypo']
+    LocaleSwitcher: typeof import('./src/domains/app/components/LocaleSwitcher/LocaleSwitcher.vue')['default']
+    Logo: typeof import('./src/domains/app/components/Logo/Logo.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
-    ThemeLayoutSwitcher: typeof import('./src/domains/theme/components/ThemeSwitcher/ThemeLayoutSwitcher.vue')['default']
-    ThemeSchemeSwitcher: typeof import('./src/domains/theme/components/ThemeSwitcher/ThemeSchemeSwitcher.vue')['default']
-    ThemeVariantSwitcher: typeof import('./src/domains/theme/components/ThemeSwitcher/ThemeVariantSwitcher.vue')['default']
+    ThemeLayoutSwitcher: typeof import('./src/domains/app/components/ThemeSwitcher/ThemeLayoutSwitcher.vue')['default']
+    ThemeSchemeSwitcher: typeof import('./src/domains/app/components/ThemeSwitcher/ThemeSchemeSwitcher.vue')['default']
+    ThemeVariantSwitcher: typeof import('./src/domains/app/components/ThemeSwitcher/ThemeVariantSwitcher.vue')['default']
   }
 }

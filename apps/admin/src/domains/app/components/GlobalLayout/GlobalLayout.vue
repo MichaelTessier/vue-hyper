@@ -1,22 +1,33 @@
 <script setup lang="ts">
-  const theme = useTheme()
+  const { settings, isModernLayout, isCompactLayout } = useTheme()
 </script>
 
 <template>
   <div
     class="global-layout min-h-screen grid grid-cols-4"
-    :class="[`layout-${theme.settings.layout}`]"
+    :class="[`layout-${settings.layout}`]"
   >
-    <header class="global-layout-header bg-primary">
+    <div class="global-layout-header">
       <slot name="header"></slot>
-    </header>
+    </div>
 
-    <aside class="global-layout-aside bg-secondary">
+    <div
+      class="global-layout-aside"
+      :class="{
+        'm-5': isModernLayout,
+      }"
+    >
       <slot name="aside"></slot>
-    </aside>
+    </div>
 
-    <section class="global-layout-content bg-info">
-      <slot name="content"></slot>
+    <section class="global-layout-content flex items-center justify-center">
+      <div
+        :class="{
+          container: isCompactLayout,
+        }"
+      >
+        <slot name="content"></slot>
+      </div>
     </section>
   </div>
 </template>

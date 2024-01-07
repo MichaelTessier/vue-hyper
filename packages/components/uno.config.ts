@@ -1,13 +1,10 @@
 import { type Preset, defineConfig, presetUno, presetIcons } from 'unocss'
 import presetRemToPx from '@unocss/preset-rem-to-px'
 import { safelist } from './src/config/unocss/safelist'
-import { UNO_COLORS, UNO_RADIUSES } from './src/config/unocss/unocss.const'
+import { theme } from './src/config/unocss/theme'
 
 export default defineConfig({
-  theme: {
-    colors: UNO_COLORS,
-    borderRadius: UNO_RADIUSES,
-  },
+  theme,
 
   rules: [
     [

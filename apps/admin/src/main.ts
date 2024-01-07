@@ -12,8 +12,9 @@ import { urqlClient } from './graphql/urqlClient'
 const app = createApp(App)
 const pinia = createPinia()
 app.use(pinia)
+const context = useContextStore()
 app.use(router)
-app.use(i18n)
+app.use(i18n(context))
 app.use(urql, urqlClient)
 
 const theme = useTheme()

@@ -11,7 +11,13 @@ import { HstVue } from '@histoire/plugin-vue'
 
 export default defineConfig({
   plugins: [
-    vue(),
+    vue({
+      template: {
+        compilerOptions: {
+          isCustomElement: (tag) => ['RouterLink'].includes(tag),
+        },
+      },
+    }),
     UnoCSS(),
     dts({
       entryRoot: './src',
@@ -34,7 +40,7 @@ export default defineConfig({
       fileName: 'index',
     },
     rollupOptions: {
-      external: ['vue'],
+      external: ['vue', 'vue-router'],
       output: {
         globals: {
           vue: 'Vue',

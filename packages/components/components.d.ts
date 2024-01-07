@@ -14,6 +14,8 @@ declare module 'vue' {
     'HypIcon.story': typeof import('./src/lib/base/HypIcon/HypIcon.story.vue')['default']
     HypInput: typeof import('./src/lib/form/HypInput/HypInput.vue')['default']
     'HypInput.story': typeof import('./src/lib/form/HypInput/HypInput.story.vue')['default']
+    HypLink: typeof import('./src/lib/base/HypLink/HypLink.vue')['default']
+    'HypLink.story': typeof import('./src/lib/base/HypLink/HypLink.story.vue')['default']
     HypTypo: typeof import('./src/lib/base/HypTypo/HypTypo.vue')['default']
     'HypTypo.story': typeof import('./src/lib/base/HypTypo/HypTypo.story.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']

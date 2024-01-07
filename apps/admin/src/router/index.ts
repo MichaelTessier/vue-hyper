@@ -1,6 +1,6 @@
 import { RouterView, createRouter, createWebHistory } from 'vue-router'
 import Home from '@/pages/Home/Home.vue'
-import type { Locale } from 'vue-i18n'
+// import type { Locale } from 'vue-i18n'
 
 export const ROUTES = {
   CONTACT: 'contact',
@@ -50,12 +50,15 @@ const router = createRouter({
 
 router.beforeEach((to, _from, next) => {
   const contextStore = useContextStore()
-  if (
-    !(i18n.global.availableLocales as Locale[]).includes(
-      to.params.locale as Locale
-    )
-  ) {
+
+  if (!AVAILABLE_LOCALES.includes(to.params.locale as string)) {
     next(contextStore.locale)
+    return
+  }
+
+  if (to.params.locale !== contextStore.locale) {
+    contextStore.setLocale(to.params.locale as string)
+    window.location.reload()
     return
   }
 

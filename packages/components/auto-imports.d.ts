@@ -19,6 +19,10 @@ declare global {
   const ICON_SIZES: typeof import('./src/lib/base/HypIcon/HypIcon.model')['ICON_SIZES']
   const INPUT_TYPE: typeof import('./src/lib/form/HypInput/HypInput.model')['INPUT_TYPE']
   const INPUT_TYPES: typeof import('./src/lib/form/HypInput/HypInput.model')['INPUT_TYPES']
+  const LINK_COLOR: typeof import('./src/lib/base/HypLink/HypLink.model')['LINK_COLOR']
+  const LINK_COLORS: typeof import('./src/lib/base/HypLink/HypLink.model')['LINK_COLORS']
+  const TYPO_COLOR: typeof import('./src/lib/base/HypTypo/HypTypo.model')['TYPO_COLOR']
+  const TYPO_COLORS: typeof import('./src/lib/base/HypTypo/HypTypo.model')['TYPO_COLORS']
   const TYPO_TAG_DEFAULT: typeof import('./src/lib/base/HypTypo/HypTypo.model')['TYPO_TAG_DEFAULT']
   const TYPO_TYPE: typeof import('./src/lib/base/HypTypo/HypTypo.model')['TYPO_TYPE']
   const TYPO_TYPES: typeof import('./src/lib/base/HypTypo/HypTypo.model')['TYPO_TYPES']
@@ -63,10 +67,10 @@ declare global {
   const ref: typeof import('vue')['ref']
   const resolveComponent: typeof import('vue')['resolveComponent']
   const safelist: typeof import('./src/config/unocss/safelist')['safelist']
-  const safelistIcons: (typeof import('./src/config/unocss/safelist'))['safelistIcons']
   const shallowReactive: typeof import('vue')['shallowReactive']
   const shallowReadonly: typeof import('vue')['shallowReadonly']
   const shallowRef: typeof import('vue')['shallowRef']
+  const theme: typeof import('./src/config/unocss/theme')['theme']
   const toRaw: typeof import('vue')['toRaw']
   const toRef: typeof import('vue')['toRef']
   const toRefs: typeof import('vue')['toRefs']
@@ -109,6 +113,10 @@ declare module 'vue' {
     readonly ICON_SIZES: UnwrapRef<typeof import('./src/lib/base/HypIcon/HypIcon.model')['ICON_SIZES']>
     readonly INPUT_TYPE: UnwrapRef<typeof import('./src/lib/form/HypInput/HypInput.model')['INPUT_TYPE']>
     readonly INPUT_TYPES: UnwrapRef<typeof import('./src/lib/form/HypInput/HypInput.model')['INPUT_TYPES']>
+    readonly LINK_COLOR: UnwrapRef<typeof import('./src/lib/base/HypLink/HypLink.model')['LINK_COLOR']>
+    readonly LINK_COLORS: UnwrapRef<typeof import('./src/lib/base/HypLink/HypLink.model')['LINK_COLORS']>
+    readonly TYPO_COLOR: UnwrapRef<typeof import('./src/lib/base/HypTypo/HypTypo.model')['TYPO_COLOR']>
+    readonly TYPO_COLORS: UnwrapRef<typeof import('./src/lib/base/HypTypo/HypTypo.model')['TYPO_COLORS']>
     readonly TYPO_TAG_DEFAULT: UnwrapRef<typeof import('./src/lib/base/HypTypo/HypTypo.model')['TYPO_TAG_DEFAULT']>
     readonly TYPO_TYPE: UnwrapRef<typeof import('./src/lib/base/HypTypo/HypTypo.model')['TYPO_TYPE']>
     readonly TYPO_TYPES: UnwrapRef<typeof import('./src/lib/base/HypTypo/HypTypo.model')['TYPO_TYPES']>
@@ -156,6 +164,7 @@ declare module 'vue' {
     readonly shallowReactive: UnwrapRef<typeof import('vue')['shallowReactive']>
     readonly shallowReadonly: UnwrapRef<typeof import('vue')['shallowReadonly']>
     readonly shallowRef: UnwrapRef<typeof import('vue')['shallowRef']>
+    readonly theme: UnwrapRef<typeof import('./src/config/unocss/theme')['theme']>
     readonly toRaw: UnwrapRef<typeof import('vue')['toRaw']>
     readonly toRef: UnwrapRef<typeof import('vue')['toRef']>
     readonly toRefs: UnwrapRef<typeof import('vue')['toRefs']>
@@ -192,6 +201,10 @@ declare module '@vue/runtime-core' {
     readonly ICON_SIZES: UnwrapRef<typeof import('./src/lib/base/HypIcon/HypIcon.model')['ICON_SIZES']>
     readonly INPUT_TYPE: UnwrapRef<typeof import('./src/lib/form/HypInput/HypInput.model')['INPUT_TYPE']>
     readonly INPUT_TYPES: UnwrapRef<typeof import('./src/lib/form/HypInput/HypInput.model')['INPUT_TYPES']>
+    readonly LINK_COLOR: UnwrapRef<typeof import('./src/lib/base/HypLink/HypLink.model')['LINK_COLOR']>
+    readonly LINK_COLORS: UnwrapRef<typeof import('./src/lib/base/HypLink/HypLink.model')['LINK_COLORS']>
+    readonly TYPO_COLOR: UnwrapRef<typeof import('./src/lib/base/HypTypo/HypTypo.model')['TYPO_COLOR']>
+    readonly TYPO_COLORS: UnwrapRef<typeof import('./src/lib/base/HypTypo/HypTypo.model')['TYPO_COLORS']>
     readonly TYPO_TAG_DEFAULT: UnwrapRef<typeof import('./src/lib/base/HypTypo/HypTypo.model')['TYPO_TAG_DEFAULT']>
     readonly TYPO_TYPE: UnwrapRef<typeof import('./src/lib/base/HypTypo/HypTypo.model')['TYPO_TYPE']>
     readonly TYPO_TYPES: UnwrapRef<typeof import('./src/lib/base/HypTypo/HypTypo.model')['TYPO_TYPES']>
@@ -239,6 +252,7 @@ declare module '@vue/runtime-core' {
     readonly shallowReactive: UnwrapRef<typeof import('vue')['shallowReactive']>
     readonly shallowReadonly: UnwrapRef<typeof import('vue')['shallowReadonly']>
     readonly shallowRef: UnwrapRef<typeof import('vue')['shallowRef']>
+    readonly theme: UnwrapRef<typeof import('./src/config/unocss/theme')['theme']>
     readonly toRaw: UnwrapRef<typeof import('vue')['toRaw']>
     readonly toRef: UnwrapRef<typeof import('vue')['toRef']>
     readonly toRefs: UnwrapRef<typeof import('vue')['toRefs']>
