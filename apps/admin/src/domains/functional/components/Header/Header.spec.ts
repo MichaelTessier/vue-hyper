@@ -1,13 +1,13 @@
 import { mount } from '@vue/test-utils'
 import Header from './Header.vue'
-import Logo from '@/domains/app/components/Logo/Logo.vue'
+import Logo from '@/domains/functional/components/Logo/Logo.vue'
 
 const useThemeMock = {
   isCompactLayout: false,
   isModernLayout: false,
 }
 
-vi.mock('@/domains/app/composables/useTheme/useTheme.ts', () => ({
+vi.mock('@/domains/functional/composables/useTheme/useTheme.ts', () => ({
   useTheme: () => useThemeMock,
 }))
 

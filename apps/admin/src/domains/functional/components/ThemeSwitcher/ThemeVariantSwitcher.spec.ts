@@ -6,7 +6,7 @@ const useThemeMock = {
   availableVariantTheme: ['blue', 'green', 'purple'],
 }
 
-vi.mock('@/domains/app/composables/useTheme/useTheme.ts', () => ({
+vi.mock('@/domains/functional/composables/useTheme/useTheme.ts', () => ({
   useTheme: () => useThemeMock,
 }))
 

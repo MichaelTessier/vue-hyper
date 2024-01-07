@@ -7,18 +7,18 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
-    Aside: typeof import('./src/domains/app/components/Aside/Aside.vue')['default']
-    GlobalLayout: typeof import('./src/domains/app/components/GlobalLayout/GlobalLayout.vue')['default']
-    Header: typeof import('./src/domains/app/components/Header/Header.vue')['default']
+    Aside: typeof import('./src/domains/functional/components/Aside/Aside.vue')['default']
+    GlobalLayout: typeof import('./src/domains/functional/components/GlobalLayout/GlobalLayout.vue')['default']
+    Header: typeof import('./src/domains/functional/components/Header/Header.vue')['default']
     HypButton: typeof import('vue-hyper-components')['HypButton']
     HypLink: typeof import('vue-hyper-components')['HypLink']
     HypTypo: typeof import('vue-hyper-components')['HypTypo']
-    LocaleSwitcher: typeof import('./src/domains/app/components/LocaleSwitcher/LocaleSwitcher.vue')['default']
-    Logo: typeof import('./src/domains/app/components/Logo/Logo.vue')['default']
+    LocaleSwitcher: typeof import('./src/domains/functional/components/LocaleSwitcher/LocaleSwitcher.vue')['default']
+    Logo: typeof import('./src/domains/functional/components/Logo/Logo.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
-    ThemeLayoutSwitcher: typeof import('./src/domains/app/components/ThemeSwitcher/ThemeLayoutSwitcher.vue')['default']
-    ThemeSchemeSwitcher: typeof import('./src/domains/app/components/ThemeSwitcher/ThemeSchemeSwitcher.vue')['default']
-    ThemeVariantSwitcher: typeof import('./src/domains/app/components/ThemeSwitcher/ThemeVariantSwitcher.vue')['default']
+    ThemeLayoutSwitcher: typeof import('./src/domains/functional/components/ThemeSwitcher/ThemeLayoutSwitcher.vue')['default']
+    ThemeSchemeSwitcher: typeof import('./src/domains/functional/components/ThemeSwitcher/ThemeSchemeSwitcher.vue')['default']
+    ThemeVariantSwitcher: typeof import('./src/domains/functional/components/ThemeSwitcher/ThemeVariantSwitcher.vue')['default']
   }
 }

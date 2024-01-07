@@ -1,8 +1,8 @@
 import { mount } from '@vue/test-utils'
 import App from './App.vue'
-import GlobalLayout from './domains/app/components/GlobalLayout/GlobalLayout.vue'
-import Header from './domains/app/components/Header/Header.vue'
-import Aside from './domains/app/components/Aside/Aside.vue'
+import GlobalLayout from './domains/functional/components/GlobalLayout/GlobalLayout.vue'
+import Header from './domains/functional/components/Header/Header.vue'
+import Aside from './domains/functional/components/Aside/Aside.vue'
 import { RouterView } from 'vue-router'
 
 describe('App', () => {

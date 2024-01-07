@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils'
 import Aside from './Aside.vue'
-import Logo from '@/domains/app/components/Logo/Logo.vue'
+import Logo from '@/domains/functional/components/Logo/Logo.vue'
 import { HypLink } from 'vue-hyper-components'
 
 const useThemeMock = {
@@ -8,7 +8,7 @@ const useThemeMock = {
   isClassicLayout: false,
 }
 
-vi.mock('@/domains/app/composables/useTheme/useTheme.ts', () => ({
+vi.mock('@/domains/functional/composables/useTheme/useTheme.ts', () => ({
   useTheme: () => useThemeMock,
 }))
 
