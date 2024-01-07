@@ -85,6 +85,16 @@ export const useTheme = () => {
     localStorage.setItem(LAYOUT_THEME_STORAGE_KEY, layoutTheme)
   }
 
+  const isClassicLayout = computed(
+    () => layoutTheme.value === LayoutTheme.classic
+  )
+  const isCompactLayout = computed(
+    () => layoutTheme.value === LayoutTheme.compact
+  )
+  const isModernLayout = computed(
+    () => layoutTheme.value === LayoutTheme.modern
+  )
+
   return {
     init,
     colorScheme,
@@ -96,6 +106,9 @@ export const useTheme = () => {
     layoutTheme,
     availableLayoutTheme: Object.values(LayoutTheme),
     setLayoutTheme,
+    isClassicLayout: isClassicLayout,
+    isCompactLayout: isCompactLayout,
+    isModernLayout: isModernLayout,
     settings,
   }
 }

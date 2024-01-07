@@ -1,33 +1,23 @@
 import { mount } from '@vue/test-utils'
-import { createRouter, createMemoryHistory } from 'vue-router'
-import { routes } from './router'
 import App from './App.vue'
-
-const router = createRouter({
-  history: createMemoryHistory(),
-  routes,
-})
+import GlobalLayout from './domains/app/components/GlobalLayout/GlobalLayout.vue'
+import Header from './domains/app/components/Header/Header.vue'
+import Aside from './domains/app/components/Aside/Aside.vue'
+import { RouterView } from 'vue-router'
 
 describe('App', () => {
   describe('routing', () => {
-    it('should works fine', async () => {
-      router.push('/')
-
-      await router.isReady()
-
+    it('should display correctly', async () => {
       const wrapper = mount(App, {
         global: {
-          plugins: [router],
+          stubs: ['Header', 'Aside', 'RouterView'],
         },
       })
 
-      await wrapper
-        .find('[data-test="app__router-link-contact"]')
-        .trigger('click')
-
-      await vi.dynamicImportSettled()
-
-      expect(wrapper.find('[data-test="contact"]').exists()).toBe(true)
+      await expect(wrapper.findComponent(GlobalLayout).exists()).toBe(true)
+      await expect(wrapper.findComponent(Header).exists()).toBe(true)
+      await expect(wrapper.findComponent(Aside).exists()).toBe(true)
+      await expect(wrapper.findComponent(RouterView).exists()).toBe(true)
     })
   })
 })

@@ -9,7 +9,9 @@ declare module 'vue' {
   export interface GlobalComponents {
     Aside: typeof import('./src/domains/app/components/Aside/Aside.vue')['default']
     GlobalLayout: typeof import('./src/domains/app/components/GlobalLayout/GlobalLayout.vue')['default']
+    Header: typeof import('./src/domains/app/components/Header/Header.vue')['default']
     HypButton: typeof import('vue-hyper-components')['HypButton']
+    HypLink: typeof import('vue-hyper-components')['HypLink']
     HypTypo: typeof import('vue-hyper-components')['HypTypo']
     LocaleSwitcher: typeof import('./src/domains/app/components/LocaleSwitcher/LocaleSwitcher.vue')['default']
     Logo: typeof import('./src/domains/app/components/Logo/Logo.vue')['default']

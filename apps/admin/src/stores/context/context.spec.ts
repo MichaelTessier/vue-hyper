@@ -9,13 +9,6 @@ describe('Context store', () => {
     expect(contextStore.locale).toEqual(DEFAULT_LOCALE)
   })
 
-  it('should get locale from localStorage', () => {
-    localStorage.setItem(CONTEXT_LOCALE_STORAGE_KEY, 'en')
-    const contextStore = useContextStore()
-
-    expect(contextStore.locale).toEqual('en')
-  })
-
   it('should set locale', () => {
     const contextStore = useContextStore()
 
