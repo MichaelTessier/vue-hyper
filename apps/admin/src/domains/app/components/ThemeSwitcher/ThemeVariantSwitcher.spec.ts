@@ -1,27 +1,24 @@
 import { mount } from '@vue/test-utils'
 import ThemeVariantSwitcher from './ThemeVariantSwitcher.vue'
-import type { Mock } from 'vitest'
 
-vi.mock('@/domains/theme/composables/useTheme/useTheme.ts', () => ({
-  useTheme: vi.fn(),
+const useThemeMock = {
+  setVariantTheme: vi.fn(),
+  availableVariantTheme: ['blue', 'green', 'purple'],
+}
+
+vi.mock('@/domains/app/composables/useTheme/useTheme.ts', () => ({
+  useTheme: () => useThemeMock,
 }))
 
 describe('ThemeVariantSwitcher', () => {
-  beforeEach(() => {
-    ;(useTheme as Mock).mockReturnValue({
-      setVariantTheme: vi.fn(),
-      availableVariantTheme: ['blue', 'green', 'purple'],
-    })
-  })
-
   afterEach(() => {
-    ;(useTheme as Mock).mockReset()
+    useThemeMock.setVariantTheme.mockReset()
   })
 
   it('should update variant theme', async () => {
     const wrapper = mount(ThemeVariantSwitcher)
 
     await wrapper.find('[data-test="variant-theme"]').setValue('green')
-    expect(useTheme().setVariantTheme).toHaveBeenCalledWith('green')
+    expect(useThemeMock.setVariantTheme).toHaveBeenCalledWith('green')
   })
 })
