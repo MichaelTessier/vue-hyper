@@ -1,13 +1,8 @@
-import { RouterView, createRouter, createWebHistory } from 'vue-router'
-import Home from '@/pages/Home/Home.vue'
-import { authRoutes } from '@/domains/auth/routes'
+import { createRouter, createWebHistory } from 'vue-router'
 
 export const ROUTES = {
-  CONTACT: 'contact',
-  HOME: 'home',
   LOCALE: 'locale',
   ROOT: 'root',
-  SUPABASE_TEST: 'supabase-test',
 }
 
 export const routes = [
@@ -16,31 +11,17 @@ export const routes = [
     name: ROUTES.ROOT,
     redirect: () => {
       const contextStore = useContextStore()
-      return { name: 'home', params: { locale: contextStore.locale } }
+      return { name: 'admin', params: { locale: contextStore.locale } }
     },
   },
   {
     path: '/:locale',
     name: ROUTES.LOCALE,
-    component: RouterView,
-    children: [
-      {
-        path: '',
-        name: ROUTES.HOME,
-        component: Home,
-      },
-      {
-        path: 'contact',
-        name: ROUTES.CONTACT,
-        component: () => import('@/pages/Contact/Contact.vue'),
-      },
-      {
-        path: 'supabase-test',
-        name: ROUTES.SUPABASE_TEST,
-        component: () => import('@/pages/SupabaseTest/SupabaseTest.vue'),
-      },
-      authRoutes,
-    ],
+    redirect: () => {
+      const contextStore = useContextStore()
+      return { name: 'admin', params: { locale: contextStore.locale } }
+    },
+    children: [authRoutes, adminRoutes],
   },
 ]
 

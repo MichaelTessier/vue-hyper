@@ -4,15 +4,15 @@
 
 <template>
   <div
-    class="global-layout min-h-screen grid grid-cols-4"
+    class="admin-layout min-h-screen grid grid-cols-4"
     :class="[`layout-${settings.layout}`]"
   >
-    <div class="global-layout-header">
+    <div class="admin-layout-header">
       <slot name="header"></slot>
     </div>
 
     <div
-      class="global-layout-aside"
+      class="admin-layout-aside"
       :class="{
         'm-5': isModernLayout,
       }"
@@ -20,7 +20,7 @@
       <slot name="aside"></slot>
     </div>
 
-    <section class="global-layout-content flex items-center justify-center">
+    <section class="admin-layout-content flex items-center justify-center">
       <div
         :class="{
           container: isCompactLayout,
@@ -33,8 +33,8 @@
 </template>
 
 <style>
-  .global-layout,
-  .global-layout.layout-classic {
+  .admin-layout,
+  .admin-layout.layout-classic {
     grid:
       'aside header header' auto
       'aside content content' 1fr
@@ -42,7 +42,7 @@
       / auto 1fr auto;
   }
 
-  .global-layout.layout-compact {
+  .admin-layout.layout-compact {
     grid:
       'header header header' auto
       'aside aside aside' auto
@@ -50,7 +50,7 @@
       / auto 1fr auto;
   }
 
-  .global-layout.layout-modern {
+  .admin-layout.layout-modern {
     grid:
       'header header header' auto
       'aside content content' auto
@@ -58,15 +58,15 @@
       / auto 1fr auto;
   }
 
-  .global-layout-header {
+  .admin-layout-header {
     grid-area: header;
   }
 
-  .global-layout-aside {
+  .admin-layout-aside {
     grid-area: aside;
   }
 
-  .global-layout-content {
+  .admin-layout-content {
     grid-area: content;
   }
 </style>

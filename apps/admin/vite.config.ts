@@ -18,7 +18,7 @@ export default defineConfig({
       vueTemplate: true,
     }),
     Components({
-      dirs: ['src/components/*', 'src/**/components/*'],
+      dirs: ['src/components/*', 'src/**/components/*', 'src/**/layouts/*'],
       resolvers: [HyperResolver()],
     }),
   ],

@@ -4,23 +4,15 @@
 
   const navigationItems = computed(() => [
     {
-      label: t('navigation.home'),
-      routeName: ROUTES.HOME,
-    },
-    {
-      label: t('navigation.contact'),
-      routeName: ROUTES.CONTACT,
-    },
-    {
-      label: t('navigation.test'),
-      routeName: ROUTES.SUPABASE_TEST,
+      label: t('admin.navigation.dashboard'),
+      routeName: ADMIN_ROUTES.DASHBOARD,
     },
   ])
 </script>
 
 <template>
   <aside
-    data-test="aside"
+    data-test="admin-aside"
     class="h-full"
     :class="{
       'p-8 bg-dark min-w-[240px]': isClassicLayout,
@@ -29,7 +21,7 @@
     }"
   >
     <div
-      data-test="aside__container"
+      data-test="admin-aside__container"
       :class="{
         container: isCompactLayout,
       }"
@@ -41,7 +33,7 @@
         <Logo />
       </div>
       <ul
-        data-test="aside__navigation"
+        data-test="admin-aside__navigation"
         :class="{
           'flex gap-4': isCompactLayout,
         }"

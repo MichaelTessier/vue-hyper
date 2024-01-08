@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils'
-import Header from './Header.vue'
+import AdminHeader from './AdminHeader.vue'
 import Logo from '@/domains/functional/components/Logo/Logo.vue'
 
 const useThemeMock = {
@@ -11,24 +11,24 @@ vi.mock('@/domains/functional/composables/useTheme/useTheme.ts', () => ({
   useTheme: () => useThemeMock,
 }))
 
-describe('Header', () => {
+describe('AdminHeader', () => {
   it('should not display logo', async () => {
-    const wrapper = mount(Header)
+    const wrapper = mount(AdminHeader)
 
-    await expect(wrapper.findComponent(Logo).exists()).toBe(false)
+    expect(wrapper.findComponent(Logo).exists()).toBe(false)
   })
 
   it('should display Logo if is compact layout theme', async () => {
     useThemeMock.isCompactLayout = true
-    const wrapper = mount(Header)
+    const wrapper = mount(AdminHeader)
 
-    await expect(wrapper.findComponent(Logo).exists()).toBe(true)
+    expect(wrapper.findComponent(Logo).exists()).toBe(true)
   })
 
   it('should display Logo if is modern layout theme', async () => {
     useThemeMock.isModernLayout = true
-    const wrapper = mount(Header)
+    const wrapper = mount(AdminHeader)
 
-    await expect(wrapper.findComponent(Logo).exists()).toBe(true)
+    expect(wrapper.findComponent(Logo).exists()).toBe(true)
   })
 })
