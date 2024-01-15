@@ -13,6 +13,7 @@ dist-histoire
 dist-ssr
 *.local
 *.local.*
+.env
 
 # Editor directories and files
 .idea
