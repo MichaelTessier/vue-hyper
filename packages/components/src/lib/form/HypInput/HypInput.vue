@@ -39,6 +39,10 @@
       type: Boolean,
       default: false,
     },
+    dark: {
+      type: Boolean,
+      default: false,
+    },
   })
 
   const emit = defineEmits<{
@@ -72,7 +76,10 @@
 </script>
 
 <template>
-  <label :for="idProxy">
+  <label
+    :for="idProxy"
+    class="block"
+  >
     <HypTypo
       v-if="label"
       data-test="hyp-input__label"
@@ -82,10 +89,18 @@
     </HypTypo>
     <div class="group">
       <div
-        class="flex items-stretch justify-between border-1 rounded-small text-dark group-focus-within:outline-1 group-focus-within:outline group-focus-within:outline-gray-200"
+        class="flex items-stretch justify-between border-1 rounded-small group-focus-within:outline-1 group-focus-within:outline group-focus-within:outline-gray-200"
+        :class="{
+          'border-gray-200 text-dark ': !dark,
+          'border-gray-700 text-white ': dark,
+        }"
       >
         <input
           class="px-5 py-3 w-full outline-none"
+          :class="{
+            'bg-white': !dark,
+            'bg-dark': dark,
+          }"
           :type="typeProxy"
           :id="idProxy"
           :placeholder="placeholder"
@@ -96,7 +111,11 @@
         <div
           v-if="showPassword && type === INPUT_TYPE.PASSWORD"
           data-test="hyp-input__show-password"
-          class="flex items-center px-3 bg-gray-100"
+          class="flex items-center px-3"
+          :class="{
+            'bg-gray-100': !dark,
+            'bg-gray-800': dark,
+          }"
           @click="togglePasswordVisibility"
           @keydown.enter="togglePasswordVisibility"
           role="button"
