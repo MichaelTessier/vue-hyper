@@ -9,7 +9,7 @@
   --hyp-color-info: #d34ad0;
   --hyp-color-success: #009b58;
   --hyp-color-warning: #e0a000;
-  --hyp-color-danger: #ee1500;
+  --hyp-color-error: #ee1500;
 }
 
 html {
