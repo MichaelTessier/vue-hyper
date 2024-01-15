@@ -18,10 +18,13 @@ describe('HypLink', () => {
     expect(wrapper.text()).toContain(label)
     expect(wrapper.props('to')).toContain(to)
     expect(wrapper.attributes('class')).toContain(
-      'hyp-text-medium hover:underline underline-offset-4 cursor-pointer hover:opacity-80 transition-all'
+      'hover:underline underline-offset-4 cursor-pointer hover:opacity-80 transition-all text-dark hyp-text-medium'
     )
 
     await wrapper.setProps({ color: 'light' })
     expect(wrapper.attributes('class')).toContain('text-light')
+
+    await wrapper.setProps({ size: 'small' })
+    expect(wrapper.attributes('class')).toContain('hyp-text-small')
   })
 })
