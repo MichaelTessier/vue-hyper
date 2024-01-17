@@ -5,7 +5,7 @@ describe('router', () => {
     expect(routeNames).toStrictEqual([
       'root',
       'login',
-      'logout',
+      'password-forgotten',
       'register',
       'verify-email',
       'dashboard',

@@ -2,7 +2,7 @@ import { config } from '@vue/test-utils'
 import { i18n } from './src/i18n'
 import { createRouter, createMemoryHistory } from 'vue-router'
 import { routes } from './src/router'
-import { beforeEach } from 'vitest'
+import { afterEach, beforeEach, vi } from 'vitest'
 import { createPinia, setActivePinia } from 'pinia'
 import { useContextStore } from './src/stores/context/context'
 
@@ -21,4 +21,8 @@ beforeEach(async () => {
 
   router.push('/')
   await router.isReady()
+})
+
+afterEach(() => {
+  vi.resetAllMocks()
 })

@@ -1,0 +1,37 @@
+{
+  "auth": {
+    "common": {
+      "email": {
+        "placeholder": "Enter your email"
+      },
+      "password": {
+        "placeholder": "Enter your password"
+      }
+    },
+    "error": {
+      "already-exists": "User already exists",
+      "email": {
+        "email": "Email is not valid",
+        "required": "Email is required"
+      },
+      "invalid-credentials": "Invalid credentials",
+      "not-found": "User not found",
+      "password": {
+        "required": "Password is required"
+      },
+      "server-error": "Server error",
+      "unknown": "Unknown error"
+    },
+    "login": {
+      "forgottenPassword": "Forgot your password?",
+      "register": "Register",
+      "submit": "Login",
+      "title": "Login"
+    },
+    "register": {
+      "login": "Do you have an account? Log in",
+      "submit": "Sign in",
+      "title": "Register"
+    }
+  }
+}

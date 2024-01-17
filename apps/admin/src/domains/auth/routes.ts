@@ -1,7 +1,7 @@
 export const AUTH_ROUTES = {
   AUTH: 'auth',
   LOGIN: 'login',
-  LOGOUT: 'logout',
+  PASSWORD_FORGOTTEN: 'password-forgotten',
   REGISTER: 'register',
   VERIFY_EMAIL: 'verify-email',
 }
@@ -10,6 +10,7 @@ export const authRoutes = {
   path: 'auth',
   name: AUTH_ROUTES.AUTH,
   redirect: { name: AUTH_ROUTES.LOGIN },
+  component: () => import('@/domains/auth/pages/Auth/Auth.vue'),
   children: [
     {
       path: 'login',
@@ -18,8 +19,9 @@ export const authRoutes = {
     },
     {
       path: 'logout',
-      name: AUTH_ROUTES.LOGOUT,
-      component: () => import('@/domains/auth/pages/Logout/Logout.vue'),
+      name: AUTH_ROUTES.PASSWORD_FORGOTTEN,
+      component: () =>
+        import('@/domains/auth/pages/PasswordForgotten/PasswordForgotten.vue'),
     },
     {
       path: 'register',

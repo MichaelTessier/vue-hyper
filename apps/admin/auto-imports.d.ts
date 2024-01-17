@@ -14,7 +14,7 @@ declare global {
   const DEFAULT_LOCALE: typeof import('./src/i18n/index')['DEFAULT_LOCALE']
   const EffectScope: typeof import('vue')['EffectScope']
   const FilterIs: typeof import('./src/graphql/__generated__/graphql')['FilterIs']
-  const GetCountriesDocument: typeof import('./src/graphql/__generated__/graphql')['GetCountriesDocument']
+  const GetCountriesDocument: typeof import('./src/pages/SupabaseTest/Country.generated')['GetCountriesDocument']
   const LAYOUT_THEME_STORAGE_KEY: typeof import('./src/domains/functional/composables/useTheme/useTheme')['LAYOUT_THEME_STORAGE_KEY']
   const LayoutTheme: typeof import('./src/domains/functional/composables/useTheme/useTheme')['LayoutTheme']
   const Logo: (typeof import('./src/domains/functional/components/Logo/Logo.vue'))['default']
@@ -25,6 +25,7 @@ declare global {
   const acceptHMRUpdate: typeof import('pinia')['acceptHMRUpdate']
   const adminRoutes: typeof import('./src/domains/admin/routes')['adminRoutes']
   const authRoutes: typeof import('./src/domains/auth/routes')['authRoutes']
+  const authStore: typeof import('./src/domains/auth/stores/auth')['authStore']
   const computed: typeof import('vue')['computed']
   const createApp: typeof import('vue')['createApp']
   const createPinia: typeof import('pinia')['createPinia']
@@ -89,6 +90,8 @@ declare global {
   const unref: typeof import('vue')['unref']
   const urqlClient: typeof import('./src/graphql/urqlClient')['urqlClient']
   const useAttrs: typeof import('vue')['useAttrs']
+  const useAuthError: typeof import('./src/domains/auth/composables/useAuthError')['useAuthError']
+  const useAuthStore: typeof import('./src/domains/auth/stores/auth')['useAuthStore']
   const useContextStore: typeof import('./src/stores/context/context')['useContextStore']
   const useCounterStore: typeof import('./src/stores/counter/counter')['useCounterStore']
   const useCssModule: typeof import('vue')['useCssModule']
@@ -96,16 +99,20 @@ declare global {
   const useFragment: typeof import('./src/graphql/__generated__/fragment-masking')['useFragment']
   const useGetCountriesQuery: typeof import('./src/pages/SupabaseTest/Country.generated')['useGetCountriesQuery']
   const useI18n: typeof import('vue-i18n')['useI18n']
+  const useI18nMock: typeof import('./src/test/mocks/vue-i18n')['useI18nMock']
   const useLink: typeof import('vue-router')['useLink']
   const useRoute: typeof import('vue-router')['useRoute']
   const useRouter: typeof import('vue-router')['useRouter']
+  const useRouterMock: typeof import('./src/test/mocks/vue-router')['useRouterMock']
   const useSlots: typeof import('vue')['useSlots']
   const useSupabase: typeof import('./src/composables/useSupabase/useSupabase')['useSupabase']
+  const useSupabaseMock: typeof import('./src/test/mocks/composables/useSupabase')['useSupabaseMock']
   const useTheme: typeof import('./src/domains/functional/composables/useTheme/useTheme')['useTheme']
   const watch: typeof import('vue')['watch']
   const watchEffect: typeof import('vue')['watchEffect']
   const watchPostEffect: typeof import('vue')['watchPostEffect']
   const watchSyncEffect: typeof import('vue')['watchSyncEffect']
+  const withSetup: typeof import('./src/domains/auth/composables/useAuthError.spec')['withSetup']
 }
 // for type re-export
 declare global {
@@ -125,7 +132,7 @@ declare module 'vue' {
     readonly DEFAULT_LOCALE: UnwrapRef<typeof import('./src/i18n/index')['DEFAULT_LOCALE']>
     readonly EffectScope: UnwrapRef<typeof import('vue')['EffectScope']>
     readonly FilterIs: UnwrapRef<typeof import('./src/graphql/__generated__/graphql')['FilterIs']>
-    readonly GetCountriesDocument: UnwrapRef<typeof import('./src/graphql/__generated__/graphql')['GetCountriesDocument']>
+    readonly GetCountriesDocument: UnwrapRef<typeof import('./src/pages/SupabaseTest/Country.generated')['GetCountriesDocument']>
     readonly LAYOUT_THEME_STORAGE_KEY: UnwrapRef<typeof import('./src/domains/functional/composables/useTheme/useTheme')['LAYOUT_THEME_STORAGE_KEY']>
     readonly LayoutTheme: UnwrapRef<typeof import('./src/domains/functional/composables/useTheme/useTheme')['LayoutTheme']>
     readonly OrderByDirection: UnwrapRef<typeof import('./src/graphql/__generated__/graphql')['OrderByDirection']>
@@ -199,6 +206,8 @@ declare module 'vue' {
     readonly unref: UnwrapRef<typeof import('vue')['unref']>
     readonly urqlClient: UnwrapRef<typeof import('./src/graphql/urqlClient')['urqlClient']>
     readonly useAttrs: UnwrapRef<typeof import('vue')['useAttrs']>
+    readonly useAuthError: UnwrapRef<typeof import('./src/domains/auth/composables/useAuthError')['useAuthError']>
+    readonly useAuthStore: UnwrapRef<typeof import('./src/domains/auth/stores/auth')['useAuthStore']>
     readonly useContextStore: UnwrapRef<typeof import('./src/stores/context/context')['useContextStore']>
     readonly useCounterStore: UnwrapRef<typeof import('./src/stores/counter/counter')['useCounterStore']>
     readonly useCssModule: UnwrapRef<typeof import('vue')['useCssModule']>
@@ -206,9 +215,11 @@ declare module 'vue' {
     readonly useFragment: UnwrapRef<typeof import('./src/graphql/__generated__/fragment-masking')['useFragment']>
     readonly useGetCountriesQuery: UnwrapRef<typeof import('./src/pages/SupabaseTest/Country.generated')['useGetCountriesQuery']>
     readonly useI18n: UnwrapRef<typeof import('vue-i18n')['useI18n']>
+    readonly useI18nMock: UnwrapRef<typeof import('./src/test/mocks/vue-i18n')['useI18nMock']>
     readonly useLink: UnwrapRef<typeof import('vue-router')['useLink']>
     readonly useRoute: UnwrapRef<typeof import('vue-router')['useRoute']>
     readonly useRouter: UnwrapRef<typeof import('vue-router')['useRouter']>
+    readonly useRouterMock: UnwrapRef<typeof import('./src/test/mocks/vue-router')['useRouterMock']>
     readonly useSlots: UnwrapRef<typeof import('vue')['useSlots']>
     readonly useSupabase: UnwrapRef<typeof import('./src/composables/useSupabase/useSupabase')['useSupabase']>
     readonly useTheme: UnwrapRef<typeof import('./src/domains/functional/composables/useTheme/useTheme')['useTheme']>
@@ -229,7 +240,7 @@ declare module '@vue/runtime-core' {
     readonly DEFAULT_LOCALE: UnwrapRef<typeof import('./src/i18n/index')['DEFAULT_LOCALE']>
     readonly EffectScope: UnwrapRef<typeof import('vue')['EffectScope']>
     readonly FilterIs: UnwrapRef<typeof import('./src/graphql/__generated__/graphql')['FilterIs']>
-    readonly GetCountriesDocument: UnwrapRef<typeof import('./src/graphql/__generated__/graphql')['GetCountriesDocument']>
+    readonly GetCountriesDocument: UnwrapRef<typeof import('./src/pages/SupabaseTest/Country.generated')['GetCountriesDocument']>
     readonly LAYOUT_THEME_STORAGE_KEY: UnwrapRef<typeof import('./src/domains/functional/composables/useTheme/useTheme')['LAYOUT_THEME_STORAGE_KEY']>
     readonly LayoutTheme: UnwrapRef<typeof import('./src/domains/functional/composables/useTheme/useTheme')['LayoutTheme']>
     readonly OrderByDirection: UnwrapRef<typeof import('./src/graphql/__generated__/graphql')['OrderByDirection']>
@@ -303,6 +314,8 @@ declare module '@vue/runtime-core' {
     readonly unref: UnwrapRef<typeof import('vue')['unref']>
     readonly urqlClient: UnwrapRef<typeof import('./src/graphql/urqlClient')['urqlClient']>
     readonly useAttrs: UnwrapRef<typeof import('vue')['useAttrs']>
+    readonly useAuthError: UnwrapRef<typeof import('./src/domains/auth/composables/useAuthError')['useAuthError']>
+    readonly useAuthStore: UnwrapRef<typeof import('./src/domains/auth/stores/auth')['useAuthStore']>
     readonly useContextStore: UnwrapRef<typeof import('./src/stores/context/context')['useContextStore']>
     readonly useCounterStore: UnwrapRef<typeof import('./src/stores/counter/counter')['useCounterStore']>
     readonly useCssModule: UnwrapRef<typeof import('vue')['useCssModule']>
@@ -310,9 +323,11 @@ declare module '@vue/runtime-core' {
     readonly useFragment: UnwrapRef<typeof import('./src/graphql/__generated__/fragment-masking')['useFragment']>
     readonly useGetCountriesQuery: UnwrapRef<typeof import('./src/pages/SupabaseTest/Country.generated')['useGetCountriesQuery']>
     readonly useI18n: UnwrapRef<typeof import('vue-i18n')['useI18n']>
+    readonly useI18nMock: UnwrapRef<typeof import('./src/test/mocks/vue-i18n')['useI18nMock']>
     readonly useLink: UnwrapRef<typeof import('vue-router')['useLink']>
     readonly useRoute: UnwrapRef<typeof import('vue-router')['useRoute']>
     readonly useRouter: UnwrapRef<typeof import('vue-router')['useRouter']>
+    readonly useRouterMock: UnwrapRef<typeof import('./src/test/mocks/vue-router')['useRouterMock']>
     readonly useSlots: UnwrapRef<typeof import('vue')['useSlots']>
     readonly useSupabase: UnwrapRef<typeof import('./src/composables/useSupabase/useSupabase')['useSupabase']>
     readonly useTheme: UnwrapRef<typeof import('./src/domains/functional/composables/useTheme/useTheme')['useTheme']>

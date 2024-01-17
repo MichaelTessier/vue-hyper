@@ -1,5 +1,5 @@
 <script setup lang="ts"></script>
 
 <template>
-  <div>Logout</div>
+  <div>Password Forgotten</div>
 </template>

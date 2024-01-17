@@ -1,0 +1,37 @@
+{
+  "auth": {
+    "common": {
+      "email": {
+        "placeholder": "Entrez votre email"
+      },
+      "password": {
+        "placeholder": "Entrez votre mot de passe"
+      }
+    },
+    "error": {
+      "already-exists": "Cet email est déjà utilisé",
+      "not-found": "Cet email n'existe pas",
+      "email": {
+        "invalid": "L'email est invalide",
+        "required": "L'email est requis"
+      },
+      "invalid-credentials": "Email ou mot de passe invalide",
+      "password": {
+        "required": "Le mot de passe est requis"
+      },
+      "server-error": "Une erreur est survenue, veuillez réessayer plus tard",
+      "unknown": "Une erreur est survenue"
+    },
+    "login": {
+      "forgottenPassword": "Mot de passe oublié ?",
+      "register": "S'inscrire",
+      "submit": "Se connecter",
+      "title": "Connexion"
+    },
+    "register": {
+      "login": "Vous avez un compte ? Connectez-vous !",
+      "submit": "S'enregistrer",
+      "title": "Inscription"
+    }
+  }
+}
