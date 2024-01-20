@@ -7,6 +7,7 @@ describe('router', () => {
       'login',
       'password-forgotten',
       'register',
+      'register-confirmed',
       'verify-email',
       'dashboard',
       'auth',

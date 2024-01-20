@@ -98,6 +98,7 @@ declare global {
   const useCssVars: typeof import('vue')['useCssVars']
   const useFragment: typeof import('./src/graphql/__generated__/fragment-masking')['useFragment']
   const useGetCountriesQuery: typeof import('./src/pages/SupabaseTest/Country.generated')['useGetCountriesQuery']
+  const useHost: typeof import('./src/domains/functional/composables/useHost/useHost')['useHost']
   const useI18n: typeof import('vue-i18n')['useI18n']
   const useI18nMock: typeof import('./src/test/mocks/vue-i18n')['useI18nMock']
   const useLink: typeof import('vue-router')['useLink']
@@ -214,6 +215,7 @@ declare module 'vue' {
     readonly useCssVars: UnwrapRef<typeof import('vue')['useCssVars']>
     readonly useFragment: UnwrapRef<typeof import('./src/graphql/__generated__/fragment-masking')['useFragment']>
     readonly useGetCountriesQuery: UnwrapRef<typeof import('./src/pages/SupabaseTest/Country.generated')['useGetCountriesQuery']>
+    readonly useHost: UnwrapRef<typeof import('./src/domains/functional/composables/useHost/useHost')['useHost']>
     readonly useI18n: UnwrapRef<typeof import('vue-i18n')['useI18n']>
     readonly useI18nMock: UnwrapRef<typeof import('./src/test/mocks/vue-i18n')['useI18nMock']>
     readonly useLink: UnwrapRef<typeof import('vue-router')['useLink']>
@@ -322,6 +324,7 @@ declare module '@vue/runtime-core' {
     readonly useCssVars: UnwrapRef<typeof import('vue')['useCssVars']>
     readonly useFragment: UnwrapRef<typeof import('./src/graphql/__generated__/fragment-masking')['useFragment']>
     readonly useGetCountriesQuery: UnwrapRef<typeof import('./src/pages/SupabaseTest/Country.generated')['useGetCountriesQuery']>
+    readonly useHost: UnwrapRef<typeof import('./src/domains/functional/composables/useHost/useHost')['useHost']>
     readonly useI18n: UnwrapRef<typeof import('vue-i18n')['useI18n']>
     readonly useI18nMock: UnwrapRef<typeof import('./src/test/mocks/vue-i18n')['useI18nMock']>
     readonly useLink: UnwrapRef<typeof import('vue-router')['useLink']>

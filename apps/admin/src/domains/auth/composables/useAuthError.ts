@@ -23,10 +23,10 @@ export const useAuthError = () => {
   const authErrorKey = (code: StatusCode) =>
     authErrorCode?.[code] ?? AuthErrorKey.UNKNOWN
 
-  const errorMessage = (code: StatusCode) =>
+  const errorMessageByStatus = (code: StatusCode) =>
     t(`auth.error.${authErrorKey(code)}`)
 
   return {
-    errorMessage,
+    errorMessageByStatus,
   }
 }

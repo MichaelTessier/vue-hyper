@@ -32,6 +32,19 @@
       "login": "Do you have an account? Log in",
       "submit": "Sign in",
       "title": "Register"
+    },
+    "registerConfirmed": {
+      "message": "You'll be redirected to the dashboard in a few seconds. If this doesn't work, click on the button below.",
+      "title": "Thanks for registering",
+      "toDashboard": "Go to dashboard"
+    },
+    "verifyEmail": {
+      "message": "Please verify your email address by clicking on the link we sent you. If you didn't receive the email, click on the button below to resend it.",
+      "resend": {
+        "label": "Resend email",
+        "success": "Email sent successfully"
+      },
+      "title": "Verify your email"
     }
   }
 }

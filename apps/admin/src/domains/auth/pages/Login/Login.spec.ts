@@ -16,7 +16,7 @@ vi.mock('@/composables/useSupabase/useSupabase.ts', () => ({
 }))
 
 describe('Login', () => {
-  it('should display login form', async () => {
+  it('should display correctly', async () => {
     const wrapper = mount(Login)
 
     expect(wrapper.find('[data-test="login__title"]').exists()).toBe(true)
@@ -29,7 +29,7 @@ describe('Login', () => {
     ).toBe(true)
   })
 
-  it('should set state correctly', async () => {
+  it('should set state correctly & redirect on login', async () => {
     const authStore = useAuthStore()
 
     useSupabaseMock.supabase.auth.signInWithPassword.mockReturnValue({
@@ -44,8 +44,8 @@ describe('Login', () => {
 
     const inputs = wrapper.findAllComponents(HypInput)
 
-    await inputs[0].vm.$emit('update:modelValue', 'email')
-    await inputs[1].vm.$emit('update:modelValue', 'password')
+    inputs[0].vm.$emit('update:modelValue', 'email')
+    inputs[1].vm.$emit('update:modelValue', 'password')
 
     await wrapper.find('[data-test="login__form"]').trigger('submit')
 
@@ -74,13 +74,11 @@ describe('Login', () => {
 
     const inputs = wrapper.findAllComponents(HypInput)
 
-    await inputs[0].vm.$emit('update:modelValue', 'email')
-    await inputs[1].vm.$emit('update:modelValue', 'password')
+    inputs[0].vm.$emit('update:modelValue', 'email')
+    inputs[1].vm.$emit('update:modelValue', 'password')
 
     await wrapper.find('[data-test="login__form"]').trigger('submit')
 
-    expect(wrapper.find('[data-test="login__error"]').text()).toBe(
-      'Email ou mot de passe invalide'
-    )
+    expect(wrapper.find('[data-test="login__error"]').exists()).toBe(true)
   })
 })

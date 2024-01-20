@@ -2,24 +2,25 @@
   import type { StatusCode } from '@/domains/auth/composables/useAuthError'
 
   const { supabase } = useSupabase()
-  const { errorMessage } = useAuthError()
+  const { errorMessageByStatus } = useAuthError()
   const authStore = useAuthStore()
   const router = useRouter()
 
-  const state = reactive({
+  const form = reactive({
     email: '',
     password: '',
-    errorMessage: '',
   })
+
+  const errorMessage = ref('')
 
   const login = async () => {
     const { data, error } = await supabase.auth.signInWithPassword({
-      email: state.email,
-      password: state.password,
+      email: form.email,
+      password: form.password,
     })
 
     if (error) {
-      state.errorMessage = errorMessage(error.status as StatusCode)
+      errorMessage.value = errorMessageByStatus(error.status as StatusCode)
 
       return
     }
@@ -51,26 +52,26 @@
       <HypInput
         data-test="login__email"
         class="mb-6"
-        v-model="state.email"
+        v-model="form.email"
         :placeholder="$t('auth.common.email.placeholder')"
       />
 
       <HypInput
         data-test="login__password"
         class="mb-6"
-        v-model="state.password"
+        v-model="form.password"
         type="password"
         :placeholder="$t('auth.common.password.placeholder')"
         show-password
       />
 
       <HypTypo
-        v-if="state.errorMessage"
+        v-if="errorMessage"
         class="mb-6"
         color="error"
         data-test="login__error"
       >
-        {{ state.errorMessage }}
+        {{ errorMessage }}
       </HypTypo>
 
       <HypButton

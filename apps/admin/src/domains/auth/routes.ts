@@ -3,6 +3,7 @@ export const AUTH_ROUTES = {
   LOGIN: 'login',
   PASSWORD_FORGOTTEN: 'password-forgotten',
   REGISTER: 'register',
+  REGISTER_CONFIRMED: 'register-confirmed',
   VERIFY_EMAIL: 'verify-email',
 }
 
@@ -27,6 +28,12 @@ export const authRoutes = {
       path: 'register',
       name: AUTH_ROUTES.REGISTER,
       component: () => import('@/domains/auth/pages/Register/Register.vue'),
+    },
+    {
+      path: 'register-confirmed',
+      name: AUTH_ROUTES.REGISTER_CONFIRMED,
+      component: () =>
+        import('@/domains/auth/pages/RegisterConfirmed/RegisterConfirmed.vue'),
     },
     {
       path: 'verify-email',
