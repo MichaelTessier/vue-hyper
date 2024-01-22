@@ -19,14 +19,27 @@ describe('Login', () => {
   it('should display correctly', async () => {
     const wrapper = mount(Login)
 
-    expect(wrapper.find('[data-test="login__title"]').exists()).toBe(true)
+    const inputs = wrapper.findAllComponents(HypInput)
+
+    expect(wrapper.find('[data-test="login__title"]').text()).toBe(
+      'auth.login.title'
+    )
     expect(wrapper.find('[data-test="login__form"]').exists()).toBe(true)
-    expect(wrapper.find('[data-test="login__email"]').exists()).toBe(true)
-    expect(wrapper.find('[data-test="login__password"]').exists()).toBe(true)
-    expect(wrapper.find('[data-test="login__register"]').exists()).toBe(true)
-    expect(
-      wrapper.find('[data-test="login__forgotten-password"]').exists()
-    ).toBe(true)
+
+    expect(inputs[0].props('placeholder')).toBe('auth.common.email.placeholder')
+    expect(inputs[1].props('placeholder')).toBe(
+      'auth.common.password.placeholder'
+    )
+
+    expect(wrapper.find('[data-test="login__submit"]').text()).toBe(
+      'auth.login.submit'
+    )
+    expect(wrapper.find('[data-test="login__register"]').text()).toBe(
+      'auth.login.register'
+    )
+    expect(wrapper.find('[data-test="login__password-reset"]').text()).toBe(
+      'auth.login.forgottenPassword'
+    )
   })
 
   it('should set state correctly & redirect on login', async () => {

@@ -93,8 +93,8 @@
       </HypLink>
 
       <HypLink
-        data-test="login__forgotten-password"
-        :to="{ name: AUTH_ROUTES.PASSWORD_FORGOTTEN }"
+        data-test="login__password-reset"
+        :to="{ name: AUTH_ROUTES.PASSWORD_RESET }"
         size="small"
       >
         {{ $t('auth.login.forgottenPassword') }}
