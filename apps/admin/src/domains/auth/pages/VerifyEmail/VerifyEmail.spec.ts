@@ -54,7 +54,7 @@ describe('VerifyEmail', () => {
     })
 
     expect(wrapper.find('[data-test="verify-email__success"]').text()).toBe(
-      "L'email de vérification a été renvoyé avec succès"
+      'auth.verifyEmail.success'
     )
   })
 

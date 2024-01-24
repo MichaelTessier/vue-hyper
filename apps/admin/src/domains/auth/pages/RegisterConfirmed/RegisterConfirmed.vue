@@ -61,7 +61,6 @@
         data-test="register-confirmed__to-dashboard"
         :to="{ name: ADMIN_ROUTES.ADMIN }"
         :label="$t('auth.registerConfirmed.toDashboard')"
-        @click="router.push({ name: ADMIN_ROUTES.ADMIN })"
       />
     </template>
   </section>

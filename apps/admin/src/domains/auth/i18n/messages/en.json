@@ -28,6 +28,19 @@
       "submit": "Login",
       "title": "Login"
     },
+    "passwordReset": {
+      "login": "Do you have an account? Log in",
+      "message": "Please enter your email address. We'll send you a link to reset your password.",
+      "submit": "Send email",
+      "success": "Email sent successfully",
+      "title": "Reset your password"
+    },
+    "passwordUpdate": {
+      "message": "Please enter your new password.",
+      "submit": "Update password",
+      "success": "Password updated successfully",
+      "title": "Update your password"
+    },
     "register": {
       "login": "Do you have an account? Log in",
       "submit": "Sign in",
@@ -41,9 +54,9 @@
     "verifyEmail": {
       "message": "Please verify your email address by clicking on the link we sent you. If you didn't receive the email, click on the button below to resend it.",
       "resend": {
-        "label": "Resend email",
-        "success": "Email sent successfully"
+        "label": "Resend email"
       },
+      "success": "Email sent successfully",
       "title": "Verify your email"
     }
   }

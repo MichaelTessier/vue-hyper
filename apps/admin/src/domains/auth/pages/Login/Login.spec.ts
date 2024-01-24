@@ -1,5 +1,4 @@
 import { mount } from '@vue/test-utils'
-import { HypInput } from 'vue-hyper-components'
 import { useRouterMock } from '@/test/mocks/vue-router'
 import Login from './Login.vue'
 
@@ -19,17 +18,24 @@ describe('Login', () => {
   it('should display correctly', async () => {
     const wrapper = mount(Login)
 
-    const inputs = wrapper.findAllComponents(HypInput)
-
     expect(wrapper.find('[data-test="login__title"]').text()).toBe(
       'auth.login.title'
     )
     expect(wrapper.find('[data-test="login__form"]').exists()).toBe(true)
 
-    expect(inputs[0].props('placeholder')).toBe('auth.common.email.placeholder')
-    expect(inputs[1].props('placeholder')).toBe(
-      'auth.common.password.placeholder'
-    )
+    findComponentByDataTestKey(wrapper, 'HypInput', 'login__email')
+
+    expect(
+      findComponentByDataTestKey(wrapper, 'HypInput', 'login__email')?.props(
+        'placeholder'
+      )
+    ).toBe('auth.common.email.placeholder')
+
+    expect(
+      findComponentByDataTestKey(wrapper, 'HypInput', 'login__password')?.props(
+        'placeholder'
+      )
+    ).toBe('auth.common.password.placeholder')
 
     expect(wrapper.find('[data-test="login__submit"]').text()).toBe(
       'auth.login.submit'
@@ -55,10 +61,16 @@ describe('Login', () => {
     })
     const wrapper = mount(Login)
 
-    const inputs = wrapper.findAllComponents(HypInput)
+    findComponentByDataTestKey(wrapper, 'HypInput', 'login__email')?.vm.$emit(
+      'update:modelValue',
+      'email'
+    )
 
-    inputs[0].vm.$emit('update:modelValue', 'email')
-    inputs[1].vm.$emit('update:modelValue', 'password')
+    findComponentByDataTestKey(
+      wrapper,
+      'HypInput',
+      'login__password'
+    )?.vm.$emit('update:modelValue', 'password')
 
     await wrapper.find('[data-test="login__form"]').trigger('submit')
 
@@ -85,10 +97,16 @@ describe('Login', () => {
     })
     const wrapper = mount(Login)
 
-    const inputs = wrapper.findAllComponents(HypInput)
+    findComponentByDataTestKey(wrapper, 'HypInput', 'login__email')?.vm.$emit(
+      'update:modelValue',
+      'email'
+    )
 
-    inputs[0].vm.$emit('update:modelValue', 'email')
-    inputs[1].vm.$emit('update:modelValue', 'password')
+    findComponentByDataTestKey(
+      wrapper,
+      'HypInput',
+      'login__password'
+    )?.vm.$emit('update:modelValue', 'password')
 
     await wrapper.find('[data-test="login__form"]').trigger('submit')
 

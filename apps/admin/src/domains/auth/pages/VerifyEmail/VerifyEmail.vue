@@ -5,12 +5,11 @@
   const authStore = useAuthStore()
   const router = useRouter()
   const { host } = useHost()
-  const { t } = useI18n()
 
   const { errorMessageByStatus } = useAuthError()
 
   const errorMessage = ref('')
-  const successMessage = ref('')
+  const isResend = ref(false)
 
   const emailRedirectTo = computed(() => {
     const href = router.resolve({ name: AUTH_ROUTES.REGISTER_CONFIRMED }).href
@@ -20,7 +19,7 @@
 
   const resend = async () => {
     try {
-      const { error } = await supabase.auth.resend({
+      const { data, error } = await supabase.auth.resend({
         type: 'signup',
         email: authStore.user?.email ?? '',
         options: {
@@ -34,7 +33,9 @@
         return
       }
 
-      successMessage.value = t('auth.verifyEmail.resend.success')
+      if (data) {
+        isResend.value = true
+      }
     } catch {
       errorMessage.value = errorMessageByStatus(500)
     }
@@ -68,12 +69,12 @@
     </HypTypo>
 
     <HypTypo
-      v-if="successMessage"
+      v-if="isResend"
       class="mb-6"
       color="error"
       data-test="verify-email__success"
     >
-      {{ successMessage }}
+      {{ $t('auth.verifyEmail.success') }}
     </HypTypo>
 
     <HypButton

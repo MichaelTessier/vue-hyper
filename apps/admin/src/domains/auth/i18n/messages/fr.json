@@ -28,6 +28,19 @@
       "submit": "Se connecter",
       "title": "Connexion"
     },
+    "passwordReset": {
+      "login": "Vous vous souvenez de votre mot de passe ? Connectez-vous !",
+      "message": "Veuillez entrer votre adresse e-mail ci-dessous. Nous vous enverrons un lien pour réinitialiser votre mot de passe.",
+      "submit": "Envoyer",
+      "success": "Un e-mail vous a été envoyé avec un lien pour réinitialiser votre mot de passe.",
+      "title": "Réinitialiser votre mot de passe"
+    },
+    "passwordUpdate": {
+      "message": "Veuillez entrer votre nouveau mot de passe ci-dessous.",
+      "submit": "Envoyer",
+      "success": "Votre mot de passe a été mis à jour avec succès.",
+      "title": "Mettre à jour votre mot de passe"
+    },
     "register": {
       "login": "Vous avez un compte ? Connectez-vous !",
       "submit": "S'enregistrer",
@@ -41,9 +54,9 @@
     "verifyEmail": {
       "message": "Veuillez vérifier votre adresse électronique en cliquant sur le lien que nous vous avons envoyé. Si vous n'avez pas reçu l'e-mail, cliquez sur le bouton ci-dessous pour le renvoyer",
       "resend": {
-        "label": "Renvoyer l'email de vérification",
-        "success": "L'email de vérification a été renvoyé avec succès"
+        "label": "Renvoyer l'email de vérification"
       },
+      "success": "L'email de vérification a été renvoyé avec succès",
       "title": "Vérifiez votre adresse e-mail"
     }
   }

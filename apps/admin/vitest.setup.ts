@@ -16,6 +16,14 @@ const context = useContextStore()
 
 config.global.plugins = [i18n(context), router]
 
+config.global.mocks = {
+  $t: (key: string) => key,
+  $tc: (key: string) => key,
+  $te: (key: string) => key,
+  $n: (key: string) => key,
+  $d: (key: string) => key,
+}
+
 beforeEach(async () => {
   setActivePinia(createPinia())
 

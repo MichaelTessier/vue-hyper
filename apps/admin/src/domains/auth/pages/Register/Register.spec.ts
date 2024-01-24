@@ -1,5 +1,4 @@
 import { mount } from '@vue/test-utils'
-import { HypInput } from 'vue-hyper-components'
 import { useRouterMock } from '@/test/mocks/vue-router'
 import Register from './Register.vue'
 
@@ -41,10 +40,17 @@ describe('Register', () => {
     })
     const wrapper = mount(Register)
 
-    const inputs = wrapper.findAllComponents(HypInput)
+    findComponentByDataTestKey(
+      wrapper,
+      'HypInput',
+      'register__email'
+    )?.vm.$emit('update:modelValue', 'email')
 
-    inputs[0].vm.$emit('update:modelValue', 'email')
-    inputs[1].vm.$emit('update:modelValue', 'password')
+    findComponentByDataTestKey(
+      wrapper,
+      'HypInput',
+      'register__password'
+    )?.vm.$emit('update:modelValue', 'password')
 
     await wrapper.find('[data-test="register__form"]').trigger('submit')
 
@@ -75,10 +81,17 @@ describe('Register', () => {
     })
     const wrapper = mount(Register)
 
-    const inputs = wrapper.findAllComponents(HypInput)
+    findComponentByDataTestKey(
+      wrapper,
+      'HypInput',
+      'register__email'
+    )?.vm.$emit('update:modelValue', 'email')
 
-    inputs[0].vm.$emit('update:modelValue', 'email')
-    inputs[1].vm.$emit('update:modelValue', 'password')
+    findComponentByDataTestKey(
+      wrapper,
+      'HypInput',
+      'register__password'
+    )?.vm.$emit('update:modelValue', 'password')
 
     await wrapper.find('[data-test="register__form"]').trigger('submit')
 
@@ -90,10 +103,17 @@ describe('Register', () => {
     useRouterMock.resolve.mockReturnValue({ href: '/emailRedirectTo' })
     const wrapper = mount(Register)
 
-    const inputs = wrapper.findAllComponents(HypInput)
+    findComponentByDataTestKey(
+      wrapper,
+      'HypInput',
+      'register__email'
+    )?.vm.$emit('update:modelValue', 'email')
 
-    inputs[0].vm.$emit('update:modelValue', 'email')
-    inputs[1].vm.$emit('update:modelValue', 'password')
+    findComponentByDataTestKey(
+      wrapper,
+      'HypInput',
+      'register__password'
+    )?.vm.$emit('update:modelValue', 'password')
 
     await wrapper.find('[data-test="register__form"]').trigger('submit')
 

@@ -80,22 +80,4 @@ describe('RegisterConfirmed', () => {
       wrapper.find('[data-test="register-confirmed__title"]').exists()
     ).toBe(false)
   })
-
-  it('should display error message if api not respond', async () => {
-    const wrapper = mount(RegisterConfirmed)
-
-    const authStore = useAuthStore()
-
-    authStore.$patch({ user: { email: 'email' } })
-
-    await wrapper.vm.$nextTick()
-
-    await wrapper
-      .find('[data-test="register-confirmed__to-dashboard"]')
-      .trigger('click')
-
-    expect(useRouterMock.push).toHaveBeenCalledWith({
-      name: ADMIN_ROUTES.ADMIN,
-    })
-  })
 })
