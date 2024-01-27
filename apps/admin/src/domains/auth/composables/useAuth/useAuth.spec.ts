@@ -8,6 +8,7 @@ const useSupabaseMock = {
       resetPasswordForEmail: vi.fn(),
       signInWithPassword: vi.fn(),
       signUp: vi.fn(),
+      signOut: vi.fn(),
       updateUser: vi.fn(),
     },
   },
@@ -66,10 +67,52 @@ describe('useAuth', () => {
     })
   })
 
+  describe('logout', () => {
+    it('should logout user', async () => {
+      useSupabaseMock.supabase.auth.signOut.mockResolvedValue({
+        error: null,
+      })
+      const authStore = useAuthStore()
+
+      const { logout } = useAuth()
+
+      await logout()
+
+      expect(authStore.user).toEqual(null)
+      expect(useSupabaseMock.supabase.auth.signOut).toHaveBeenCalledWith()
+    })
+
+    it('should set errorMessage on error', async () => {
+      useSupabaseMock.supabase.auth.signOut.mockResolvedValue({
+        data: null,
+        error: {
+          status: 400,
+        },
+      })
+      const { logout, errorMessage } = useAuth()
+
+      await logout()
+
+      expect(errorMessage.value).toEqual('auth.error.invalid-credentials')
+    })
+
+    it('should set errorMessage if api not respond', async () => {
+      const { logout, errorMessage } = useAuth()
+
+      await logout()
+
+      expect(errorMessage.value).toEqual('auth.error.invalid-credentials')
+    })
+  })
+
   describe('passwordReset', () => {
     it('should return true', async () => {
       useSupabaseMock.supabase.auth.resetPasswordForEmail.mockResolvedValue({
-        data: {},
+        data: {
+          user: {
+            id: 'id',
+          },
+        },
       })
       const { passwordReset } = useAuth()
 
@@ -107,7 +150,11 @@ describe('useAuth', () => {
   describe('passwordUpdate', () => {
     it('should return true', async () => {
       useSupabaseMock.supabase.auth.updateUser.mockResolvedValue({
-        data: {},
+        data: {
+          user: {
+            id: 'id',
+          },
+        },
       })
       const { passwordUpdate } = useAuth()
 
@@ -234,7 +281,11 @@ describe('useAuth', () => {
   describe('resendEmailConfirmation', () => {
     it('should return true', async () => {
       useSupabaseMock.supabase.auth.resend.mockResolvedValue({
-        data: {},
+        data: {
+          user: {
+            id: 'id',
+          },
+        },
       })
       const { resendEmailConfirmation } = useAuth()
 

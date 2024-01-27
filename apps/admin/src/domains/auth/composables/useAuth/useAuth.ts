@@ -3,6 +3,7 @@ import type { StatusCode } from '../useAuthError'
 export const useAuth = () => {
   const { supabase } = useSupabase()
   const { errorMessageByStatus } = useAuthError()
+  const authStore = useAuthStore()
 
   const errorMessage = ref('')
 
@@ -25,7 +26,19 @@ export const useAuth = () => {
     }
   }
 
-  const logout = () => {}
+  const logout = async () => {
+    try {
+      const { error } = await supabase.auth.signOut()
+
+      if (error) {
+        errorMessage.value = errorMessageByStatus(error.status as StatusCode)
+      } else {
+        authStore.user = null
+      }
+    } catch {
+      errorMessage.value = errorMessageByStatus(500)
+    }
+  }
 
   const passwordReset = async (email: string, redirectTo: string) => {
     try {
@@ -54,7 +67,7 @@ export const useAuth = () => {
         errorMessage.value = errorMessageByStatus(error.status as StatusCode)
       }
 
-      return !!data
+      return !!data.user
     } catch {
       errorMessage.value = errorMessageByStatus(500)
       return false
@@ -104,7 +117,7 @@ export const useAuth = () => {
         errorMessage.value = errorMessageByStatus(error.status as StatusCode)
       }
 
-      return !!data
+      return !!data.user
     } catch {
       errorMessage.value = errorMessageByStatus(500)
 

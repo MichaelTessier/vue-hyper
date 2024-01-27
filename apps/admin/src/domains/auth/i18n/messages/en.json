@@ -28,6 +28,9 @@
       "submit": "Login",
       "title": "Login"
     },
+    "logout": {
+      "label": "Logout"
+    },
     "passwordReset": {
       "login": "Do you have an account? Log in",
       "message": "Please enter your email address. We'll send you a link to reset your password.",

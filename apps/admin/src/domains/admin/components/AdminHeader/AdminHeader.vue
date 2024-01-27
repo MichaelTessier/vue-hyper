@@ -27,6 +27,7 @@
         <ThemeVariantSwitcher />
         <ThemeLayoutSwitcher />
         <LocaleSwitcher />
+        <Logout />
       </div>
     </div>
   </header>

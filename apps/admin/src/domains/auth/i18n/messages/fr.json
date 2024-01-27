@@ -28,6 +28,9 @@
       "submit": "Se connecter",
       "title": "Connexion"
     },
+    "logout": {
+      "label": "Déconnexion"
+    },
     "passwordReset": {
       "login": "Vous vous souvenez de votre mot de passe ? Connectez-vous !",
       "message": "Veuillez entrer votre adresse e-mail ci-dessous. Nous vous enverrons un lien pour réinitialiser votre mot de passe.",

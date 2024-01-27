@@ -20,6 +20,8 @@ declare module 'vue' {
     HypTypo: typeof import('vue-hyper-components')['HypTypo']
     LocaleSwitcher: typeof import('./src/domains/functional/components/LocaleSwitcher/LocaleSwitcher.vue')['default']
     Logo: typeof import('./src/domains/functional/components/Logo/Logo.vue')['default']
+    Logout: typeof import('./src/domains/auth/components/Logout/Logout.vue')['default']
+    LogoutButton: typeof import('./src/domains/auth/components/Logout/LogoutButton.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     ThemeLayoutSwitcher: typeof import('./src/domains/admin/components/ThemeSwitcher/ThemeLayoutSwitcher.vue')['default']
