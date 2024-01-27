@@ -1,19 +1,7 @@
 import { mount } from '@vue/test-utils'
-import { useRouterMock } from '@/test/mocks/vue-router'
-import PasswordUpdate from './PasswordUpdate.vue'
+import { useAuthMock } from '@/test/mocks/useAuthMock'
 import { findComponentByDataTestKey } from '@/test/utils'
-
-const useSupabaseMock = {
-  supabase: {
-    auth: {
-      updateUser: vi.fn(),
-    },
-  },
-}
-
-vi.mock('@/composables/useSupabase/useSupabase.ts', () => ({
-  useSupabase: () => useSupabaseMock,
-}))
+import PasswordUpdate from './PasswordUpdate.vue'
 
 describe('PasswordUpdate', () => {
   it('should display correctly', async () => {
@@ -47,10 +35,7 @@ describe('PasswordUpdate', () => {
   })
 
   it('should send update password & display success message', async () => {
-    useSupabaseMock.supabase.auth.updateUser.mockReturnValue({
-      data: {},
-      error: null,
-    })
+    useAuthMock.passwordUpdate.mockReturnValue(true)
     const wrapper = mount(PasswordUpdate)
 
     findComponentByDataTestKey(
@@ -61,9 +46,7 @@ describe('PasswordUpdate', () => {
 
     await wrapper.find('[data-test="password-update__form"]').trigger('submit')
 
-    expect(useSupabaseMock.supabase.auth.updateUser).toHaveBeenCalledWith({
-      password: 'password',
-    })
+    expect(useAuthMock.passwordUpdate).toHaveBeenCalledWith('password')
 
     expect(wrapper.find('[data-test="password-update__success"]').text()).toBe(
       'auth.passwordUpdate.success'
@@ -87,24 +70,8 @@ describe('PasswordUpdate', () => {
   })
 
   it('should display error message', async () => {
-    useRouterMock.resolve.mockReturnValue({ href: '/emailRedirectTo' })
-    useSupabaseMock.supabase.auth.updateUser.mockReturnValue({
-      data: {},
-      error: {
-        status: 500,
-      },
-    })
-    const wrapper = mount(PasswordUpdate)
+    useAuthMock.errorMessage = 'error message'
 
-    await wrapper.find('[data-test="password-update__form"]').trigger('submit')
-
-    expect(wrapper.find('[data-test="password-update__error"]').exists()).toBe(
-      true
-    )
-  })
-
-  it('should display error message if api not respond', async () => {
-    useRouterMock.resolve.mockReturnValue({ href: '/emailRedirectTo' })
     const wrapper = mount(PasswordUpdate)
 
     await wrapper.find('[data-test="password-update__form"]').trigger('submit')

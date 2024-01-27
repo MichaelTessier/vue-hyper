@@ -1,28 +1,12 @@
-import { flushPromises, mount } from '@vue/test-utils'
+import { mount } from '@vue/test-utils'
 import { useRouterMock } from '@/test/mocks/vue-router'
+import { useAuthMock } from '@/test/mocks/useAuthMock'
 import RegisterConfirmed from './RegisterConfirmed.vue'
-
-const useSupabaseMock = {
-  supabase: {
-    auth: {
-      getUser: vi.fn(),
-    },
-  },
-}
-
-vi.mock('@/composables/useSupabase/useSupabase.ts', () => ({
-  useSupabase: () => useSupabaseMock,
-}))
 
 describe('RegisterConfirmed', () => {
   beforeEach(() => {
-    useSupabaseMock.supabase.auth.getUser.mockReturnValue({
-      data: {
-        user: {
-          id: 'id',
-        },
-      },
-      error: null,
+    useAuthMock.getUser.mockReturnValue({
+      id: 'id',
     })
   })
 
@@ -62,15 +46,10 @@ describe('RegisterConfirmed', () => {
   })
 
   it('should display error message', async () => {
-    useSupabaseMock.supabase.auth.getUser.mockReturnValue({
-      data: {},
-      error: {
-        status: 500,
-      },
-    })
-    const wrapper = mount(RegisterConfirmed)
+    useAuthMock.getUser.mockReturnValue(null)
+    useAuthMock.errorMessage = 'error message'
 
-    await flushPromises()
+    const wrapper = mount(RegisterConfirmed)
 
     expect(
       wrapper.find('[data-test="register-confirmed__error"]').exists()

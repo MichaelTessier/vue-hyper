@@ -1,14 +1,9 @@
 <script setup lang="ts">
-  import type { StatusCode } from '../../composables/useAuthError'
-
-  const { supabase } = useSupabase()
+  const { resendEmailConfirmation, errorMessage } = useAuth()
   const authStore = useAuthStore()
   const router = useRouter()
   const { host } = useHost()
 
-  const { errorMessageByStatus } = useAuthError()
-
-  const errorMessage = ref('')
   const isResend = ref(false)
 
   const emailRedirectTo = computed(() => {
@@ -18,27 +13,12 @@
   })
 
   const resend = async () => {
-    try {
-      const { data, error } = await supabase.auth.resend({
-        type: 'signup',
-        email: authStore.user?.email ?? '',
-        options: {
-          emailRedirectTo: emailRedirectTo.value,
-        },
-      })
+    if (!authStore.user?.email) return
 
-      if (error) {
-        errorMessage.value = errorMessageByStatus(error.status as StatusCode)
-
-        return
-      }
-
-      if (data) {
-        isResend.value = true
-      }
-    } catch {
-      errorMessage.value = errorMessageByStatus(500)
-    }
+    isResend.value = await resendEmailConfirmation(
+      authStore.user.email,
+      emailRedirectTo.value
+    )
   }
 </script>
 

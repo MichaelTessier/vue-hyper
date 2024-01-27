@@ -1,18 +1,7 @@
 import { mount } from '@vue/test-utils'
 import { useRouterMock } from '@/test/mocks/vue-router'
+import { useAuthMock } from '@/test/mocks/useAuthMock'
 import VerifyEmail from './VerifyEmail.vue'
-
-const useSupabaseMock = {
-  supabase: {
-    auth: {
-      resend: vi.fn(),
-    },
-  },
-}
-
-vi.mock('@/composables/useSupabase/useSupabase.ts', () => ({
-  useSupabase: () => useSupabaseMock,
-}))
 
 describe('VerifyEmail', () => {
   it('should display correctly', async () => {
@@ -34,24 +23,16 @@ describe('VerifyEmail', () => {
     authStore.$patch({ user: { email: 'email' } })
 
     useRouterMock.resolve.mockReturnValue({ href: '/emailRedirectTo' })
+    useAuthMock.resendEmailConfirmation.mockReturnValue(true)
 
-    useSupabaseMock.supabase.auth.resend.mockReturnValue({
-      data: {
-        user: {},
-      },
-      error: null,
-    })
     const wrapper = mount(VerifyEmail)
 
     await wrapper.find('[data-test="verify-email__resend"]').trigger('click')
 
-    expect(useSupabaseMock.supabase.auth.resend).toHaveBeenCalledWith({
-      type: 'signup',
-      email: 'email',
-      options: {
-        emailRedirectTo: 'http://localhost:5173/emailRedirectTo',
-      },
-    })
+    expect(useAuthMock.resendEmailConfirmation).toHaveBeenCalledWith(
+      'email',
+      'http://localhost:5173/emailRedirectTo'
+    )
 
     expect(wrapper.find('[data-test="verify-email__success"]').text()).toBe(
       'auth.verifyEmail.success'
@@ -59,24 +40,7 @@ describe('VerifyEmail', () => {
   })
 
   it('should display error message', async () => {
-    useRouterMock.resolve.mockReturnValue({ href: '/emailRedirectTo' })
-    useSupabaseMock.supabase.auth.resend.mockReturnValue({
-      data: {},
-      error: {
-        status: 500,
-      },
-    })
-    const wrapper = mount(VerifyEmail)
-
-    await wrapper.find('[data-test="verify-email__resend"]').trigger('click')
-
-    expect(wrapper.find('[data-test="verify-email__error"]').exists()).toBe(
-      true
-    )
-  })
-
-  it('should display error message if api not respond', async () => {
-    useRouterMock.resolve.mockReturnValue({ href: '/emailRedirectTo' })
+    useAuthMock.errorMessage = 'error message'
     const wrapper = mount(VerifyEmail)
 
     await wrapper.find('[data-test="verify-email__resend"]').trigger('click')

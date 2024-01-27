@@ -1,34 +1,13 @@
 <script setup lang="ts">
-  import type { StatusCode } from '@/domains/auth/composables/useAuthError'
-
-  const { supabase } = useSupabase()
-  const { errorMessageByStatus } = useAuthError()
-
   const form = reactive({
     password: '',
   })
 
-  const errorMessage = ref('')
   const isUpdate = ref(false)
+  const { errorMessage, passwordUpdate } = useAuth()
 
-  const resetPassword = async () => {
-    try {
-      const { data, error } = await supabase.auth.updateUser({
-        password: form.password,
-      })
-
-      if (error) {
-        errorMessage.value = errorMessageByStatus(error.status as StatusCode)
-
-        return
-      }
-
-      if (data) {
-        isUpdate.value = true
-      }
-    } catch {
-      errorMessage.value = errorMessageByStatus(500)
-    }
+  const submit = async () => {
+    isUpdate.value = await passwordUpdate(form.password)
   }
 </script>
 
@@ -62,7 +41,7 @@
     </div>
     <form
       v-else
-      @submit.prevent="resetPassword"
+      @submit.prevent="submit"
       class="mb-4"
       data-test="password-update__form"
     >

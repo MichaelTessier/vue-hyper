@@ -1,21 +1,14 @@
 import { mount } from '@vue/test-utils'
 import { useRouterMock } from '@/test/mocks/vue-router'
-import PasswordReset from './PasswordReset.vue'
+import { useAuthMock } from '@/test/mocks/useAuthMock'
 import { findComponentByDataTestKey } from '@/test/utils'
-
-const useSupabaseMock = {
-  supabase: {
-    auth: {
-      resetPasswordForEmail: vi.fn(),
-    },
-  },
-}
-
-vi.mock('@/composables/useSupabase/useSupabase.ts', () => ({
-  useSupabase: () => useSupabaseMock,
-}))
+import PasswordReset from './PasswordReset.vue'
 
 describe('PasswordReset', () => {
+  beforeEach(() => {
+    useRouterMock.resolve.mockReturnValue({ href: '/emailRedirectTo' })
+  })
+
   it('should display correctly', async () => {
     const wrapper = mount(PasswordReset)
 
@@ -48,17 +41,10 @@ describe('PasswordReset', () => {
   })
 
   it('should send reset password & display success message', async () => {
+    useAuthMock.passwordReset.mockReturnValue(true)
+
     const authStore = useAuthStore()
     authStore.$patch({ user: { email: 'email' } })
-
-    useRouterMock.resolve.mockReturnValue({ href: '/emailRedirectTo' })
-
-    useSupabaseMock.supabase.auth.resetPasswordForEmail.mockReturnValue({
-      data: {
-        user: {},
-      },
-      error: null,
-    })
     const wrapper = mount(PasswordReset)
 
     findComponentByDataTestKey(
@@ -69,11 +55,10 @@ describe('PasswordReset', () => {
 
     await wrapper.find('[data-test="password-reset__form"]').trigger('submit')
 
-    expect(
-      useSupabaseMock.supabase.auth.resetPasswordForEmail
-    ).toHaveBeenCalledWith('email', {
-      redirectTo: 'http://localhost:5173/emailRedirectTo',
-    })
+    expect(useAuthMock.passwordReset).toHaveBeenCalledWith(
+      'email',
+      'http://localhost:5173/emailRedirectTo'
+    )
 
     expect(wrapper.find('[data-test="password-reset__success"]').text()).toBe(
       'auth.passwordReset.success'
@@ -81,24 +66,8 @@ describe('PasswordReset', () => {
   })
 
   it('should display error message', async () => {
-    useRouterMock.resolve.mockReturnValue({ href: '/emailRedirectTo' })
-    useSupabaseMock.supabase.auth.resetPasswordForEmail.mockReturnValue({
-      data: {},
-      error: {
-        status: 500,
-      },
-    })
-    const wrapper = mount(PasswordReset)
+    useAuthMock.errorMessage = 'error message'
 
-    await wrapper.find('[data-test="password-reset__form"]').trigger('submit')
-
-    expect(wrapper.find('[data-test="password-reset__error"]').exists()).toBe(
-      true
-    )
-  })
-
-  it('should display error message if api not respond', async () => {
-    useRouterMock.resolve.mockReturnValue({ href: '/emailRedirectTo' })
     const wrapper = mount(PasswordReset)
 
     await wrapper.find('[data-test="password-reset__form"]').trigger('submit')

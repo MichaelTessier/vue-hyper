@@ -11,8 +11,8 @@ export const AUTH_ROUTES = {
 export const authRoutes = {
   path: 'auth',
   name: AUTH_ROUTES.AUTH,
-  redirect: { name: AUTH_ROUTES.LOGIN },
   component: () => import('@/domains/auth/pages/Auth/Auth.vue'),
+  redirect: { name: AUTH_ROUTES.LOGIN },
   children: [
     {
       path: 'login',

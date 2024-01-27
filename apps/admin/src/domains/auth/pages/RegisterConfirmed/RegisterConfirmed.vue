@@ -1,24 +1,14 @@
 <script lang="ts" setup>
-  import type { StatusCode } from '../../composables/useAuthError'
-
   const TIME_TO_REDIRECT = 5000
-
-  const { supabase } = useSupabase()
-  const { errorMessageByStatus } = useAuthError()
+  const { getUser, errorMessage } = useAuth()
   const authStore = useAuthStore()
   const router = useRouter()
 
-  const errorMessage = ref('')
-
   onMounted(async () => {
-    const { data, error } = await supabase.auth.getUser()
+    const user = await getUser()
 
-    if (error) {
-      errorMessage.value = errorMessageByStatus(error.status as StatusCode)
-    }
-
-    if (data.user) {
-      authStore.$patch({ user: data.user })
+    if (user) {
+      authStore.$patch({ user })
 
       setTimeout(() => {
         router.push({ name: ADMIN_ROUTES.ADMIN })

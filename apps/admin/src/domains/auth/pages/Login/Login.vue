@@ -1,32 +1,19 @@
 <script setup lang="ts">
-  import type { StatusCode } from '@/domains/auth/composables/useAuthError'
-
-  const { supabase } = useSupabase()
-  const { errorMessageByStatus } = useAuthError()
   const authStore = useAuthStore()
   const router = useRouter()
+  const { login, errorMessage } = useAuth()
 
   const form = reactive({
     email: '',
     password: '',
   })
 
-  const errorMessage = ref('')
+  const submit = async () => {
+    const user = await login(form.email, form.password)
 
-  const login = async () => {
-    const { data, error } = await supabase.auth.signInWithPassword({
-      email: form.email,
-      password: form.password,
-    })
+    if (!user) return
 
-    if (error) {
-      errorMessage.value = errorMessageByStatus(error.status as StatusCode)
-
-      return
-    }
-
-    authStore.$patch({ user: data.user })
-
+    authStore.$patch({ user })
     router.push({ name: ADMIN_ROUTES.DASHBOARD })
   }
 </script>
@@ -45,7 +32,7 @@
     </HypTypo>
 
     <form
-      @submit.prevent="login"
+      @submit.prevent="submit"
       class="mb-4"
       data-test="login__form"
     >

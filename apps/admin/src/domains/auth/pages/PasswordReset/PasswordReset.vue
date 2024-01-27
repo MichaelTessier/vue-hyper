@@ -1,45 +1,23 @@
 <script setup lang="ts">
-  import type { StatusCode } from '@/domains/auth/composables/useAuthError'
-
   const router = useRouter()
-  const { supabase } = useSupabase()
-  const { errorMessageByStatus } = useAuthError()
   const { host } = useHost()
 
   const form = reactive({
     email: '',
   })
 
-  const errorMessage = ref('')
-  const isSend = ref(false)
+  const isReset = ref(false)
 
-  const emailRedirectTo = computed(() => {
+  const redirectTo = computed(() => {
     const href = router.resolve({ name: AUTH_ROUTES.PASSWORD_UPDATE }).href
 
     return `${host.value}${href}`
   })
 
-  const resetPassword = async () => {
-    try {
-      const { data, error } = await supabase.auth.resetPasswordForEmail(
-        form.email,
-        {
-          redirectTo: emailRedirectTo.value,
-        }
-      )
+  const { passwordReset, errorMessage } = useAuth()
 
-      if (error) {
-        errorMessage.value = errorMessageByStatus(error.status as StatusCode)
-
-        return
-      }
-
-      if (data) {
-        isSend.value = true
-      }
-    } catch {
-      errorMessage.value = errorMessageByStatus(500)
-    }
+  const submit = async () => {
+    isReset.value = await passwordReset(form.email, redirectTo.value)
   }
 </script>
 
@@ -57,7 +35,7 @@
     </HypTypo>
 
     <form
-      @submit.prevent="resetPassword"
+      @submit.prevent="submit"
       class="mb-4"
       data-test="password-reset__form"
     >
@@ -78,7 +56,7 @@
       </HypTypo>
 
       <HypTypo
-        v-if="isSend"
+        v-if="isReset"
         class="mb-6"
         color="success"
         data-test="password-reset__success"

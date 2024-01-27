@@ -1,18 +1,13 @@
 <script setup lang="ts">
-  import type { StatusCode } from '@/domains/auth/composables/useAuthError'
-
   const router = useRouter()
-  const { supabase } = useSupabase()
-  const { errorMessageByStatus } = useAuthError()
   const { host } = useHost()
   const authStore = useAuthStore()
+  const { register, errorMessage } = useAuth()
 
   const form = reactive({
     email: '',
     password: '',
   })
-
-  const errorMessage = ref('')
 
   const emailRedirectTo = computed(() => {
     const href = router.resolve({ name: AUTH_ROUTES.REGISTER_CONFIRMED }).href
@@ -20,28 +15,17 @@
     return `${host.value}${href}`
   })
 
-  const register = async () => {
-    try {
-      const { data, error } = await supabase.auth.signUp({
-        email: form.email,
-        password: form.password,
-        options: {
-          emailRedirectTo: emailRedirectTo.value,
-        },
-      })
+  const submit = async () => {
+    const user = await register(
+      form.email,
+      form.password,
+      emailRedirectTo.value
+    )
 
-      if (error) {
-        errorMessage.value = errorMessageByStatus(error.status as StatusCode)
+    if (!user) return
+    authStore.$patch({ user })
 
-        return
-      }
-
-      authStore.$patch({ user: data.user })
-
-      router.push({ name: AUTH_ROUTES.VERIFY_EMAIL })
-    } catch {
-      errorMessage.value = errorMessageByStatus(500)
-    }
+    router.push({ name: AUTH_ROUTES.VERIFY_EMAIL })
   }
 </script>
 
@@ -59,7 +43,7 @@
     </HypTypo>
 
     <form
-      @submit.prevent="register"
+      @submit.prevent="submit"
       class="mb-4"
       data-test="register__form"
     >

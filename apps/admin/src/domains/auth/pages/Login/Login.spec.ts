@@ -1,18 +1,7 @@
 import { mount } from '@vue/test-utils'
 import { useRouterMock } from '@/test/mocks/vue-router'
+import { useAuthMock } from '@/test/mocks/useAuthMock'
 import Login from './Login.vue'
-
-const useSupabaseMock = {
-  supabase: {
-    auth: {
-      signInWithPassword: vi.fn(),
-    },
-  },
-}
-
-vi.mock('@/composables/useSupabase/useSupabase.ts', () => ({
-  useSupabase: () => useSupabaseMock,
-}))
 
 describe('Login', () => {
   it('should display correctly', async () => {
@@ -40,25 +29,22 @@ describe('Login', () => {
     expect(wrapper.find('[data-test="login__submit"]').text()).toBe(
       'auth.login.submit'
     )
+
     expect(wrapper.find('[data-test="login__register"]').text()).toBe(
       'auth.login.register'
     )
+
     expect(wrapper.find('[data-test="login__password-reset"]').text()).toBe(
       'auth.login.forgottenPassword'
     )
   })
 
   it('should set state correctly & redirect on login', async () => {
-    const authStore = useAuthStore()
-
-    useSupabaseMock.supabase.auth.signInWithPassword.mockReturnValue({
-      data: {
-        user: {
-          id: 'id',
-        },
-      },
-      error: null,
+    useAuthMock.login.mockReturnValue({
+      id: 'id',
     })
+
+    const authStore = useAuthStore()
     const wrapper = mount(Login)
 
     findComponentByDataTestKey(wrapper, 'HypInput', 'login__email')?.vm.$emit(
@@ -74,12 +60,7 @@ describe('Login', () => {
 
     await wrapper.find('[data-test="login__form"]').trigger('submit')
 
-    expect(
-      useSupabaseMock.supabase.auth.signInWithPassword
-    ).toHaveBeenCalledWith({
-      email: 'email',
-      password: 'password',
-    })
+    expect(useAuthMock.login).toHaveBeenCalledWith('email', 'password')
 
     expect(authStore.user).toEqual({
       id: 'id',
@@ -89,12 +70,8 @@ describe('Login', () => {
   })
 
   it('should display error message', async () => {
-    useSupabaseMock.supabase.auth.signInWithPassword.mockReturnValue({
-      data: {},
-      error: {
-        status: 400,
-      },
-    })
+    useAuthMock.errorMessage = 'error message'
+
     const wrapper = mount(Login)
 
     findComponentByDataTestKey(wrapper, 'HypInput', 'login__email')?.vm.$emit(
