@@ -21,7 +21,7 @@ export const routes = [
       const contextStore = useContextStore()
       return { name: 'admin', params: { locale: contextStore.locale } }
     },
-    children: [authRoutes, adminRoutes],
+    children: [adminRoutes, authRoutes],
   },
 ]
 
@@ -30,7 +30,7 @@ const router = createRouter({
   routes,
 })
 
-router.beforeEach((to, _from, next) => {
+router.beforeEach(async (to, _from, next) => {
   const contextStore = useContextStore()
 
   if (!AVAILABLE_LOCALES.includes(to.params.locale as string)) {

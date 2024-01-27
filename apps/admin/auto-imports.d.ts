@@ -17,7 +17,6 @@ declare global {
   const GetCountriesDocument: typeof import('./src/pages/SupabaseTest/Country.generated')['GetCountriesDocument']
   const LAYOUT_THEME_STORAGE_KEY: typeof import('./src/domains/functional/composables/useTheme/useTheme')['LAYOUT_THEME_STORAGE_KEY']
   const LayoutTheme: typeof import('./src/domains/functional/composables/useTheme/useTheme')['LayoutTheme']
-  const Logo: (typeof import('./src/domains/functional/components/Logo/Logo.vue'))['default']
   const OrderByDirection: typeof import('./src/graphql/__generated__/graphql')['OrderByDirection']
   const ROUTES: typeof import('./src/router/index')['ROUTES']
   const VARIANT_THEME_STORAGE_KEY: typeof import('./src/domains/functional/composables/useTheme/useTheme')['VARIANT_THEME_STORAGE_KEY']
@@ -25,7 +24,6 @@ declare global {
   const acceptHMRUpdate: typeof import('pinia')['acceptHMRUpdate']
   const adminRoutes: typeof import('./src/domains/admin/routes')['adminRoutes']
   const authRoutes: typeof import('./src/domains/auth/routes')['authRoutes']
-  const authStore: typeof import('./src/domains/auth/stores/auth')['authStore']
   const computed: typeof import('vue')['computed']
   const createApp: typeof import('vue')['createApp']
   const createPinia: typeof import('pinia')['createPinia']
@@ -34,7 +32,6 @@ declare global {
   const defineComponent: typeof import('vue')['defineComponent']
   const defineStore: typeof import('pinia')['defineStore']
   const effectScope: typeof import('vue')['effectScope']
-  const findComponentByAttribute: typeof import('./src/test/utils/index')['findComponentByAttribute']
   const findComponentByDataTestKey: typeof import('./src/test/utils/index')['findComponentByDataTestKey']
   const getActivePinia: typeof import('pinia')['getActivePinia']
   const getCurrentInstance: typeof import('vue')['getCurrentInstance']
@@ -92,7 +89,9 @@ declare global {
   const unref: typeof import('vue')['unref']
   const urqlClient: typeof import('./src/graphql/urqlClient')['urqlClient']
   const useAttrs: typeof import('vue')['useAttrs']
+  const useAuth: typeof import('./src/domains/auth/composables/useAuth/useAuth')['useAuth']
   const useAuthError: typeof import('./src/domains/auth/composables/useAuthError')['useAuthError']
+  const useAuthMock: typeof import('./src/test/mocks/useAuthMock')['useAuthMock']
   const useAuthStore: typeof import('./src/domains/auth/stores/auth')['useAuthStore']
   const useContextStore: typeof import('./src/stores/context/context')['useContextStore']
   const useCounterStore: typeof import('./src/stores/counter/counter')['useCounterStore']
@@ -109,13 +108,11 @@ declare global {
   const useRouterMock: typeof import('./src/test/mocks/vue-router')['useRouterMock']
   const useSlots: typeof import('vue')['useSlots']
   const useSupabase: typeof import('./src/composables/useSupabase/useSupabase')['useSupabase']
-  const useSupabaseMock: typeof import('./src/test/mocks/composables/useSupabase')['useSupabaseMock']
   const useTheme: typeof import('./src/domains/functional/composables/useTheme/useTheme')['useTheme']
   const watch: typeof import('vue')['watch']
   const watchEffect: typeof import('vue')['watchEffect']
   const watchPostEffect: typeof import('vue')['watchPostEffect']
   const watchSyncEffect: typeof import('vue')['watchSyncEffect']
-  const withSetup: typeof import('./src/domains/auth/composables/useAuthError.spec')['withSetup']
 }
 // for type re-export
 declare global {
@@ -210,7 +207,9 @@ declare module 'vue' {
     readonly unref: UnwrapRef<typeof import('vue')['unref']>
     readonly urqlClient: UnwrapRef<typeof import('./src/graphql/urqlClient')['urqlClient']>
     readonly useAttrs: UnwrapRef<typeof import('vue')['useAttrs']>
+    readonly useAuth: UnwrapRef<typeof import('./src/domains/auth/composables/useAuth/useAuth')['useAuth']>
     readonly useAuthError: UnwrapRef<typeof import('./src/domains/auth/composables/useAuthError')['useAuthError']>
+    readonly useAuthMock: UnwrapRef<typeof import('./src/test/mocks/useAuthMock')['useAuthMock']>
     readonly useAuthStore: UnwrapRef<typeof import('./src/domains/auth/stores/auth')['useAuthStore']>
     readonly useContextStore: UnwrapRef<typeof import('./src/stores/context/context')['useContextStore']>
     readonly useCounterStore: UnwrapRef<typeof import('./src/stores/counter/counter')['useCounterStore']>
@@ -320,7 +319,9 @@ declare module '@vue/runtime-core' {
     readonly unref: UnwrapRef<typeof import('vue')['unref']>
     readonly urqlClient: UnwrapRef<typeof import('./src/graphql/urqlClient')['urqlClient']>
     readonly useAttrs: UnwrapRef<typeof import('vue')['useAttrs']>
+    readonly useAuth: UnwrapRef<typeof import('./src/domains/auth/composables/useAuth/useAuth')['useAuth']>
     readonly useAuthError: UnwrapRef<typeof import('./src/domains/auth/composables/useAuthError')['useAuthError']>
+    readonly useAuthMock: UnwrapRef<typeof import('./src/test/mocks/useAuthMock')['useAuthMock']>
     readonly useAuthStore: UnwrapRef<typeof import('./src/domains/auth/stores/auth')['useAuthStore']>
     readonly useContextStore: UnwrapRef<typeof import('./src/stores/context/context')['useContextStore']>
     readonly useCounterStore: UnwrapRef<typeof import('./src/stores/counter/counter')['useCounterStore']>
