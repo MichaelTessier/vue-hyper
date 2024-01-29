@@ -1,6 +1,5 @@
 <script setup lang="ts">
-  const router = useRouter()
-  const { host } = useHost()
+  const { resolveRoute } = useHost()
 
   const form = reactive({
     email: '',
@@ -8,16 +7,13 @@
 
   const isReset = ref(false)
 
-  const redirectTo = computed(() => {
-    const href = router.resolve({ name: AUTH_ROUTES.PASSWORD_UPDATE }).href
-
-    return `${host.value}${href}`
-  })
-
   const { passwordReset, errorMessage } = useAuth()
 
   const submit = async () => {
-    isReset.value = await passwordReset(form.email, redirectTo.value)
+    isReset.value = await passwordReset(
+      form.email,
+      resolveRoute(AUTH_ROUTES.PASSWORD_UPDATE)
+    )
   }
 </script>
 

@@ -39,6 +39,7 @@ describe('useAuth', () => {
       expect(user).toEqual({
         id: 'id',
       })
+
       expect(
         useSupabaseMock.supabase.auth.signInWithPassword
       ).toHaveBeenCalledWith({ email: 'email', password: 'password' })

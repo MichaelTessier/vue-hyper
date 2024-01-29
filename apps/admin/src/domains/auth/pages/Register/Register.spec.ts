@@ -19,8 +19,6 @@ describe('Register', () => {
   })
 
   it('should set state correctly & redirect on register', async () => {
-    const authStore = useAuthStore()
-
     useAuthMock.register.mockReturnValue({
       id: 'id',
     })
@@ -45,10 +43,6 @@ describe('Register', () => {
       'password',
       'http://localhost:5173/emailRedirectTo'
     )
-
-    expect(authStore.user).toEqual({
-      id: 'id',
-    })
 
     expect(useRouterMock.push).toHaveBeenCalledWith({
       name: AUTH_ROUTES.VERIFY_EMAIL,

@@ -1,4 +1,6 @@
 export const useHost = () => {
+  const router = useRouter()
+
   const host = computed(() => {
     let url =
       import.meta.env?.VITE_VERCEL_URL ??
@@ -10,7 +12,14 @@ export const useHost = () => {
     return url
   })
 
+  function resolveRoute(name: string) {
+    const href = router.resolve({ name }).href
+
+    return `${host.value}${href}`
+  }
+
   return {
     host,
+    resolveRoute,
   }
 }

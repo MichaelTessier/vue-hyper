@@ -36,7 +36,7 @@
       <HypButton
         data-test="password-update__login"
         :to="{ name: AUTH_ROUTES.LOGIN }"
-        :label="$t('auth.registerConfirmed.toDashboard')"
+        :label="$t('auth.passwordUpdate.login')"
       />
     </div>
     <form

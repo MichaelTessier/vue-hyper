@@ -3,6 +3,7 @@ import type { StatusCode } from '../useAuthError'
 export const useAuth = () => {
   const { supabase } = useSupabase()
   const { errorMessageByStatus } = useAuthError()
+
   const authStore = useAuthStore()
 
   const errorMessage = ref('')
@@ -19,7 +20,7 @@ export const useAuth = () => {
 
         return
       }
-
+      authStore.$patch({ user: data.user })
       return data.user
     } catch {
       errorMessage.value = errorMessageByStatus(500)
@@ -93,6 +94,7 @@ export const useAuth = () => {
 
         return
       }
+      authStore.$patch({ user: data.user })
 
       return data.user
     } catch {
@@ -135,6 +137,7 @@ export const useAuth = () => {
         return
       }
 
+      authStore.$patch({ user: data.user })
       return data.user
     } catch (error) {
       errorMessage.value = errorMessageByStatus(500)

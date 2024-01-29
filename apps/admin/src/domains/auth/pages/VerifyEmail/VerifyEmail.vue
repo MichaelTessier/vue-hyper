@@ -1,23 +1,16 @@
 <script setup lang="ts">
   const { resendEmailConfirmation, errorMessage } = useAuth()
   const authStore = useAuthStore()
-  const router = useRouter()
-  const { host } = useHost()
+  const { resolveRoute } = useHost()
 
   const isResend = ref(false)
-
-  const emailRedirectTo = computed(() => {
-    const href = router.resolve({ name: AUTH_ROUTES.REGISTER_CONFIRMED }).href
-
-    return `${host.value}${href}`
-  })
 
   const resend = async () => {
     if (!authStore.user?.email) return
 
     isResend.value = await resendEmailConfirmation(
       authStore.user.email,
-      emailRedirectTo.value
+      resolveRoute(AUTH_ROUTES.REGISTER_CONFIRMED)
     )
   }
 </script>

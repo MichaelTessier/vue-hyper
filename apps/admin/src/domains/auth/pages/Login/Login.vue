@@ -1,5 +1,4 @@
 <script setup lang="ts">
-  const authStore = useAuthStore()
   const router = useRouter()
   const { login, errorMessage } = useAuth()
 
@@ -13,7 +12,6 @@
 
     if (!user) return
 
-    authStore.$patch({ user })
     router.push({ name: ADMIN_ROUTES.DASHBOARD })
   }
 </script>

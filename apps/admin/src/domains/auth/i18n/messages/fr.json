@@ -42,7 +42,8 @@
       "message": "Veuillez entrer votre nouveau mot de passe ci-dessous.",
       "submit": "Envoyer",
       "success": "Votre mot de passe a été mis à jour avec succès.",
-      "title": "Mettre à jour votre mot de passe"
+      "title": "Mettre à jour votre mot de passe",
+      "login": "Connexion"
     },
     "register": {
       "login": "Vous avez un compte ? Connectez-vous !",

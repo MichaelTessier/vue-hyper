@@ -8,8 +8,6 @@
     const user = await getUser()
 
     if (user) {
-      authStore.$patch({ user })
-
       setTimeout(() => {
         router.push({ name: ADMIN_ROUTES.ADMIN })
       }, TIME_TO_REDIRECT)

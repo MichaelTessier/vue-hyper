@@ -43,8 +43,6 @@ describe('PasswordReset', () => {
   it('should send reset password & display success message', async () => {
     useAuthMock.passwordReset.mockReturnValue(true)
 
-    const authStore = useAuthStore()
-    authStore.$patch({ user: { email: 'email' } })
     const wrapper = mount(PasswordReset)
 
     findComponentByDataTestKey(

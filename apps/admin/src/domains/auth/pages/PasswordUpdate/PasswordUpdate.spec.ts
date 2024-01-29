@@ -66,7 +66,7 @@ describe('PasswordUpdate', () => {
         'HypButton',
         'password-update__login'
       )?.props('label')
-    ).toBe('auth.registerConfirmed.toDashboard')
+    ).toBe('auth.passwordUpdate.login')
   })
 
   it('should display error message', async () => {

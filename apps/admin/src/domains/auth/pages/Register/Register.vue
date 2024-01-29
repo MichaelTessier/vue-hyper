@@ -1,7 +1,6 @@
 <script setup lang="ts">
   const router = useRouter()
-  const { host } = useHost()
-  const authStore = useAuthStore()
+  const { resolveRoute } = useHost()
   const { register, errorMessage } = useAuth()
 
   const form = reactive({
@@ -9,21 +8,14 @@
     password: '',
   })
 
-  const emailRedirectTo = computed(() => {
-    const href = router.resolve({ name: AUTH_ROUTES.REGISTER_CONFIRMED }).href
-
-    return `${host.value}${href}`
-  })
-
   const submit = async () => {
     const user = await register(
       form.email,
       form.password,
-      emailRedirectTo.value
+      resolveRoute(AUTH_ROUTES.REGISTER_CONFIRMED)
     )
 
     if (!user) return
-    authStore.$patch({ user })
 
     router.push({ name: AUTH_ROUTES.VERIFY_EMAIL })
   }

@@ -39,6 +39,7 @@
       "title": "Reset your password"
     },
     "passwordUpdate": {
+      "login": "Login",
       "message": "Please enter your new password.",
       "submit": "Update password",
       "success": "Password updated successfully",

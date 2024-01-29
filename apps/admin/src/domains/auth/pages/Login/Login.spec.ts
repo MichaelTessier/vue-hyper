@@ -44,7 +44,6 @@ describe('Login', () => {
       id: 'id',
     })
 
-    const authStore = useAuthStore()
     const wrapper = mount(Login)
 
     findComponentByDataTestKey(wrapper, 'HypInput', 'login__email')?.vm.$emit(
@@ -61,10 +60,6 @@ describe('Login', () => {
     await wrapper.find('[data-test="login__form"]').trigger('submit')
 
     expect(useAuthMock.login).toHaveBeenCalledWith('email', 'password')
-
-    expect(authStore.user).toEqual({
-      id: 'id',
-    })
 
     expect(useRouterMock.push).toHaveBeenCalledWith({ name: 'dashboard' })
   })
