@@ -1,6 +1,6 @@
 <script setup lang="ts">
   import type { RouteLocationRaw } from 'vue-router'
-  import type { LinkColor } from './HypLink.model'
+  import type { LinkColor, LinkSize } from './HypLink.model'
 
   defineProps({
     to: {
@@ -11,14 +11,18 @@
       type: String as PropType<LinkColor>,
       default: LINK_COLOR.DARK,
     },
+    size: {
+      type: String as PropType<LinkSize>,
+      default: LINK_SIZE.MEDIUM,
+    },
   })
 </script>
 
 <template>
   <RouterLink
     :to="to"
-    class="hyp-text-medium hover:underline underline-offset-4 cursor-pointer hover:opacity-80 transition-all"
-    :class="[`text-${color}`]"
+    class="hover:underline underline-offset-4 cursor-pointer hover:opacity-80 transition-all"
+    :class="[`text-${color}`, `hyp-text-${size}`]"
   >
     <slot />
   </RouterLink>

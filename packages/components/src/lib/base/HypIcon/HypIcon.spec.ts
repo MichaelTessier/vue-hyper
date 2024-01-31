@@ -18,12 +18,12 @@ describe('HypIcon', () => {
 
   it('should display icon', async () => {
     // Default size is medium
-    await expect(wrapper.attributes('class')).toContain('text-7')
+    expect(wrapper.attributes('class')).toContain('text-7')
 
     await wrapper.setProps({ size: 'small' })
-    await expect(wrapper.attributes('class')).toContain('text-5')
+    expect(wrapper.attributes('class')).toContain('text-5')
 
     await wrapper.setProps({ size: 'large' })
-    await expect(wrapper.attributes('class')).toContain('text-9')
+    expect(wrapper.attributes('class')).toContain('text-9')
   })
 })

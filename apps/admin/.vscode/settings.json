@@ -3,7 +3,7 @@
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
-    "source.fixAll": true
+    "source.fixAll": "explicit"
   },
   "cSpell.words": [
     "codegen",
@@ -19,5 +19,5 @@
     "Vercel",
     "vuejs"
   ],
-  "i18n-ally.localesPaths": ["src/i18n/locales", "coverage/src/i18n"]
+  "i18n-ally.localesPaths": ["src/**/i18n/messages", "coverage/src/i18n"]
 }

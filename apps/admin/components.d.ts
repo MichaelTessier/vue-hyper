@@ -7,18 +7,21 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
-    Aside: typeof import('./src/domains/app/components/Aside/Aside.vue')['default']
-    GlobalLayout: typeof import('./src/domains/app/components/GlobalLayout/GlobalLayout.vue')['default']
-    Header: typeof import('./src/domains/app/components/Header/Header.vue')['default']
+    AdminAside: typeof import('./src/domains/admin/components/AdminAside/AdminAside.vue')['default']
+    AdminHeader: typeof import('./src/domains/admin/components/AdminHeader/AdminHeader.vue')['default']
+    AdminLayout: typeof import('./src/domains/admin/layouts/AdminLayout/AdminLayout.vue')['default']
+    AuthLayout: typeof import('./src/domains/auth/layouts/AuthLayout/AuthLayout.vue')['default']
     HypButton: typeof import('vue-hyper-components')['HypButton']
+    HypInput: typeof import('vue-hyper-components')['HypInput']
     HypLink: typeof import('vue-hyper-components')['HypLink']
     HypTypo: typeof import('vue-hyper-components')['HypTypo']
-    LocaleSwitcher: typeof import('./src/domains/app/components/LocaleSwitcher/LocaleSwitcher.vue')['default']
-    Logo: typeof import('./src/domains/app/components/Logo/Logo.vue')['default']
+    LocaleSwitcher: typeof import('./src/domains/functional/components/LocaleSwitcher/LocaleSwitcher.vue')['default']
+    Logo: typeof import('./src/domains/functional/components/Logo/Logo.vue')['default']
+    Logout: typeof import('./src/domains/auth/components/Logout/Logout.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
-    ThemeLayoutSwitcher: typeof import('./src/domains/app/components/ThemeSwitcher/ThemeLayoutSwitcher.vue')['default']
-    ThemeSchemeSwitcher: typeof import('./src/domains/app/components/ThemeSwitcher/ThemeSchemeSwitcher.vue')['default']
-    ThemeVariantSwitcher: typeof import('./src/domains/app/components/ThemeSwitcher/ThemeVariantSwitcher.vue')['default']
+    ThemeLayoutSwitcher: typeof import('./src/domains/admin/components/ThemeSwitcher/ThemeLayoutSwitcher.vue')['default']
+    ThemeSchemeSwitcher: typeof import('./src/domains/admin/components/ThemeSwitcher/ThemeSchemeSwitcher.vue')['default']
+    ThemeVariantSwitcher: typeof import('./src/domains/admin/components/ThemeSwitcher/ThemeVariantSwitcher.vue')['default']
   }
 }

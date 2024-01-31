@@ -13,6 +13,7 @@ const app = createApp(App)
 const pinia = createPinia()
 app.use(pinia)
 const context = useContextStore()
+
 app.use(router)
 app.use(i18n(context))
 app.use(urql, urqlClient)

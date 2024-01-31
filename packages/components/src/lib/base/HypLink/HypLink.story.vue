@@ -18,6 +18,12 @@
       title: 'Color',
       options: LINK_COLORS,
     },
+    size: {
+      model: LINK_SIZE.MEDIUM,
+      type: 'select',
+      title: 'Size',
+      options: LINK_SIZES,
+    },
   })
 </script>
 
@@ -34,6 +40,7 @@
       <HypLink
         :color="controls.color.model"
         :to="controls.to.model"
+        :size="controls.size.model"
       >
         {{ controls.label.model }}
       </HypLink>

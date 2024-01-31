@@ -2,6 +2,9 @@ name: Development
 
 env:
   VERCEL_ORG_ID: ${{ secrets.VERCEL_ID }}
+  VITE_SUPABASE_ID: ${{ secrets.VITE_SUPABASE_ID }}
+  VITE_SUPABASE_KEY: ${{ secrets.VITE_SUPABASE_KEY }}
+  VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
 
 on:
   pull_request:

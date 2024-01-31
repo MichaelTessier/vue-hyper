@@ -26,6 +26,12 @@ export const TYPO_COLOR = {
   DARK: 'dark',
   WHITE: 'white',
   LIGHT: 'light',
+  PRIMARY: 'primary',
+  SECONDARY: 'secondary',
+  SUCCESS: 'success',
+  WARNING: 'warning',
+  ERROR: 'error',
+  INFO: 'info',
 } as const
 export const TYPO_COLORS = Object.values(TYPO_COLOR)
 export type TypoColor = (typeof TYPO_COLORS)[number]

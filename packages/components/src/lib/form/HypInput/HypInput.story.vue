@@ -48,6 +48,11 @@
       model: false,
       title: 'Show Password',
     },
+    dark: {
+      type: 'boolean',
+      model: false,
+      title: 'Set dark',
+    },
   })
 
   const password = ref('')
@@ -73,6 +78,7 @@
           :disabled="controls.disabled.model"
           :readonly="controls.readonly.model"
           :show-password="controls.showPassword.model"
+          :dark="controls.dark.model"
         />
       </div>
     </Variant>

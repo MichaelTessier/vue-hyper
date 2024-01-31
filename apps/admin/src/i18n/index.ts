@@ -1,8 +1,12 @@
 import type { I18nOptions } from 'vue-i18n'
 import { createI18n } from 'vue-i18n'
-import en from './locales/en.json'
-import fr from './locales/fr.json'
 import type { ContextState } from '@/stores/context/context'
+
+import adminMessagesEn from '@/domains/admin/i18n/messages/en.json'
+import adminMessagesFr from '@/domains/admin/i18n/messages/fr.json'
+
+import authMessagesEn from '@/domains/auth/i18n/messages/en.json'
+import authMessagesFr from '@/domains/auth/i18n/messages/fr.json'
 
 export const DEFAULT_LOCALE = 'fr'
 export const AVAILABLE_LOCALES = [DEFAULT_LOCALE, 'en']
@@ -13,8 +17,14 @@ export const i18n = (context: ContextState) => {
     locale: context?.locale ?? DEFAULT_LOCALE,
     fallbackLocale: DEFAULT_LOCALE,
     messages: {
-      en,
-      fr,
+      en: {
+        ...adminMessagesEn,
+        ...authMessagesEn,
+      },
+      fr: {
+        ...adminMessagesFr,
+        ...authMessagesFr,
+      },
     },
   }
 

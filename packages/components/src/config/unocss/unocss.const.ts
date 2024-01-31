@@ -7,7 +7,7 @@ export const UNO_COLORS = {
   info: 'var(--hyp-color-info)',
   success: 'var(--hyp-color-success)',
   warning: 'var(--hyp-color-warning)',
-  danger: 'var(--hyp-color-danger)',
+  error: 'var(--hyp-color-error)',
 }
 
 export const UNO_RADIUSES = {
