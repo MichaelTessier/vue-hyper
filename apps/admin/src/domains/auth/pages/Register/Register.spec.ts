@@ -41,7 +41,7 @@ describe('Register', () => {
     expect(useAuthMock.register).toHaveBeenCalledWith(
       'email',
       'password',
-      'http://localhost:5173/emailRedirectTo'
+      'http://localhost:3000/emailRedirectTo'
     )
 
     expect(useRouterMock.push).toHaveBeenCalledWith({

@@ -55,7 +55,7 @@ describe('PasswordReset', () => {
 
     expect(useAuthMock.passwordReset).toHaveBeenCalledWith(
       'email',
-      'http://localhost:5173/emailRedirectTo'
+      'http://localhost:3000/emailRedirectTo'
     )
 
     expect(wrapper.find('[data-test="password-reset__success"]').text()).toBe(

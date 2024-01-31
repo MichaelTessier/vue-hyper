@@ -31,7 +31,7 @@ describe('VerifyEmail', () => {
 
     expect(useAuthMock.resendEmailConfirmation).toHaveBeenCalledWith(
       'email',
-      'http://localhost:5173/emailRedirectTo'
+      'http://localhost:3000/emailRedirectTo'
     )
 
     expect(wrapper.find('[data-test="verify-email__success"]').text()).toBe(
