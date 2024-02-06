@@ -1,3 +1,5 @@
+import { TYPO_COLOR_DEFAULT, TYPO_COLORS } from '../HypTypo/HypTypo.model'
+
 export const ICON_NAME = {
   CHEVRON_LEFT: 'chevron-left',
   CHEVRON_RIGHT: 'chevron-right',
@@ -19,3 +21,7 @@ export const ICON_SIZE = {
 
 export const ICON_SIZES = Object.values(ICON_SIZE)
 export type IconSize = (typeof ICON_SIZES)[number]
+
+export const ICON_COLOR_DEFAULT = TYPO_COLOR_DEFAULT
+export const ICON_COLORS = [...TYPO_COLORS]
+export type IconColor = (typeof ICON_COLORS)[number]

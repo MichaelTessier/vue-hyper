@@ -1,3 +1,5 @@
+import { COLOR } from '../../models/color'
+
 export const TYPO_TAG_DEFAULT = 'p'
 
 export const TYPO_TYPE = {
@@ -22,16 +24,15 @@ export const TYPO_WEIGHT = {
 export const TYPO_WEIGHTS = Object.values(TYPO_WEIGHT)
 export type TypoWeight = (typeof TYPO_WEIGHTS)[number]
 
-export const TYPO_COLOR = {
-  DARK: 'dark',
-  WHITE: 'white',
-  LIGHT: 'light',
-  PRIMARY: 'primary',
-  SECONDARY: 'secondary',
-  SUCCESS: 'success',
-  WARNING: 'warning',
-  ERROR: 'error',
-  INFO: 'info',
-} as const
-export const TYPO_COLORS = Object.values(TYPO_COLOR)
+export const TYPO_COLOR_DEFAULT = COLOR.DEFAULT
+
+export const TYPO_COLORS = [
+  COLOR.DEFAULT,
+  COLOR.LIGHT,
+  COLOR.INVERSE,
+  COLOR.DARK,
+  COLOR.PRIMARY,
+  COLOR.SECONDARY,
+]
+
 export type TypoColor = (typeof TYPO_COLORS)[number]

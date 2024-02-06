@@ -8,7 +8,7 @@
     },
     color: {
       type: String as PropType<TypoColor>,
-      default: TYPO_COLOR.DARK,
+      default: TYPO_COLOR_DEFAULT,
     },
     type: {
       type: String as PropType<TypoType>,

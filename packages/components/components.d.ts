@@ -7,6 +7,7 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
+    'Colors.story': typeof import('./src/lib/designTokens/Colors/Colors.story.vue')['default']
     ControlsProvider: typeof import('./src/histoire/ControlsProvider/ControlsProvider.vue')['default']
     HypButton: typeof import('./src/lib/base/HypButton/HypButton.vue')['default']
     'HypButton.story': typeof import('./src/lib/base/HypButton/HypButton.story.vue')['default']
@@ -20,5 +21,7 @@ declare module 'vue' {
     'HypTypo.story': typeof import('./src/lib/base/HypTypo/HypTypo.story.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    TokenColor: typeof import('./src/histoire/Token/TokenColor.vue')['default']
+    TokenColorList: typeof import('./src/histoire/Token/TokenColorList.vue')['default']
   }
 }

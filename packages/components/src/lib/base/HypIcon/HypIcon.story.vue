@@ -13,11 +13,21 @@
       title: 'Size',
       options: ICON_SIZES,
     },
+    color: {
+      model: ICON_COLOR_DEFAULT,
+      type: 'select',
+      title: 'Color',
+      options: ICON_COLORS,
+    },
   })
 </script>
 
 <template>
-  <Story :layout="{ type: 'grid', width: '100%' }">
+  <Story
+    :layout="{ type: 'grid', width: '100%' }"
+    group="components"
+    title="Base/HypIcon"
+  >
     <template #controls>
       <ControlsProvider :controls="controls" />
     </template>
@@ -39,6 +49,7 @@
             <HypIcon
               :name="iconName"
               :size="controls.size.model"
+              :color="controls.color.model"
             />
           </div>
 

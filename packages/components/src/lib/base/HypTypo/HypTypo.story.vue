@@ -13,7 +13,7 @@
       title: 'p',
     },
     color: {
-      model: TYPO_COLOR.DARK,
+      model: TYPO_COLOR_DEFAULT,
       type: 'select',
       title: 'Color',
       options: TYPO_COLORS,
@@ -39,7 +39,11 @@
 </script>
 
 <template>
-  <Story :layout="{ type: 'grid', width: '100%' }">
+  <Story
+    :layout="{ type: 'grid', width: '100%' }"
+    group="components"
+    title="Base/HypTypo"
+  >
     <template #controls>
       <ControlsProvider :controls="controls" />
     </template>

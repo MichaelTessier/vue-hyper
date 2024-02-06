@@ -59,7 +59,11 @@
 </script>
 
 <template>
-  <Story :layout="{ type: 'grid', width: '100%' }">
+  <Story
+    :layout="{ type: 'grid', width: '100%' }"
+    group="components"
+    title="Form/HypInput"
+  >
     <template #controls>
       <ControlsProvider :controls="controls" />
     </template>

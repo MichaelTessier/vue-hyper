@@ -13,7 +13,7 @@
     },
     variant: {
       type: String as PropType<ButtonVariant>,
-      default: BUTTON_VARIANT.PRIMARY,
+      default: BUTTON_VARIANT_DEFAULT,
     },
     size: {
       type: String as PropType<ButtonSize>,
@@ -54,7 +54,9 @@
   })
 
   const textColor = computed(() =>
-    props.variant === BUTTON_VARIANT.LIGHT ? 'text-black' : 'text-white'
+    props.variant === COLOR.SECONDARY || props.variant === COLOR.LIGHT
+      ? 'text-black'
+      : 'text-white'
   )
 
   const textOutlineColor = computed(() =>
@@ -83,7 +85,8 @@
       'cursor-not-allowed opacity-50': disabled,
       'w-full': full,
       [`${textColor} bg-${variant}`]: !outline,
-      [`border-${variant} border-1! bg-white ${textOutlineColor}`]: outline,
+      [`border-${variant} border-1! bg-transparent ${textOutlineColor}`]:
+        outline,
       [`rounded-${radius}`]: true,
       [`shadow-btn-${variant}`]: shadow,
       [`px-4 h-9 hyp-text-medium`]: size === BUTTON_SIZE.SMALL,

@@ -8,7 +8,7 @@
       title: 'Label',
     },
     variant: {
-      model: BUTTON_VARIANT.PRIMARY,
+      model: BUTTON_VARIANT_DEFAULT,
       type: 'select',
       title: 'Variant',
       options: BUTTON_VARIANTS,
@@ -40,11 +40,20 @@
       type: 'boolean',
       title: 'Full',
     },
+    shadow: {
+      model: false,
+      type: 'boolean',
+      title: 'Shadow',
+    },
   })
 </script>
 
 <template>
-  <Story :layout="{ type: 'grid', width: '100%' }">
+  <Story
+    :layout="{ type: 'grid', width: '100%' }"
+    group="components"
+    title="Base/HypButton"
+  >
     <template #controls>
       <ControlsProvider :controls="controls" />
     </template>
@@ -60,6 +69,7 @@
           :radius="controls.radius.model"
           :disabled="controls.disabled.model"
           :outline="controls.outline.model"
+          :shadow="controls.shadow.model"
           :size="controls.size.model"
         />
       </div>

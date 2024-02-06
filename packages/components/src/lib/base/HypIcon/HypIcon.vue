@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import type { IconName, IconSize } from './HypIcon.model.ts'
+  import type { IconName, IconSize, IconColor } from './HypIcon.model.ts'
 
   defineProps({
     name: {
@@ -9,6 +9,10 @@
     size: {
       type: String as PropType<IconSize>,
       default: ICON_SIZE.MEDIUM,
+    },
+    color: {
+      type: String as PropType<IconColor>,
+      default: ICON_COLOR_DEFAULT,
     },
   })
 </script>
@@ -20,6 +24,7 @@
       [`text-9`]: size === ICON_SIZE.LARGE,
       [`text-7`]: size === ICON_SIZE.MEDIUM,
       [`text-5`]: size === ICON_SIZE.SMALL,
+      [`text-${color}`]: true,
     }"
   />
 </template>

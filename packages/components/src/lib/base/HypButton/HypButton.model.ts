@@ -1,14 +1,14 @@
-export const BUTTON_VARIANT = {
-  PRIMARY: 'primary',
-  SECONDARY: 'secondary',
-  INFO: 'info',
-  SUCCESS: 'success',
-  WARNING: 'warning',
-  DANGER: 'danger',
-  LIGHT: 'light',
-  DARK: 'dark',
-} as const
-export const BUTTON_VARIANTS = Object.values(BUTTON_VARIANT)
+export const BUTTON_VARIANT_DEFAULT = COLOR.PRIMARY
+export const BUTTON_VARIANTS = [
+  COLOR.PRIMARY,
+  COLOR.SECONDARY,
+  COLOR.SUCCESS,
+  COLOR.WARNING,
+  COLOR.ERROR,
+  COLOR.INFO,
+  COLOR.LIGHT,
+  COLOR.DARK,
+]
 export type ButtonVariant = (typeof BUTTON_VARIANTS)[number]
 
 export const BUTTON_SIZE = {

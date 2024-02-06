@@ -9,7 +9,7 @@
     },
     color: {
       type: String as PropType<LinkColor>,
-      default: LINK_COLOR.DARK,
+      default: LINK_COLOR_DEFAULT,
     },
     size: {
       type: String as PropType<LinkSize>,

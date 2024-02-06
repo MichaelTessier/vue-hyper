@@ -13,7 +13,7 @@
       title: 'To',
     },
     color: {
-      model: LINK_COLOR.DARK,
+      model: LINK_COLOR_DEFAULT,
       type: 'select',
       title: 'Color',
       options: LINK_COLORS,
@@ -28,7 +28,11 @@
 </script>
 
 <template>
-  <Story :layout="{ type: 'grid', width: '100%' }">
+  <Story
+    :layout="{ type: 'grid', width: '100%' }"
+    group="components"
+    title="Base/HypLink"
+  >
     <template #controls>
       <ControlsProvider :controls="controls" />
     </template>

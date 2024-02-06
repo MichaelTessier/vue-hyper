@@ -69,6 +69,18 @@ export default defineConfig({
     plugins: [HstVue()],
     setupFile: 'histoire.setup.ts',
     viteIgnorePlugins: ['vite:dts'],
+    tree: {
+      groups: [
+        {
+          id: 'design-tokens',
+          title: 'Design Tokens', // No toggle
+        },
+        {
+          id: 'components',
+          title: 'Components',
+        },
+      ],
+    },
   },
   server: {
     fs: {

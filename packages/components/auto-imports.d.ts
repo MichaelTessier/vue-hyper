@@ -11,27 +11,36 @@ declare global {
   const BUTTON_SIZES: typeof import('./src/lib/base/HypButton/HypButton.model')['BUTTON_SIZES']
   const BUTTON_VARIANT: typeof import('./src/lib/base/HypButton/HypButton.model')['BUTTON_VARIANT']
   const BUTTON_VARIANTS: typeof import('./src/lib/base/HypButton/HypButton.model')['BUTTON_VARIANTS']
+  const BUTTON_VARIANT_DEFAULT: typeof import('./src/lib/base/HypButton/HypButton.model')['BUTTON_VARIANT_DEFAULT']
+  const COLOR: typeof import('./src/lib/models/color')['COLOR']
   const EffectScope: typeof import('vue')['EffectScope']
   const HyperResolver: typeof import('./src/plugins/auto-import')['HyperResolver']
+  const ICON_COLORS: typeof import('./src/lib/base/HypIcon/HypIcon.model')['ICON_COLORS']
+  const ICON_COLOR_DEFAULT: typeof import('./src/lib/base/HypIcon/HypIcon.model')['ICON_COLOR_DEFAULT']
   const ICON_NAME: typeof import('./src/lib/base/HypIcon/HypIcon.model')['ICON_NAME']
   const ICON_NAMES: typeof import('./src/lib/base/HypIcon/HypIcon.model')['ICON_NAMES']
   const ICON_SIZE: typeof import('./src/lib/base/HypIcon/HypIcon.model')['ICON_SIZE']
   const ICON_SIZES: typeof import('./src/lib/base/HypIcon/HypIcon.model')['ICON_SIZES']
   const INPUT_TYPE: typeof import('./src/lib/form/HypInput/HypInput.model')['INPUT_TYPE']
   const INPUT_TYPES: typeof import('./src/lib/form/HypInput/HypInput.model')['INPUT_TYPES']
-  const LINK_COLOR: typeof import('./src/lib/base/HypLink/HypLink.model')['LINK_COLOR']
+  const LINK_COLOR: (typeof import('./src/lib/base/HypLink/HypLink.model'))['LINK_COLOR']
   const LINK_COLORS: typeof import('./src/lib/base/HypLink/HypLink.model')['LINK_COLORS']
+  const LINK_COLOR_DEFAULT: typeof import('./src/lib/base/HypLink/HypLink.model')['LINK_COLOR_DEFAULT']
   const LINK_SIZE: typeof import('./src/lib/base/HypLink/HypLink.model')['LINK_SIZE']
   const LINK_SIZES: typeof import('./src/lib/base/HypLink/HypLink.model')['LINK_SIZES']
-  const TYPO_COLOR: typeof import('./src/lib/base/HypTypo/HypTypo.model')['TYPO_COLOR']
+  const TYPO_COLOR: (typeof import('./src/lib/base/HypTypo/HypTypo.model'))['TYPO_COLOR']
   const TYPO_COLORS: typeof import('./src/lib/base/HypTypo/HypTypo.model')['TYPO_COLORS']
+  const TYPO_COLOR_DEFAULT: typeof import('./src/lib/base/HypTypo/HypTypo.model')['TYPO_COLOR_DEFAULT']
   const TYPO_TAG_DEFAULT: typeof import('./src/lib/base/HypTypo/HypTypo.model')['TYPO_TAG_DEFAULT']
   const TYPO_TYPE: typeof import('./src/lib/base/HypTypo/HypTypo.model')['TYPO_TYPE']
   const TYPO_TYPES: typeof import('./src/lib/base/HypTypo/HypTypo.model')['TYPO_TYPES']
   const TYPO_WEIGHT: typeof import('./src/lib/base/HypTypo/HypTypo.model')['TYPO_WEIGHT']
   const TYPO_WEIGHTS: typeof import('./src/lib/base/HypTypo/HypTypo.model')['TYPO_WEIGHTS']
+  const UNO_BACKGROUND_COLORS: typeof import('./src/config/unocss/unocss.const')['UNO_BACKGROUND_COLORS']
+  const UNO_BORDER_COLORS: typeof import('./src/config/unocss/unocss.const')['UNO_BORDER_COLORS']
   const UNO_COLORS: typeof import('./src/config/unocss/unocss.const')['UNO_COLORS']
   const UNO_RADIUSES: typeof import('./src/config/unocss/unocss.const')['UNO_RADIUSES']
+  const UNO_TEXT_COLORS: typeof import('./src/config/unocss/unocss.const')['UNO_TEXT_COLORS']
   const computed: typeof import('vue')['computed']
   const createApp: typeof import('vue')['createApp']
   const customRef: typeof import('vue')['customRef']
@@ -105,29 +114,35 @@ declare module 'vue' {
     readonly BUTTON_RADIUSES: UnwrapRef<typeof import('./src/lib/base/HypButton/HypButton.model')['BUTTON_RADIUSES']>
     readonly BUTTON_SIZE: UnwrapRef<typeof import('./src/lib/base/HypButton/HypButton.model')['BUTTON_SIZE']>
     readonly BUTTON_SIZES: UnwrapRef<typeof import('./src/lib/base/HypButton/HypButton.model')['BUTTON_SIZES']>
-    readonly BUTTON_VARIANT: UnwrapRef<typeof import('./src/lib/base/HypButton/HypButton.model')['BUTTON_VARIANT']>
     readonly BUTTON_VARIANTS: UnwrapRef<typeof import('./src/lib/base/HypButton/HypButton.model')['BUTTON_VARIANTS']>
+    readonly BUTTON_VARIANT_DEFAULT: UnwrapRef<typeof import('./src/lib/base/HypButton/HypButton.model')['BUTTON_VARIANT_DEFAULT']>
+    readonly COLOR: UnwrapRef<typeof import('./src/lib/models/color')['COLOR']>
     readonly EffectScope: UnwrapRef<typeof import('vue')['EffectScope']>
     readonly HyperResolver: UnwrapRef<typeof import('./src/plugins/auto-import')['HyperResolver']>
+    readonly ICON_COLORS: UnwrapRef<typeof import('./src/lib/base/HypIcon/HypIcon.model')['ICON_COLORS']>
+    readonly ICON_COLOR_DEFAULT: UnwrapRef<typeof import('./src/lib/base/HypIcon/HypIcon.model')['ICON_COLOR_DEFAULT']>
     readonly ICON_NAME: UnwrapRef<typeof import('./src/lib/base/HypIcon/HypIcon.model')['ICON_NAME']>
     readonly ICON_NAMES: UnwrapRef<typeof import('./src/lib/base/HypIcon/HypIcon.model')['ICON_NAMES']>
     readonly ICON_SIZE: UnwrapRef<typeof import('./src/lib/base/HypIcon/HypIcon.model')['ICON_SIZE']>
     readonly ICON_SIZES: UnwrapRef<typeof import('./src/lib/base/HypIcon/HypIcon.model')['ICON_SIZES']>
     readonly INPUT_TYPE: UnwrapRef<typeof import('./src/lib/form/HypInput/HypInput.model')['INPUT_TYPE']>
     readonly INPUT_TYPES: UnwrapRef<typeof import('./src/lib/form/HypInput/HypInput.model')['INPUT_TYPES']>
-    readonly LINK_COLOR: UnwrapRef<typeof import('./src/lib/base/HypLink/HypLink.model')['LINK_COLOR']>
     readonly LINK_COLORS: UnwrapRef<typeof import('./src/lib/base/HypLink/HypLink.model')['LINK_COLORS']>
+    readonly LINK_COLOR_DEFAULT: UnwrapRef<typeof import('./src/lib/base/HypLink/HypLink.model')['LINK_COLOR_DEFAULT']>
     readonly LINK_SIZE: UnwrapRef<typeof import('./src/lib/base/HypLink/HypLink.model')['LINK_SIZE']>
     readonly LINK_SIZES: UnwrapRef<typeof import('./src/lib/base/HypLink/HypLink.model')['LINK_SIZES']>
-    readonly TYPO_COLOR: UnwrapRef<typeof import('./src/lib/base/HypTypo/HypTypo.model')['TYPO_COLOR']>
     readonly TYPO_COLORS: UnwrapRef<typeof import('./src/lib/base/HypTypo/HypTypo.model')['TYPO_COLORS']>
+    readonly TYPO_COLOR_DEFAULT: UnwrapRef<typeof import('./src/lib/base/HypTypo/HypTypo.model')['TYPO_COLOR_DEFAULT']>
     readonly TYPO_TAG_DEFAULT: UnwrapRef<typeof import('./src/lib/base/HypTypo/HypTypo.model')['TYPO_TAG_DEFAULT']>
     readonly TYPO_TYPE: UnwrapRef<typeof import('./src/lib/base/HypTypo/HypTypo.model')['TYPO_TYPE']>
     readonly TYPO_TYPES: UnwrapRef<typeof import('./src/lib/base/HypTypo/HypTypo.model')['TYPO_TYPES']>
     readonly TYPO_WEIGHT: UnwrapRef<typeof import('./src/lib/base/HypTypo/HypTypo.model')['TYPO_WEIGHT']>
     readonly TYPO_WEIGHTS: UnwrapRef<typeof import('./src/lib/base/HypTypo/HypTypo.model')['TYPO_WEIGHTS']>
+    readonly UNO_BACKGROUND_COLORS: UnwrapRef<typeof import('./src/config/unocss/unocss.const')['UNO_BACKGROUND_COLORS']>
+    readonly UNO_BORDER_COLORS: UnwrapRef<typeof import('./src/config/unocss/unocss.const')['UNO_BORDER_COLORS']>
     readonly UNO_COLORS: UnwrapRef<typeof import('./src/config/unocss/unocss.const')['UNO_COLORS']>
     readonly UNO_RADIUSES: UnwrapRef<typeof import('./src/config/unocss/unocss.const')['UNO_RADIUSES']>
+    readonly UNO_TEXT_COLORS: UnwrapRef<typeof import('./src/config/unocss/unocss.const')['UNO_TEXT_COLORS']>
     readonly computed: UnwrapRef<typeof import('vue')['computed']>
     readonly createApp: UnwrapRef<typeof import('vue')['createApp']>
     readonly customRef: UnwrapRef<typeof import('vue')['customRef']>
@@ -195,29 +210,35 @@ declare module '@vue/runtime-core' {
     readonly BUTTON_RADIUSES: UnwrapRef<typeof import('./src/lib/base/HypButton/HypButton.model')['BUTTON_RADIUSES']>
     readonly BUTTON_SIZE: UnwrapRef<typeof import('./src/lib/base/HypButton/HypButton.model')['BUTTON_SIZE']>
     readonly BUTTON_SIZES: UnwrapRef<typeof import('./src/lib/base/HypButton/HypButton.model')['BUTTON_SIZES']>
-    readonly BUTTON_VARIANT: UnwrapRef<typeof import('./src/lib/base/HypButton/HypButton.model')['BUTTON_VARIANT']>
     readonly BUTTON_VARIANTS: UnwrapRef<typeof import('./src/lib/base/HypButton/HypButton.model')['BUTTON_VARIANTS']>
+    readonly BUTTON_VARIANT_DEFAULT: UnwrapRef<typeof import('./src/lib/base/HypButton/HypButton.model')['BUTTON_VARIANT_DEFAULT']>
+    readonly COLOR: UnwrapRef<typeof import('./src/lib/models/color')['COLOR']>
     readonly EffectScope: UnwrapRef<typeof import('vue')['EffectScope']>
     readonly HyperResolver: UnwrapRef<typeof import('./src/plugins/auto-import')['HyperResolver']>
+    readonly ICON_COLORS: UnwrapRef<typeof import('./src/lib/base/HypIcon/HypIcon.model')['ICON_COLORS']>
+    readonly ICON_COLOR_DEFAULT: UnwrapRef<typeof import('./src/lib/base/HypIcon/HypIcon.model')['ICON_COLOR_DEFAULT']>
     readonly ICON_NAME: UnwrapRef<typeof import('./src/lib/base/HypIcon/HypIcon.model')['ICON_NAME']>
     readonly ICON_NAMES: UnwrapRef<typeof import('./src/lib/base/HypIcon/HypIcon.model')['ICON_NAMES']>
     readonly ICON_SIZE: UnwrapRef<typeof import('./src/lib/base/HypIcon/HypIcon.model')['ICON_SIZE']>
     readonly ICON_SIZES: UnwrapRef<typeof import('./src/lib/base/HypIcon/HypIcon.model')['ICON_SIZES']>
     readonly INPUT_TYPE: UnwrapRef<typeof import('./src/lib/form/HypInput/HypInput.model')['INPUT_TYPE']>
     readonly INPUT_TYPES: UnwrapRef<typeof import('./src/lib/form/HypInput/HypInput.model')['INPUT_TYPES']>
-    readonly LINK_COLOR: UnwrapRef<typeof import('./src/lib/base/HypLink/HypLink.model')['LINK_COLOR']>
     readonly LINK_COLORS: UnwrapRef<typeof import('./src/lib/base/HypLink/HypLink.model')['LINK_COLORS']>
+    readonly LINK_COLOR_DEFAULT: UnwrapRef<typeof import('./src/lib/base/HypLink/HypLink.model')['LINK_COLOR_DEFAULT']>
     readonly LINK_SIZE: UnwrapRef<typeof import('./src/lib/base/HypLink/HypLink.model')['LINK_SIZE']>
     readonly LINK_SIZES: UnwrapRef<typeof import('./src/lib/base/HypLink/HypLink.model')['LINK_SIZES']>
-    readonly TYPO_COLOR: UnwrapRef<typeof import('./src/lib/base/HypTypo/HypTypo.model')['TYPO_COLOR']>
     readonly TYPO_COLORS: UnwrapRef<typeof import('./src/lib/base/HypTypo/HypTypo.model')['TYPO_COLORS']>
+    readonly TYPO_COLOR_DEFAULT: UnwrapRef<typeof import('./src/lib/base/HypTypo/HypTypo.model')['TYPO_COLOR_DEFAULT']>
     readonly TYPO_TAG_DEFAULT: UnwrapRef<typeof import('./src/lib/base/HypTypo/HypTypo.model')['TYPO_TAG_DEFAULT']>
     readonly TYPO_TYPE: UnwrapRef<typeof import('./src/lib/base/HypTypo/HypTypo.model')['TYPO_TYPE']>
     readonly TYPO_TYPES: UnwrapRef<typeof import('./src/lib/base/HypTypo/HypTypo.model')['TYPO_TYPES']>
     readonly TYPO_WEIGHT: UnwrapRef<typeof import('./src/lib/base/HypTypo/HypTypo.model')['TYPO_WEIGHT']>
     readonly TYPO_WEIGHTS: UnwrapRef<typeof import('./src/lib/base/HypTypo/HypTypo.model')['TYPO_WEIGHTS']>
+    readonly UNO_BACKGROUND_COLORS: UnwrapRef<typeof import('./src/config/unocss/unocss.const')['UNO_BACKGROUND_COLORS']>
+    readonly UNO_BORDER_COLORS: UnwrapRef<typeof import('./src/config/unocss/unocss.const')['UNO_BORDER_COLORS']>
     readonly UNO_COLORS: UnwrapRef<typeof import('./src/config/unocss/unocss.const')['UNO_COLORS']>
     readonly UNO_RADIUSES: UnwrapRef<typeof import('./src/config/unocss/unocss.const')['UNO_RADIUSES']>
+    readonly UNO_TEXT_COLORS: UnwrapRef<typeof import('./src/config/unocss/unocss.const')['UNO_TEXT_COLORS']>
     readonly computed: UnwrapRef<typeof import('vue')['computed']>
     readonly createApp: UnwrapRef<typeof import('vue')['createApp']>
     readonly customRef: UnwrapRef<typeof import('vue')['customRef']>
