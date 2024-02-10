@@ -7,7 +7,6 @@ import UnoCSS from 'unocss/vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import dts from 'vite-plugin-dts'
-import { HstVue } from '@histoire/plugin-vue'
 
 export default defineConfig({
   plugins: [
@@ -64,24 +63,24 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'),
     },
   },
-  histoire: {
-    outDir: 'dist-histoire',
-    plugins: [HstVue()],
-    setupFile: 'histoire.setup.ts',
-    viteIgnorePlugins: ['vite:dts'],
-    tree: {
-      groups: [
-        {
-          id: 'design-tokens',
-          title: 'Design Tokens', // No toggle
-        },
-        {
-          id: 'components',
-          title: 'Components',
-        },
-      ],
-    },
-  },
+  // histoire: {
+  //   outDir: 'dist-histoire',
+  //   plugins: [HstVue()],
+  //   setupFile: 'histoire.setup.ts',
+  //   viteIgnorePlugins: ['vite:dts'],
+  //   tree: {
+  //     groups: [
+  //       {
+  //         id: 'design-tokens',
+  //         title: 'Design Tokens', // No toggle
+  //       },
+  //       {
+  //         id: 'components',
+  //         title: 'Components',
+  //       },
+  //     ],
+  //   },
+  // },
   server: {
     fs: {
       allow: [searchForWorkspaceRoot(process.cwd()), '..'],

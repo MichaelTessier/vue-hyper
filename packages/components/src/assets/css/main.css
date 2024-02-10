@@ -1,7 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700');
 
 :root,
-html[data-color-scheme='light'] {
+html[data-color-scheme='light'],
+html[data-variant-theme='blue'] {
   --hyp-color-primary: #00aeff;
   --hyp-color-secondary: #bbc8ce;
   --hyp-color-white: #fff;
@@ -27,7 +28,6 @@ html[data-color-scheme='light'] {
   --hyp-color-border-inverse: #869292;
 }
 
-html.htw-dark,
 html[data-color-scheme='dark'] {
   --hyp-color-secondary: #636d72;
 
@@ -42,6 +42,30 @@ html[data-color-scheme='dark'] {
   /* BORDER */
   --hyp-color-border-default: #869292;
   --hyp-color-border-inverse: #d1dcdc;
+}
+
+html[data-variant-theme='purple'] {
+  --hyp-color-primary: #c80e59;
+  --hyp-color-secondary: #c2bdff;
+  --hyp-color-white: #fff;
+  --hyp-color-light: #f7f2fe;
+  --hyp-color-dark: #1c1d22;
+  --hyp-color-info: #00a3f5;
+  --hyp-color-success: #00ce90;
+  --hyp-color-warning: #e8c00e;
+  --hyp-color-error: #fb4b00;
+}
+
+html[data-variant-theme='green'] {
+  --hyp-color-primary: #1cc979;
+  --hyp-color-secondary: #b2dde7;
+  --hyp-color-white: #fff;
+  --hyp-color-light: #f6fffb;
+  --hyp-color-dark: #272b29;
+  --hyp-color-info: #9978df;
+  --hyp-color-success: #16a1c8;
+  --hyp-color-warning: #e09d0c;
+  --hyp-color-error: #f50030;
 }
 
 html {

@@ -1,4 +1,4 @@
-import { COLOR } from '../../models/color'
+import { COLOR } from '../../../models/color'
 
 export const TYPO_TAG_DEFAULT = 'p'
 

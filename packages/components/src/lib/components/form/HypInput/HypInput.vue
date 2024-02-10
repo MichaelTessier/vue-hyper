@@ -39,10 +39,6 @@
       type: Boolean,
       default: false,
     },
-    // dark: {
-    //   type: Boolean,
-    //   default: false,
-    // },
   })
 
   const emit = defineEmits<{
@@ -89,7 +85,7 @@
     </HypTypo>
     <div class="group">
       <div
-        class="flex items-stretch justify-between border-1 border-secondary rounded-small group-focus-within:outline-1 group-focus-within:outline group-focus-within:outline-secondary"
+        class="flex items-stretch justify-between border-1 border-default rounded-small group-focus-within:outline-1 group-focus-within:outline group-focus-within:outline-secondary"
       >
         <input
           class="px-5 py-3 w-full outline-none bg-default text-default"

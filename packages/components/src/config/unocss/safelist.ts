@@ -1,5 +1,8 @@
-import { ICON_NAMES } from '../../lib/base/HypIcon/HypIcon.model'
-import { TYPO_TYPES, TYPO_WEIGHTS } from '../../lib/base/HypTypo/HypTypo.model'
+import { ICON_NAMES } from '../../lib/components/base/HypIcon/HypIcon.model'
+import {
+  TYPO_TYPES,
+  TYPO_WEIGHTS,
+} from '../../lib/components/base/HypTypo/HypTypo.model'
 import {
   UNO_BACKGROUND_COLORS,
   UNO_BORDER_COLORS,

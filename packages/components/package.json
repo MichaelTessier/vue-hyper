@@ -60,6 +60,7 @@
   "scripts": {
     "build": "histoire build",
     "build:lib": "vue-tsc && vite build",
+    "dev": "histoire dev",
     "install:deps": "yarn install --frozen-lockfile",
     "lint": "eslint src --ext .ts,.vue . && yarn stylelint 'src/**/*.{vue,css}'",
     "lint:fix": "yarn lint --fix",
