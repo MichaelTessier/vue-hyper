@@ -1,4 +1,5 @@
 <script setup lang="ts">
+  import { useTheme } from 'vue-hyper-components'
   const theme = useTheme()
 
   const selectedVariantTheme = theme.variantTheme

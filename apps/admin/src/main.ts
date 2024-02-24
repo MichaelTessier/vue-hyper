@@ -18,8 +18,8 @@ app.use(router)
 app.use(i18n(context))
 app.use(urql, urqlClient)
 
-const theme = useTheme()
-theme.init()
+const { initLayout } = useLayout()
+initLayout()
 
 router.isReady().then(() => {
   app.mount('#app')

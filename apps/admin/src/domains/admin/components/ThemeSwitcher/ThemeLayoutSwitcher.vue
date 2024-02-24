@@ -1,7 +1,7 @@
 <script setup lang="ts">
-  const theme = useTheme()
+  const { layout, setLayout, availableLayout } = useLayout()
 
-  const selectedLayoutTheme = theme.layoutTheme
+  const selectedLayoutTheme = layout
 </script>
 
 <template>
@@ -10,11 +10,11 @@
       data-test="layout-theme"
       v-model="selectedLayoutTheme"
       id="layout-theme"
-      @change="theme.setLayoutTheme(selectedLayoutTheme)"
+      @change="setLayout(selectedLayoutTheme)"
     >
       <option
         :value="layoutTheme"
-        v-for="(layoutTheme, index) in theme.availableLayoutTheme"
+        v-for="(layoutTheme, index) in availableLayout"
         :key="index"
       >
         {{ layoutTheme }}

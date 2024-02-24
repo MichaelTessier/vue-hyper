@@ -1,24 +1,24 @@
 import { mount } from '@vue/test-utils'
 import ThemeLayoutSwitcher from './ThemeLayoutSwitcher.vue'
 
-const useThemeMock = {
+const useLayoutMock = {
   setLayoutTheme: vi.fn(),
   availableLayoutTheme: ['modern', 'classic', 'compact'],
 }
 
-vi.mock('@/domains/functional/composables/useTheme/useTheme.ts', () => ({
-  useTheme: () => useThemeMock,
+vi.mock('@/domains/functional/composables/useLayout/useLayout.ts', () => ({
+  useLayout: () => useLayoutMock,
 }))
 
 describe('ThemeLayoutSwitcher', () => {
   afterEach(() => {
-    useThemeMock.setLayoutTheme.mockReset()
+    useLayoutMock.setLayoutTheme.mockReset()
   })
 
   it('should update layout theme', async () => {
     const wrapper = mount(ThemeLayoutSwitcher)
 
     await wrapper.find('[data-test="layout-theme"]').setValue('modern')
-    expect(useThemeMock.setLayoutTheme).toHaveBeenCalledWith('modern')
+    expect(useLayoutMock.setLayoutTheme).toHaveBeenCalledWith('modern')
   })
 })

@@ -2,13 +2,13 @@ import { mount } from '@vue/test-utils'
 import AdminHeader from './AdminHeader.vue'
 import Logo from '@/domains/functional/components/Logo/Logo.vue'
 
-const useThemeMock = {
+const useLayoutMock = {
   isCompactLayout: false,
   isModernLayout: false,
 }
 
-vi.mock('@/domains/functional/composables/useTheme/useTheme.ts', () => ({
-  useTheme: () => useThemeMock,
+vi.mock('@/domains/functional/composables/useLayout/useLayout.ts', () => ({
+  useLayout: () => useLayoutMock,
 }))
 
 describe('AdminHeader', () => {
@@ -19,14 +19,14 @@ describe('AdminHeader', () => {
   })
 
   it('should display Logo if is compact layout theme', async () => {
-    useThemeMock.isCompactLayout = true
+    useLayoutMock.isCompactLayout = true
     const wrapper = mount(AdminHeader)
 
     expect(wrapper.findComponent(Logo).exists()).toBe(true)
   })
 
   it('should display Logo if is modern layout theme', async () => {
-    useThemeMock.isModernLayout = true
+    useLayoutMock.isModernLayout = true
     const wrapper = mount(AdminHeader)
 
     expect(wrapper.findComponent(Logo).exists()).toBe(true)
