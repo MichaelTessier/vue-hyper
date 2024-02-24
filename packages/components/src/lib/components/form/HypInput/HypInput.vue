@@ -69,6 +69,10 @@
 
     return props.type
   })
+
+  const canShowPassword = computed(
+    () => props.type === INPUT_TYPE.PASSWORD && props.showPassword
+  )
 </script>
 
 <template>
@@ -97,7 +101,7 @@
           :readonly="readonly"
         />
         <div
-          v-if="showPassword && type === INPUT_TYPE.PASSWORD"
+          v-if="canShowPassword"
           data-test="hyp-input__show-password"
           class="flex items-center px-3"
           @click="togglePasswordVisibility"

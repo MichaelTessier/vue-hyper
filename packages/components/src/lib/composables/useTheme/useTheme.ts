@@ -13,25 +13,16 @@ export enum VariantTheme {
   purple = 'purple',
 }
 
-// export enum LayoutTheme {
-//   classic = 'classic',
-//   compact = 'compact',
-//   modern = 'modern',
-// }
-
 const colorScheme = ref(ColorScheme.light)
 const variantTheme = ref(VariantTheme.blue)
-// const layoutTheme = ref(LayoutTheme.classic)
 
 export const useTheme = () => {
   function init() {
     initColorScheme()
     initVariantTheme()
-    // initLayoutTheme()
   }
 
   const settings = reactive({
-    // layout: layoutTheme,
     variant: variantTheme.value,
     scheme: colorScheme.value,
   })
@@ -75,30 +66,6 @@ export const useTheme = () => {
     variantTheme.value = _variantTheme
   }
 
-  // function initLayoutTheme() {
-  //   const localLayoutTheme = localStorage.getItem(LAYOUT_THEME_STORAGE_KEY)
-
-  //   if (localLayoutTheme) {
-  //     layoutTheme.value = localLayoutTheme as LayoutTheme
-  //   }
-
-  //   setLayoutTheme(layoutTheme.value)
-  // }
-
-  // function setLayoutTheme(layoutTheme: LayoutTheme) {
-  //   localStorage.setItem(LAYOUT_THEME_STORAGE_KEY, layoutTheme)
-  // }
-
-  // const isClassicLayout = computed(
-  //   () => layoutTheme.value === LayoutTheme.classic
-  // )
-  // const isCompactLayout = computed(
-  //   () => layoutTheme.value === LayoutTheme.compact
-  // )
-  // const isModernLayout = computed(
-  //   () => layoutTheme.value === LayoutTheme.modern
-  // )
-
   return {
     init,
     colorScheme,
@@ -108,12 +75,6 @@ export const useTheme = () => {
     variantTheme,
     availableVariantTheme: Object.values(VariantTheme),
     setVariantTheme,
-    // layoutTheme,
-    // availableLayoutTheme: Object.values(LayoutTheme),
-    // setLayoutTheme,
-    // isClassicLayout: isClassicLayout,
-    // isCompactLayout: isCompactLayout,
-    // isModernLayout: isModernLayout,
     settings,
   }
 }

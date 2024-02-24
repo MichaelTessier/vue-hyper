@@ -55,6 +55,7 @@
     title="Base/HypButton"
   >
     <template #controls>
+      <ControlsTheme />
       <ControlsProvider :controls="controls" />
     </template>
 

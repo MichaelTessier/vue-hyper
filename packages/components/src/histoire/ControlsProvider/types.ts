@@ -1,7 +1,7 @@
 export type Type = 'select' | 'text' | 'number' | 'color' | 'boolean'
 
 export interface Controls {
-  model: string | string[] | number | boolean
+  model: any
   type: Type
   title: string
   options?: string[]

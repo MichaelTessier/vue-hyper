@@ -8,19 +8,22 @@
     title="Colors"
     responsive-disabled
   >
-    <Variant title="base">
+    <template #controls>
+      <ControlsTheme />
+    </template>
+    <Variant title="Base">
       <TokenColorList :tokens="theme.colors" />
     </Variant>
 
-    <Variant title="text">
+    <Variant title="Text">
       <TokenColorList :tokens="theme.textColors" />
     </Variant>
 
-    <Variant title="background">
+    <Variant title="Background">
       <TokenColorList :tokens="theme.backgroundColors" />
     </Variant>
 
-    <Variant title="border">
+    <Variant title="Border">
       <TokenColorList :tokens="theme.borderColors" />
     </Variant>
   </Story>

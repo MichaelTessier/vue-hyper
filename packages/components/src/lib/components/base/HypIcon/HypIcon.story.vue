@@ -29,6 +29,7 @@
     title="Base/HypIcon"
   >
     <template #controls>
+      <ControlsTheme />
       <ControlsProvider :controls="controls" />
     </template>
 

@@ -45,6 +45,7 @@
     title="Base/HypTypo"
   >
     <template #controls>
+      <ControlsTheme />
       <ControlsProvider :controls="controls" />
     </template>
 

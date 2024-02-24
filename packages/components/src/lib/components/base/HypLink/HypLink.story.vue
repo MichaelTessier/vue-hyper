@@ -34,6 +34,7 @@
     title="Base/HypLink"
   >
     <template #controls>
+      <ControlsTheme />
       <ControlsProvider :controls="controls" />
     </template>
 
