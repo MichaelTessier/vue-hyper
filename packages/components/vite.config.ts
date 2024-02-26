@@ -63,24 +63,6 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'),
     },
   },
-  // histoire: {
-  //   outDir: 'dist-histoire',
-  //   plugins: [HstVue()],
-  //   setupFile: 'histoire.setup.ts',
-  //   viteIgnorePlugins: ['vite:dts'],
-  //   tree: {
-  //     groups: [
-  //       {
-  //         id: 'design-tokens',
-  //         title: 'Design Tokens', // No toggle
-  //       },
-  //       {
-  //         id: 'components',
-  //         title: 'Components',
-  //       },
-  //     ],
-  //   },
-  // },
   server: {
     fs: {
       allow: [searchForWorkspaceRoot(process.cwd()), '..'],

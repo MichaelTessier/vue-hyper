@@ -1,5 +1,6 @@
 import { TYPO_COLOR_DEFAULT, TYPO_COLORS } from '../HypTypo/HypTypo.model'
 
+// https://icones.js.org/collection/mdi
 export const ICON_NAME = {
   CHEVRON_LEFT: 'chevron-left',
   CHEVRON_RIGHT: 'chevron-right',
@@ -8,6 +9,7 @@ export const ICON_NAME = {
   ACCOUNT: 'account',
   EYE_OUTLINE: 'eye-outline',
   EYE_OFF_OUTLINE: 'eye-off-outline',
+  CHECKBOX_MULTIPLE_BLANK_OUTLINE: 'checkbox-multiple-blank-outline',
 } as const
 
 export const ICON_NAMES = Object.values(ICON_NAME)

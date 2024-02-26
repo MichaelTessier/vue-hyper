@@ -8,7 +8,7 @@
 </script>
 
 <template>
-  <div class="grid grid-auto-128 gap-4">
+  <div class="grid grid-auto-180 gap-4">
     <TokenColor
       v-for="(value, token) in tokens"
       :key="token"

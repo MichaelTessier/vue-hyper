@@ -9,6 +9,8 @@
       default: '',
     },
   })
+
+  const { copyToClipboard } = useCopyToClipboard()
 </script>
 
 <template>
@@ -20,7 +22,22 @@
       }"
     />
 
-    <HypTypo type="text-small">{{ token }}</HypTypo>
-    <HypTypo type="text-small">{{ value }}</HypTypo>
+    <HypTypo
+      class="mb-1"
+      type="text-small"
+    >
+      {{ token }}
+    </HypTypo>
+    <div class="flex items-center">
+      <HypIcon
+        class="mr-1"
+        name="checkbox-multiple-blank-outline"
+        size="small"
+        @click="copyToClipboard(value)"
+      />
+      <HypTypo type="text-small">
+        {{ value }}
+      </HypTypo>
+    </div>
   </div>
 </template>

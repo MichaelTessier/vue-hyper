@@ -23,7 +23,7 @@
       [`i-mdi-${name}`]: true,
       [`text-9`]: size === ICON_SIZE.LARGE,
       [`text-7`]: size === ICON_SIZE.MEDIUM,
-      [`text-5`]: size === ICON_SIZE.SMALL,
+      [`text-4`]: size === ICON_SIZE.SMALL,
       [`text-${color}`]: true,
     }"
   />
