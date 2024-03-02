@@ -1,6 +1,15 @@
-import { ICON_NAMES } from '../../lib/base/HypIcon/HypIcon.model'
-import { TYPO_TYPES, TYPO_WEIGHTS } from '../../lib/base/HypTypo/HypTypo.model'
-import { UNO_COLORS, UNO_RADIUSES } from './unocss.const'
+import { ICON_NAMES } from '../../lib/components/base/HypIcon/HypIcon.model'
+import {
+  TYPO_TYPES,
+  TYPO_WEIGHTS,
+} from '../../lib/components/base/HypTypo/HypTypo.model'
+import {
+  UNO_BACKGROUND_COLORS,
+  UNO_BORDER_COLORS,
+  UNO_COLORS,
+  UNO_RADIUSES,
+  UNO_TEXT_COLORS,
+} from './unocss.const'
 
 const safelistIcons = () => {
   const safelist: string[] = []
@@ -20,6 +29,36 @@ const safelistColors = () => {
     Object.keys(UNO_COLORS).forEach((color) => {
       safelist.push(`${prop}-${color}`)
     })
+  })
+
+  return safelist
+}
+
+const safelistTextColors = () => {
+  const safelist: string[] = []
+
+  Object.keys(UNO_TEXT_COLORS).forEach((color) => {
+    safelist.push(`text-${color}`)
+  })
+
+  return safelist
+}
+
+const safelistBorderColors = () => {
+  const safelist: string[] = []
+
+  Object.keys(UNO_BORDER_COLORS).forEach((color) => {
+    safelist.push(`border-${color}`)
+  })
+
+  return safelist
+}
+
+const safelistBackgroundColors = () => {
+  const safelist: string[] = []
+
+  Object.keys(UNO_BACKGROUND_COLORS).forEach((color) => {
+    safelist.push(`bg-${color}`)
   })
 
   return safelist
@@ -56,9 +95,12 @@ const safelistFontWeight = () => {
 }
 
 export const safelist = [
-  ...safelistIcons(),
+  ...safelistBackgroundColors(),
+  ...safelistBorderColors(),
   ...safelistColors(),
-  ...safelistRadius(),
-  ...safelistTypo(),
   ...safelistFontWeight(),
+  ...safelistIcons(),
+  ...safelistRadius(),
+  ...safelistTextColors(),
+  ...safelistTypo(),
 ]

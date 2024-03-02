@@ -3,13 +3,13 @@ import AdminAside from './AdminAside.vue'
 import Logo from '@/domains/functional/components/Logo/Logo.vue'
 import { HypLink } from 'vue-hyper-components'
 
-const useThemeMock = {
+const useLayoutMock = {
   isModernLayout: false,
   isClassicLayout: false,
 }
 
-vi.mock('@/domains/functional/composables/useTheme/useTheme.ts', () => ({
-  useTheme: () => useThemeMock,
+vi.mock('@/domains/functional/composables/useLayout/useLayout.ts', () => ({
+  useLayout: () => useLayoutMock,
 }))
 
 describe('AdminAside', () => {
@@ -27,14 +27,14 @@ describe('AdminAside', () => {
   })
 
   it('should display link dark color if is modern layout theme', async () => {
-    useThemeMock.isModernLayout = true
+    useLayoutMock.isModernLayout = true
     const wrapper = mount(AdminAside)
 
     expect(wrapper.findComponent(HypLink).props('color')).toEqual('dark')
   })
 
   it('should display Logo if is classic layout theme', async () => {
-    useThemeMock.isClassicLayout = true
+    useLayoutMock.isClassicLayout = true
     const wrapper = mount(AdminAside)
 
     expect(wrapper.findComponent(Logo).exists()).toBe(true)

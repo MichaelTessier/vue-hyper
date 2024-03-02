@@ -1,6 +1,6 @@
 <script setup lang="ts">
   const { t } = useI18n()
-  const { isClassicLayout, isCompactLayout, isModernLayout } = useTheme()
+  const { isClassicLayout, isCompactLayout, isModernLayout } = useLayout()
 
   const navigationItems = computed(() => [
     {

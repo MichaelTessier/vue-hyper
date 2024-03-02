@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  const { settings, isModernLayout, isCompactLayout } = useTheme()
+  const { settings, isModernLayout, isCompactLayout } = useLayout()
 </script>
 
 <template>

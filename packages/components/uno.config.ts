@@ -13,7 +13,34 @@ export default defineConfig({
         'box-shadow': `0px 2px 5px rgb(from var(--hyp-color-${name}) r g b / 0.5)`,
       }),
     ],
+    [
+      /^grid-auto-(.+)$/,
+      ([, size]) => ({
+        'grid-template-columns': `repeat(auto-fit, minmax(${size}px, 1fr))`,
+      }),
+    ],
+    [
+      /^text-(.*)$/,
+      ([, c], { theme }: any) => {
+        if (theme.textColors[c]) return { color: theme.textColors[c] }
+      },
+    ],
+    [
+      /^bg-(.*)$/,
+      ([, c], { theme }: any) => {
+        if (theme.backgroundColors[c])
+          return { 'background-color': theme.backgroundColors[c] }
+      },
+    ],
+    [
+      /^border-(.*)$/,
+      ([, c], { theme }: any) => {
+        if (theme.borderColors[c])
+          return { 'border-color': theme.borderColors[c] }
+      },
+    ],
   ],
+
   safelist: [...safelist],
 
   presets: [

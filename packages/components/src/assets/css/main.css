@@ -1,25 +1,90 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700');
 
-:root {
-  --hyp-color-primary: #004ca6;
-  --hyp-color-secondary: #5a5750;
+:root,
+html[data-color-scheme='light'],
+html[data-variant-theme='blue'] {
+  --hyp-color-primary: #00aeff;
+  --hyp-color-secondary: #bbc8ce;
   --hyp-color-white: #fff;
-  --hyp-color-light: #d3dcf3;
-  --hyp-color-dark: #000200;
-  --hyp-color-info: #d34ad0;
-  --hyp-color-success: #009b58;
-  --hyp-color-warning: #e0a000;
-  --hyp-color-error: #ee1500;
+  --hyp-color-light: #f0f4ff;
+  --hyp-color-dark: #171f23;
+  --hyp-color-info: #ff3da7;
+  --hyp-color-success: #14f59c;
+  --hyp-color-warning: #ffb704;
+  --hyp-color-error: #ff2e2e;
+
+  /* TEXT */
+  --hyp-color-text-default: #111;
+  --hyp-color-text-inverse: #fff;
+  --hyp-color-text-light: #fff;
+  --hyp-color-text-dark: #111;
+
+  /* BACKGROUND */
+  --hyp-color-background-default: #f5fafc;
+  --hyp-color-background-inverse: #1f1f20;
+
+  /* BORDER */
+  --hyp-color-border-default: #d1dcdc;
+  --hyp-color-border-inverse: #869292;
+}
+
+html[data-color-scheme='dark'] {
+  --hyp-color-secondary: #636d72;
+
+  /* TEXT */
+  --hyp-color-text-default: #fff;
+  --hyp-color-text-inverse: #111;
+
+  /* BACKGROUND */
+  --hyp-color-background-default: #25272a;
+  --hyp-color-background-inverse: #eef5f9;
+
+  /* BORDER */
+  --hyp-color-border-default: #869292;
+  --hyp-color-border-inverse: #d1dcdc;
+}
+
+html[data-variant-theme='purple'] {
+  --hyp-color-primary: #c80e59;
+  --hyp-color-secondary: #c2bdff;
+  --hyp-color-white: #fff;
+  --hyp-color-light: #f7f2fe;
+  --hyp-color-dark: #1c1d22;
+  --hyp-color-info: #00a3f5;
+  --hyp-color-success: #00ce90;
+  --hyp-color-warning: #e8c00e;
+  --hyp-color-error: #fb4b00;
+}
+
+html[data-variant-theme='green'] {
+  --hyp-color-primary: #1cc979;
+  --hyp-color-secondary: #b2dde7;
+  --hyp-color-white: #fff;
+  --hyp-color-light: #f6fffb;
+  --hyp-color-dark: #272b29;
+  --hyp-color-info: #9978df;
+  --hyp-color-success: #16a1c8;
+  --hyp-color-warning: #e09d0c;
+  --hyp-color-error: #f50030;
 }
 
 html {
   font-family: Lato, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
+  color: var(--hyp-color-text-default);
 
   /* color-scheme: light dark; conflict with histoire */
   font-synthesis: none;
   text-rendering: optimizelegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background: var(--hyp-color-background-default);
 }

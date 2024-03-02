@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  const { isCompactLayout, isModernLayout, isClassicLayout } = useTheme()
+  const { isCompactLayout, isModernLayout, isClassicLayout } = useLayout()
 </script>
 
 <template>
@@ -23,9 +23,9 @@
         />
       </div>
       <div>
-        <ThemeSchemeSwitcher />
-        <ThemeVariantSwitcher />
-        <ThemeLayoutSwitcher />
+        <SchemeSwitcher />
+        <VariantSwitcher />
+        <LayoutSwitcher />
         <LocaleSwitcher />
         <Logout />
       </div>

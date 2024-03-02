@@ -7,7 +7,6 @@ import UnoCSS from 'unocss/vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import dts from 'vite-plugin-dts'
-import { HstVue } from '@histoire/plugin-vue'
 
 export default defineConfig({
   plugins: [
@@ -63,12 +62,6 @@ export default defineConfig({
     alias: {
       '@': path.resolve(__dirname, './src'),
     },
-  },
-  histoire: {
-    outDir: 'dist-histoire',
-    plugins: [HstVue()],
-    setupFile: 'histoire.setup.ts',
-    viteIgnorePlugins: ['vite:dts'],
   },
   server: {
     fs: {

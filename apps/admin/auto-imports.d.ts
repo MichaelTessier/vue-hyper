@@ -8,19 +8,20 @@ declare global {
   const ADMIN_ROUTES: typeof import('./src/domains/admin/routes')['ADMIN_ROUTES']
   const AUTH_ROUTES: typeof import('./src/domains/auth/routes')['AUTH_ROUTES']
   const AVAILABLE_LOCALES: typeof import('./src/i18n/index')['AVAILABLE_LOCALES']
-  const COLOR_SCHEME_STORAGE_KEY: typeof import('./src/domains/functional/composables/useTheme/useTheme')['COLOR_SCHEME_STORAGE_KEY']
+  const COLOR_SCHEME_STORAGE_KEY: (typeof import('./src/domains/functional/composables/useLayout/useLayout'))['COLOR_SCHEME_STORAGE_KEY']
   const CONTEXT_LOCALE_STORAGE_KEY: typeof import('./src/stores/context/context')['CONTEXT_LOCALE_STORAGE_KEY']
-  const ColorScheme: typeof import('./src/domains/functional/composables/useTheme/useTheme')['ColorScheme']
+  const ColorScheme: (typeof import('./src/domains/functional/composables/useLayout/useLayout'))['ColorScheme']
   const DEFAULT_LOCALE: typeof import('./src/i18n/index')['DEFAULT_LOCALE']
   const EffectScope: typeof import('vue')['EffectScope']
   const FilterIs: typeof import('./src/graphql/__generated__/graphql')['FilterIs']
   const GetCountriesDocument: typeof import('./src/pages/SupabaseTest/Country.generated')['GetCountriesDocument']
-  const LAYOUT_THEME_STORAGE_KEY: typeof import('./src/domains/functional/composables/useTheme/useTheme')['LAYOUT_THEME_STORAGE_KEY']
-  const LayoutTheme: typeof import('./src/domains/functional/composables/useTheme/useTheme')['LayoutTheme']
+  const LAYOUT_THEME_STORAGE_KEY: typeof import('./src/domains/functional/composables/useLayout/useLayout')['LAYOUT_THEME_STORAGE_KEY']
+  const Layout: typeof import('./src/domains/functional/composables/useLayout/useLayout')['Layout']
+  const LayoutTheme: (typeof import('./src/domains/functional/composables/useLayout/useLayout'))['LayoutTheme']
   const OrderByDirection: typeof import('./src/graphql/__generated__/graphql')['OrderByDirection']
   const ROUTES: typeof import('./src/router/index')['ROUTES']
-  const VARIANT_THEME_STORAGE_KEY: typeof import('./src/domains/functional/composables/useTheme/useTheme')['VARIANT_THEME_STORAGE_KEY']
-  const VariantTheme: typeof import('./src/domains/functional/composables/useTheme/useTheme')['VariantTheme']
+  const VARIANT_THEME_STORAGE_KEY: (typeof import('./src/domains/functional/composables/useLayout/useLayout'))['VARIANT_THEME_STORAGE_KEY']
+  const VariantTheme: (typeof import('./src/domains/functional/composables/useLayout/useLayout'))['VariantTheme']
   const acceptHMRUpdate: typeof import('pinia')['acceptHMRUpdate']
   const adminRoutes: typeof import('./src/domains/admin/routes')['adminRoutes']
   const authRoutes: typeof import('./src/domains/auth/routes')['authRoutes']
@@ -102,13 +103,16 @@ declare global {
   const useHost: typeof import('./src/domains/functional/composables/useHost/useHost')['useHost']
   const useI18n: typeof import('vue-i18n')['useI18n']
   const useI18nMock: typeof import('./src/test/mocks/vue-i18n')['useI18nMock']
+  const useLayout: typeof import('./src/domains/functional/composables/useLayout/useLayout')['useLayout']
+  const useLayoutMock: typeof import('./src/test/mocks/useLayout')['useLayoutMock']
   const useLink: typeof import('vue-router')['useLink']
   const useRoute: typeof import('vue-router')['useRoute']
   const useRouter: typeof import('vue-router')['useRouter']
   const useRouterMock: typeof import('./src/test/mocks/vue-router')['useRouterMock']
   const useSlots: typeof import('vue')['useSlots']
   const useSupabase: typeof import('./src/composables/useSupabase/useSupabase')['useSupabase']
-  const useTheme: typeof import('./src/domains/functional/composables/useTheme/useTheme')['useTheme']
+  const useTheme: (typeof import('./src/domains/functional/composables/useLayout/useLayout'))['useTheme']
+  const useThemeMock: typeof import('./src/test/mocks/vue-hyper-components')['useThemeMock']
   const watch: typeof import('vue')['watch']
   const watchEffect: typeof import('vue')['watchEffect']
   const watchPostEffect: typeof import('vue')['watchPostEffect']
@@ -126,19 +130,15 @@ declare module 'vue' {
     readonly ADMIN_ROUTES: UnwrapRef<typeof import('./src/domains/admin/routes')['ADMIN_ROUTES']>
     readonly AUTH_ROUTES: UnwrapRef<typeof import('./src/domains/auth/routes')['AUTH_ROUTES']>
     readonly AVAILABLE_LOCALES: UnwrapRef<typeof import('./src/i18n/index')['AVAILABLE_LOCALES']>
-    readonly COLOR_SCHEME_STORAGE_KEY: UnwrapRef<typeof import('./src/domains/functional/composables/useTheme/useTheme')['COLOR_SCHEME_STORAGE_KEY']>
     readonly CONTEXT_LOCALE_STORAGE_KEY: UnwrapRef<typeof import('./src/stores/context/context')['CONTEXT_LOCALE_STORAGE_KEY']>
-    readonly ColorScheme: UnwrapRef<typeof import('./src/domains/functional/composables/useTheme/useTheme')['ColorScheme']>
     readonly DEFAULT_LOCALE: UnwrapRef<typeof import('./src/i18n/index')['DEFAULT_LOCALE']>
     readonly EffectScope: UnwrapRef<typeof import('vue')['EffectScope']>
     readonly FilterIs: UnwrapRef<typeof import('./src/graphql/__generated__/graphql')['FilterIs']>
     readonly GetCountriesDocument: UnwrapRef<typeof import('./src/pages/SupabaseTest/Country.generated')['GetCountriesDocument']>
-    readonly LAYOUT_THEME_STORAGE_KEY: UnwrapRef<typeof import('./src/domains/functional/composables/useTheme/useTheme')['LAYOUT_THEME_STORAGE_KEY']>
-    readonly LayoutTheme: UnwrapRef<typeof import('./src/domains/functional/composables/useTheme/useTheme')['LayoutTheme']>
+    readonly LAYOUT_THEME_STORAGE_KEY: UnwrapRef<typeof import('./src/domains/functional/composables/useLayout/useLayout')['LAYOUT_THEME_STORAGE_KEY']>
+    readonly Layout: UnwrapRef<typeof import('./src/domains/functional/composables/useLayout/useLayout')['Layout']>
     readonly OrderByDirection: UnwrapRef<typeof import('./src/graphql/__generated__/graphql')['OrderByDirection']>
     readonly ROUTES: UnwrapRef<typeof import('./src/router/index')['ROUTES']>
-    readonly VARIANT_THEME_STORAGE_KEY: UnwrapRef<typeof import('./src/domains/functional/composables/useTheme/useTheme')['VARIANT_THEME_STORAGE_KEY']>
-    readonly VariantTheme: UnwrapRef<typeof import('./src/domains/functional/composables/useTheme/useTheme')['VariantTheme']>
     readonly acceptHMRUpdate: UnwrapRef<typeof import('pinia')['acceptHMRUpdate']>
     readonly adminRoutes: UnwrapRef<typeof import('./src/domains/admin/routes')['adminRoutes']>
     readonly authRoutes: UnwrapRef<typeof import('./src/domains/auth/routes')['authRoutes']>
@@ -220,13 +220,15 @@ declare module 'vue' {
     readonly useHost: UnwrapRef<typeof import('./src/domains/functional/composables/useHost/useHost')['useHost']>
     readonly useI18n: UnwrapRef<typeof import('vue-i18n')['useI18n']>
     readonly useI18nMock: UnwrapRef<typeof import('./src/test/mocks/vue-i18n')['useI18nMock']>
+    readonly useLayout: UnwrapRef<typeof import('./src/domains/functional/composables/useLayout/useLayout')['useLayout']>
+    readonly useLayoutMock: UnwrapRef<typeof import('./src/test/mocks/useLayout')['useLayoutMock']>
     readonly useLink: UnwrapRef<typeof import('vue-router')['useLink']>
     readonly useRoute: UnwrapRef<typeof import('vue-router')['useRoute']>
     readonly useRouter: UnwrapRef<typeof import('vue-router')['useRouter']>
     readonly useRouterMock: UnwrapRef<typeof import('./src/test/mocks/vue-router')['useRouterMock']>
     readonly useSlots: UnwrapRef<typeof import('vue')['useSlots']>
     readonly useSupabase: UnwrapRef<typeof import('./src/composables/useSupabase/useSupabase')['useSupabase']>
-    readonly useTheme: UnwrapRef<typeof import('./src/domains/functional/composables/useTheme/useTheme')['useTheme']>
+    readonly useThemeMock: UnwrapRef<typeof import('./src/test/mocks/vue-hyper-components')['useThemeMock']>
     readonly watch: UnwrapRef<typeof import('vue')['watch']>
     readonly watchEffect: UnwrapRef<typeof import('vue')['watchEffect']>
     readonly watchPostEffect: UnwrapRef<typeof import('vue')['watchPostEffect']>
@@ -238,19 +240,15 @@ declare module '@vue/runtime-core' {
     readonly ADMIN_ROUTES: UnwrapRef<typeof import('./src/domains/admin/routes')['ADMIN_ROUTES']>
     readonly AUTH_ROUTES: UnwrapRef<typeof import('./src/domains/auth/routes')['AUTH_ROUTES']>
     readonly AVAILABLE_LOCALES: UnwrapRef<typeof import('./src/i18n/index')['AVAILABLE_LOCALES']>
-    readonly COLOR_SCHEME_STORAGE_KEY: UnwrapRef<typeof import('./src/domains/functional/composables/useTheme/useTheme')['COLOR_SCHEME_STORAGE_KEY']>
     readonly CONTEXT_LOCALE_STORAGE_KEY: UnwrapRef<typeof import('./src/stores/context/context')['CONTEXT_LOCALE_STORAGE_KEY']>
-    readonly ColorScheme: UnwrapRef<typeof import('./src/domains/functional/composables/useTheme/useTheme')['ColorScheme']>
     readonly DEFAULT_LOCALE: UnwrapRef<typeof import('./src/i18n/index')['DEFAULT_LOCALE']>
     readonly EffectScope: UnwrapRef<typeof import('vue')['EffectScope']>
     readonly FilterIs: UnwrapRef<typeof import('./src/graphql/__generated__/graphql')['FilterIs']>
     readonly GetCountriesDocument: UnwrapRef<typeof import('./src/pages/SupabaseTest/Country.generated')['GetCountriesDocument']>
-    readonly LAYOUT_THEME_STORAGE_KEY: UnwrapRef<typeof import('./src/domains/functional/composables/useTheme/useTheme')['LAYOUT_THEME_STORAGE_KEY']>
-    readonly LayoutTheme: UnwrapRef<typeof import('./src/domains/functional/composables/useTheme/useTheme')['LayoutTheme']>
+    readonly LAYOUT_THEME_STORAGE_KEY: UnwrapRef<typeof import('./src/domains/functional/composables/useLayout/useLayout')['LAYOUT_THEME_STORAGE_KEY']>
+    readonly Layout: UnwrapRef<typeof import('./src/domains/functional/composables/useLayout/useLayout')['Layout']>
     readonly OrderByDirection: UnwrapRef<typeof import('./src/graphql/__generated__/graphql')['OrderByDirection']>
     readonly ROUTES: UnwrapRef<typeof import('./src/router/index')['ROUTES']>
-    readonly VARIANT_THEME_STORAGE_KEY: UnwrapRef<typeof import('./src/domains/functional/composables/useTheme/useTheme')['VARIANT_THEME_STORAGE_KEY']>
-    readonly VariantTheme: UnwrapRef<typeof import('./src/domains/functional/composables/useTheme/useTheme')['VariantTheme']>
     readonly acceptHMRUpdate: UnwrapRef<typeof import('pinia')['acceptHMRUpdate']>
     readonly adminRoutes: UnwrapRef<typeof import('./src/domains/admin/routes')['adminRoutes']>
     readonly authRoutes: UnwrapRef<typeof import('./src/domains/auth/routes')['authRoutes']>
@@ -332,13 +330,15 @@ declare module '@vue/runtime-core' {
     readonly useHost: UnwrapRef<typeof import('./src/domains/functional/composables/useHost/useHost')['useHost']>
     readonly useI18n: UnwrapRef<typeof import('vue-i18n')['useI18n']>
     readonly useI18nMock: UnwrapRef<typeof import('./src/test/mocks/vue-i18n')['useI18nMock']>
+    readonly useLayout: UnwrapRef<typeof import('./src/domains/functional/composables/useLayout/useLayout')['useLayout']>
+    readonly useLayoutMock: UnwrapRef<typeof import('./src/test/mocks/useLayout')['useLayoutMock']>
     readonly useLink: UnwrapRef<typeof import('vue-router')['useLink']>
     readonly useRoute: UnwrapRef<typeof import('vue-router')['useRoute']>
     readonly useRouter: UnwrapRef<typeof import('vue-router')['useRouter']>
     readonly useRouterMock: UnwrapRef<typeof import('./src/test/mocks/vue-router')['useRouterMock']>
     readonly useSlots: UnwrapRef<typeof import('vue')['useSlots']>
     readonly useSupabase: UnwrapRef<typeof import('./src/composables/useSupabase/useSupabase')['useSupabase']>
-    readonly useTheme: UnwrapRef<typeof import('./src/domains/functional/composables/useTheme/useTheme')['useTheme']>
+    readonly useThemeMock: UnwrapRef<typeof import('./src/test/mocks/vue-hyper-components')['useThemeMock']>
     readonly watch: UnwrapRef<typeof import('vue')['watch']>
     readonly watchEffect: UnwrapRef<typeof import('vue')['watchEffect']>
     readonly watchPostEffect: UnwrapRef<typeof import('vue')['watchPostEffect']>
