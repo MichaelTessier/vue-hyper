@@ -18,7 +18,7 @@ describe('HypButton', () => {
 
     await wrapper.setProps({ outline: true })
     expect(wrapper.attributes('class')).toContain(
-      'border-primary border-1! bg-white'
+      'border-primary border-1! bg-transparent text-primary'
     )
 
     await wrapper.setProps({ disabled: true })

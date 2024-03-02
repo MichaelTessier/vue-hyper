@@ -14,7 +14,7 @@ declare global {
   const DEFAULT_LOCALE: typeof import('./src/i18n/index')['DEFAULT_LOCALE']
   const EffectScope: typeof import('vue')['EffectScope']
   const FilterIs: typeof import('./src/graphql/__generated__/graphql')['FilterIs']
-  const GetCountriesDocument: typeof import('./src/graphql/__generated__/graphql')['GetCountriesDocument']
+  const GetCountriesDocument: typeof import('./src/pages/SupabaseTest/Country.generated')['GetCountriesDocument']
   const LAYOUT_THEME_STORAGE_KEY: typeof import('./src/domains/functional/composables/useLayout/useLayout')['LAYOUT_THEME_STORAGE_KEY']
   const Layout: typeof import('./src/domains/functional/composables/useLayout/useLayout')['Layout']
   const LayoutTheme: (typeof import('./src/domains/functional/composables/useLayout/useLayout'))['LayoutTheme']
@@ -104,6 +104,7 @@ declare global {
   const useI18n: typeof import('vue-i18n')['useI18n']
   const useI18nMock: typeof import('./src/test/mocks/vue-i18n')['useI18nMock']
   const useLayout: typeof import('./src/domains/functional/composables/useLayout/useLayout')['useLayout']
+  const useLayoutMock: typeof import('./src/test/mocks/useLayout')['useLayoutMock']
   const useLink: typeof import('vue-router')['useLink']
   const useRoute: typeof import('vue-router')['useRoute']
   const useRouter: typeof import('vue-router')['useRouter']
@@ -111,6 +112,7 @@ declare global {
   const useSlots: typeof import('vue')['useSlots']
   const useSupabase: typeof import('./src/composables/useSupabase/useSupabase')['useSupabase']
   const useTheme: (typeof import('./src/domains/functional/composables/useLayout/useLayout'))['useTheme']
+  const useThemeMock: typeof import('./src/test/mocks/vue-hyper-components')['useThemeMock']
   const watch: typeof import('vue')['watch']
   const watchEffect: typeof import('vue')['watchEffect']
   const watchPostEffect: typeof import('vue')['watchPostEffect']
@@ -132,7 +134,7 @@ declare module 'vue' {
     readonly DEFAULT_LOCALE: UnwrapRef<typeof import('./src/i18n/index')['DEFAULT_LOCALE']>
     readonly EffectScope: UnwrapRef<typeof import('vue')['EffectScope']>
     readonly FilterIs: UnwrapRef<typeof import('./src/graphql/__generated__/graphql')['FilterIs']>
-    readonly GetCountriesDocument: UnwrapRef<typeof import('./src/graphql/__generated__/graphql')['GetCountriesDocument']>
+    readonly GetCountriesDocument: UnwrapRef<typeof import('./src/pages/SupabaseTest/Country.generated')['GetCountriesDocument']>
     readonly LAYOUT_THEME_STORAGE_KEY: UnwrapRef<typeof import('./src/domains/functional/composables/useLayout/useLayout')['LAYOUT_THEME_STORAGE_KEY']>
     readonly Layout: UnwrapRef<typeof import('./src/domains/functional/composables/useLayout/useLayout')['Layout']>
     readonly OrderByDirection: UnwrapRef<typeof import('./src/graphql/__generated__/graphql')['OrderByDirection']>
@@ -219,12 +221,14 @@ declare module 'vue' {
     readonly useI18n: UnwrapRef<typeof import('vue-i18n')['useI18n']>
     readonly useI18nMock: UnwrapRef<typeof import('./src/test/mocks/vue-i18n')['useI18nMock']>
     readonly useLayout: UnwrapRef<typeof import('./src/domains/functional/composables/useLayout/useLayout')['useLayout']>
+    readonly useLayoutMock: UnwrapRef<typeof import('./src/test/mocks/useLayout')['useLayoutMock']>
     readonly useLink: UnwrapRef<typeof import('vue-router')['useLink']>
     readonly useRoute: UnwrapRef<typeof import('vue-router')['useRoute']>
     readonly useRouter: UnwrapRef<typeof import('vue-router')['useRouter']>
     readonly useRouterMock: UnwrapRef<typeof import('./src/test/mocks/vue-router')['useRouterMock']>
     readonly useSlots: UnwrapRef<typeof import('vue')['useSlots']>
     readonly useSupabase: UnwrapRef<typeof import('./src/composables/useSupabase/useSupabase')['useSupabase']>
+    readonly useThemeMock: UnwrapRef<typeof import('./src/test/mocks/vue-hyper-components')['useThemeMock']>
     readonly watch: UnwrapRef<typeof import('vue')['watch']>
     readonly watchEffect: UnwrapRef<typeof import('vue')['watchEffect']>
     readonly watchPostEffect: UnwrapRef<typeof import('vue')['watchPostEffect']>
@@ -240,7 +244,7 @@ declare module '@vue/runtime-core' {
     readonly DEFAULT_LOCALE: UnwrapRef<typeof import('./src/i18n/index')['DEFAULT_LOCALE']>
     readonly EffectScope: UnwrapRef<typeof import('vue')['EffectScope']>
     readonly FilterIs: UnwrapRef<typeof import('./src/graphql/__generated__/graphql')['FilterIs']>
-    readonly GetCountriesDocument: UnwrapRef<typeof import('./src/graphql/__generated__/graphql')['GetCountriesDocument']>
+    readonly GetCountriesDocument: UnwrapRef<typeof import('./src/pages/SupabaseTest/Country.generated')['GetCountriesDocument']>
     readonly LAYOUT_THEME_STORAGE_KEY: UnwrapRef<typeof import('./src/domains/functional/composables/useLayout/useLayout')['LAYOUT_THEME_STORAGE_KEY']>
     readonly Layout: UnwrapRef<typeof import('./src/domains/functional/composables/useLayout/useLayout')['Layout']>
     readonly OrderByDirection: UnwrapRef<typeof import('./src/graphql/__generated__/graphql')['OrderByDirection']>
@@ -327,12 +331,14 @@ declare module '@vue/runtime-core' {
     readonly useI18n: UnwrapRef<typeof import('vue-i18n')['useI18n']>
     readonly useI18nMock: UnwrapRef<typeof import('./src/test/mocks/vue-i18n')['useI18nMock']>
     readonly useLayout: UnwrapRef<typeof import('./src/domains/functional/composables/useLayout/useLayout')['useLayout']>
+    readonly useLayoutMock: UnwrapRef<typeof import('./src/test/mocks/useLayout')['useLayoutMock']>
     readonly useLink: UnwrapRef<typeof import('vue-router')['useLink']>
     readonly useRoute: UnwrapRef<typeof import('vue-router')['useRoute']>
     readonly useRouter: UnwrapRef<typeof import('vue-router')['useRouter']>
     readonly useRouterMock: UnwrapRef<typeof import('./src/test/mocks/vue-router')['useRouterMock']>
     readonly useSlots: UnwrapRef<typeof import('vue')['useSlots']>
     readonly useSupabase: UnwrapRef<typeof import('./src/composables/useSupabase/useSupabase')['useSupabase']>
+    readonly useThemeMock: UnwrapRef<typeof import('./src/test/mocks/vue-hyper-components')['useThemeMock']>
     readonly watch: UnwrapRef<typeof import('vue')['watch']>
     readonly watchEffect: UnwrapRef<typeof import('vue')['watchEffect']>
     readonly watchPostEffect: UnwrapRef<typeof import('vue')['watchPostEffect']>

@@ -5,11 +5,11 @@
 </script>
 
 <template>
-  <label for="layout-theme">
+  <label for="layout-switcher">
     <select
-      data-test="layout-theme"
+      data-test="layout-switcher"
       v-model="selectedLayoutTheme"
-      id="layout-theme"
+      id="layout-switcher"
       @change="setLayout(selectedLayoutTheme)"
     >
       <option

@@ -14,7 +14,7 @@ describe('HypTypo', () => {
 
     expect(wrapper.text()).toContain(label)
     expect(wrapper.attributes('class')).toContain(
-      'hyp-text-medium font-regular text-dark'
+      'hyp-text-medium font-regular text-default'
     )
     expect(wrapper.element.tagName).toBe('P')
 

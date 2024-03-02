@@ -59,10 +59,6 @@
       : 'text-white'
   )
 
-  const textOutlineColor = computed(() =>
-    props.outline ? `text-${props.variant}` : 'text-black'
-  )
-
   const buttonTag = computed(() => {
     if (props.to) {
       return 'router-link'
@@ -85,8 +81,7 @@
       'cursor-not-allowed opacity-50': disabled,
       'w-full': full,
       [`${textColor} bg-${variant}`]: !outline,
-      [`border-${variant} border-1! bg-transparent ${textOutlineColor}`]:
-        outline,
+      [`border-${variant} border-1! bg-transparent text-${variant}`]: outline,
       [`rounded-${radius}`]: true,
       [`shadow-btn-${variant}`]: shadow,
       [`px-4 h-9 hyp-text-medium`]: size === BUTTON_SIZE.SMALL,

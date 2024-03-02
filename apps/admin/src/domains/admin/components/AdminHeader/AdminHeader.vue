@@ -23,9 +23,9 @@
         />
       </div>
       <div>
-        <ThemeSchemeSwitcher />
-        <ThemeVariantSwitcher />
-        <ThemeLayoutSwitcher />
+        <SchemeSwitcher />
+        <VariantSwitcher />
+        <LayoutSwitcher />
         <LocaleSwitcher />
         <Logout />
       </div>

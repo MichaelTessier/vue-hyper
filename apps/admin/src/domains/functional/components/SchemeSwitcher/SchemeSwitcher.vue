@@ -6,11 +6,11 @@
 </script>
 
 <template>
-  <label for="color-scheme">
+  <label for="scheme-switcher">
     <select
-      data-test="color-scheme"
+      data-test="scheme-switcher"
       v-model="selectedColorScheme"
-      id="color-scheme"
+      id="scheme-switcher"
       @change="theme.setColorScheme(selectedColorScheme)"
     >
       <option

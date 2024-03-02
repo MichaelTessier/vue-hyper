@@ -6,11 +6,11 @@
 </script>
 
 <template>
-  <label for="variant-theme">
+  <label for="variant-switcher">
     <select
-      data-test="variant-theme"
+      data-test="variant-switcher"
       v-model="selectedVariantTheme"
-      id="variant-theme"
+      id="variant-switcher"
       @change="theme.setVariantTheme(selectedVariantTheme)"
     >
       <option

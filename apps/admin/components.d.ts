@@ -15,13 +15,16 @@ declare module 'vue' {
     HypInput: typeof import('vue-hyper-components')['HypInput']
     HypLink: typeof import('vue-hyper-components')['HypLink']
     HypTypo: typeof import('vue-hyper-components')['HypTypo']
+    LayoutSwitcher: typeof import('./src/domains/functional/components/LayoutSwitcher/LayoutSwitcher.vue')['default']
     LocaleSwitcher: typeof import('./src/domains/functional/components/LocaleSwitcher/LocaleSwitcher.vue')['default']
     Logo: typeof import('./src/domains/functional/components/Logo/Logo.vue')['default']
     Logout: typeof import('./src/domains/auth/components/Logout/Logout.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    SchemeSwitcher: typeof import('./src/domains/functional/components/SchemeSwitcher/SchemeSwitcher.vue')['default']
     ThemeLayoutSwitcher: typeof import('./src/domains/admin/components/ThemeSwitcher/ThemeLayoutSwitcher.vue')['default']
     ThemeSchemeSwitcher: typeof import('./src/domains/admin/components/ThemeSwitcher/ThemeSchemeSwitcher.vue')['default']
     ThemeVariantSwitcher: typeof import('./src/domains/admin/components/ThemeSwitcher/ThemeVariantSwitcher.vue')['default']
+    VariantSwitcher: typeof import('./src/domains/functional/components/VariantSwitcher/VariantSwitcher.vue')['default']
   }
 }

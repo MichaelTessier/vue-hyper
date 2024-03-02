@@ -21,7 +21,7 @@ describe('HypIcon', () => {
     expect(wrapper.attributes('class')).toContain('text-7')
 
     await wrapper.setProps({ size: 'small' })
-    expect(wrapper.attributes('class')).toContain('text-5')
+    expect(wrapper.attributes('class')).toContain('text-4')
 
     await wrapper.setProps({ size: 'large' })
     expect(wrapper.attributes('class')).toContain('text-9')
