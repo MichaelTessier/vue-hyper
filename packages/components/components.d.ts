@@ -10,6 +10,8 @@ declare module 'vue' {
     'Colors.story': typeof import('./src/histoire/DesignTokens/Colors/Colors.story.vue')['default']
     ControlsProvider: typeof import('./src/histoire/ControlsProvider/ControlsProvider.vue')['default']
     ControlsTheme: typeof import('./src/histoire/ControlsTheme/ControlsTheme.vue')['default']
+    HypBase: typeof import('./src/lib/components/base/HypBase/HypBase.vue')['default']
+    'HypBase.story': typeof import('./src/lib/components/base/HypBase/HypBase.story.vue')['default']
     HypButton: typeof import('./src/lib/components/base/HypButton/HypButton.vue')['default']
     'HypButton.story': typeof import('./src/lib/components/base/HypButton/HypButton.story.vue')['default']
     HypIcon: typeof import('./src/lib/components/base/HypIcon/HypIcon.vue')['default']
