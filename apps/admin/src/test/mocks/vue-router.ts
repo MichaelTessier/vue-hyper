@@ -6,7 +6,7 @@ vi.mock('vue-router', () => ({
     push,
     resolve,
   }),
-  useRoute: vi.fn(),
+  useRoute: useRouteMock,
 }))
 
 beforeAll(async () => {
@@ -21,3 +21,5 @@ export const useRouterMock = {
   push,
   resolve,
 }
+
+export const useRouteMock = vi.fn()

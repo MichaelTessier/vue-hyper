@@ -5,7 +5,6 @@
 
   const onChange = (locale: string) => {
     contextStore.setLocale(locale)
-
     router.push({
       name: route.name ?? '/',
       params: {
