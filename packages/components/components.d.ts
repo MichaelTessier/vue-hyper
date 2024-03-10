@@ -12,6 +12,8 @@ declare module 'vue' {
     ControlsTheme: typeof import('./src/histoire/ControlsTheme/ControlsTheme.vue')['default']
     HypBase: typeof import('./src/lib/components/base/HypBase/HypBase.vue')['default']
     'HypBase.story': typeof import('./src/lib/components/base/HypBase/HypBase.story.vue')['default']
+    HypBox: typeof import('./src/lib/components/base/HypBox/HypBox.vue')['default']
+    'HypBox.story': typeof import('./src/lib/components/base/HypBox/HypBox.story.vue')['default']
     HypButton: typeof import('./src/lib/components/base/HypButton/HypButton.vue')['default']
     'HypButton.story': typeof import('./src/lib/components/base/HypButton/HypButton.story.vue')['default']
     HypIcon: typeof import('./src/lib/components/base/HypIcon/HypIcon.vue')['default']

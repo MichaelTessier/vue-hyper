@@ -11,12 +11,8 @@ export const BUTTON_VARIANTS = [
 ]
 export type ButtonVariant = (typeof BUTTON_VARIANTS)[number]
 
-export const BUTTON_SIZE = {
-  SMALL: 'small',
-  MEDIUM: 'medium',
-  LARGE: 'large',
-} as const
-export const BUTTON_SIZES = Object.values(BUTTON_SIZE)
+export const BUTTON_SIZE_DEFAULT = SIZE.MEDIUM
+export const BUTTON_SIZES = [SIZE.SMALL, SIZE.MEDIUM, SIZE.LARGE]
 export type ButtonSize = (typeof BUTTON_SIZES)[number]
 
 export const BUTTON_RADIUS = {

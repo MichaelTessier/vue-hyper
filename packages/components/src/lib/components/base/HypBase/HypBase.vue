@@ -10,5 +10,5 @@
 </script>
 
 <template>
-  <div>HypBase</div>
+  <div>HypBase, used for dev flow</div>
 </template>

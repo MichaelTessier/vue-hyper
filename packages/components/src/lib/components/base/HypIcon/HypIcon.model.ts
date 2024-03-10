@@ -1,4 +1,5 @@
 import { TYPO_COLOR_DEFAULT, TYPO_COLORS } from '../HypTypo/HypTypo.model'
+import { SIZE } from '../../../models/size'
 
 // https://icones.js.org/collection/mdi
 export const ICON_NAME = {
@@ -15,13 +16,8 @@ export const ICON_NAME = {
 export const ICON_NAMES = Object.values(ICON_NAME)
 export type IconName = (typeof ICON_NAMES)[number]
 
-export const ICON_SIZE = {
-  LARGE: 'large',
-  MEDIUM: 'medium',
-  SMALL: 'small',
-} as const
-
-export const ICON_SIZES = Object.values(ICON_SIZE)
+export const ICON_SIZE_DEFAULT = SIZE.MEDIUM
+export const ICON_SIZES = [SIZE.LARGE, SIZE.MEDIUM, SIZE.SMALL]
 export type IconSize = (typeof ICON_SIZES)[number]
 
 export const ICON_COLOR_DEFAULT = TYPO_COLOR_DEFAULT

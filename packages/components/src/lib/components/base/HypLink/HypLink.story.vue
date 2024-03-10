@@ -19,7 +19,7 @@
       options: LINK_COLORS,
     },
     size: {
-      model: LINK_SIZE.MEDIUM,
+      model: LINK_SIZE_DEFAULT,
       type: 'select',
       title: 'Size',
       options: LINK_SIZES,

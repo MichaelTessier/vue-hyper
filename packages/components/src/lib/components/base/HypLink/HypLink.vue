@@ -13,7 +13,7 @@
     },
     size: {
       type: String as PropType<LinkSize>,
-      default: LINK_SIZE.MEDIUM,
+      default: LINK_SIZE_DEFAULT,
     },
   })
 </script>
