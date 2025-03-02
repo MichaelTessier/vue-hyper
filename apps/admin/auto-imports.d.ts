@@ -8,20 +8,24 @@ declare global {
   const ADMIN_ROUTES: typeof import('./src/domains/admin/routes')['ADMIN_ROUTES']
   const AUTH_ROUTES: typeof import('./src/domains/auth/routes')['AUTH_ROUTES']
   const AVAILABLE_LOCALES: typeof import('./src/i18n/index')['AVAILABLE_LOCALES']
-  const COLOR_SCHEME_STORAGE_KEY: typeof import('./src/domains/functional/composables/useTheme/useTheme')['COLOR_SCHEME_STORAGE_KEY']
+  const COLOR_SCHEME_STORAGE_KEY: (typeof import('./src/domains/functional/composables/useTheme/useTheme'))['COLOR_SCHEME_STORAGE_KEY']
   const CONTEXT_LOCALE_STORAGE_KEY: typeof import('./src/stores/context/context')['CONTEXT_LOCALE_STORAGE_KEY']
-  const ColorScheme: typeof import('./src/domains/functional/composables/useTheme/useTheme')['ColorScheme']
+  const ColorScheme: (typeof import('./src/domains/functional/composables/useTheme/useTheme'))['ColorScheme']
   const DEFAULT_LOCALE: typeof import('./src/i18n/index')['DEFAULT_LOCALE']
   const EffectScope: typeof import('vue')['EffectScope']
   const FilterIs: typeof import('./src/graphql/__generated__/graphql')['FilterIs']
-  const GetCountriesDocument: typeof import('./src/pages/SupabaseTest/Country.generated')['GetCountriesDocument']
+  const GetCountriesDocument: (typeof import('./src/pages/SupabaseTest/Country.generated'))['GetCountriesDocument']
+  const GetProfileDocument: typeof import('./src/domains/profile/pages/Me/Me.generated')['GetProfileDocument']
+  const GetProfilesDocument: (typeof import('./src/domains/profile/pages/Me/Test.generated'))['GetProfilesDocument']
   const LAYOUT_THEME_STORAGE_KEY: typeof import('./src/domains/functional/composables/useLayout/useLayout')['LAYOUT_THEME_STORAGE_KEY']
   const Layout: typeof import('./src/domains/functional/composables/useLayout/useLayout')['Layout']
-  const LayoutTheme: typeof import('./src/domains/functional/composables/useTheme/useTheme')['LayoutTheme']
+  const LayoutTheme: (typeof import('./src/domains/functional/composables/useTheme/useTheme'))['LayoutTheme']
   const OrderByDirection: typeof import('./src/graphql/__generated__/graphql')['OrderByDirection']
+  const PROFILE_ROUTES: typeof import('./src/domains/profile/routes')['PROFILE_ROUTES']
+  const ProfileFragmentFragmentDoc: typeof import('./src/domains/profile/pages/Me/Me.generated')['ProfileFragmentFragmentDoc']
   const ROUTES: typeof import('./src/router/index')['ROUTES']
-  const VARIANT_THEME_STORAGE_KEY: typeof import('./src/domains/functional/composables/useTheme/useTheme')['VARIANT_THEME_STORAGE_KEY']
-  const VariantTheme: typeof import('./src/domains/functional/composables/useTheme/useTheme')['VariantTheme']
+  const VARIANT_THEME_STORAGE_KEY: (typeof import('./src/domains/functional/composables/useTheme/useTheme'))['VARIANT_THEME_STORAGE_KEY']
+  const VariantTheme: (typeof import('./src/domains/functional/composables/useTheme/useTheme'))['VariantTheme']
   const acceptHMRUpdate: typeof import('pinia')['acceptHMRUpdate']
   const adminRoutes: typeof import('./src/domains/admin/routes')['adminRoutes']
   const authRoutes: typeof import('./src/domains/auth/routes')['authRoutes']
@@ -69,6 +73,7 @@ declare global {
   const onServerPrefetch: typeof import('vue')['onServerPrefetch']
   const onUnmounted: typeof import('vue')['onUnmounted']
   const onUpdated: typeof import('vue')['onUpdated']
+  const profileRoutes: typeof import('./src/domains/profile/routes')['profileRoutes']
   const provide: typeof import('vue')['provide']
   const reactive: typeof import('vue')['reactive']
   const readonly: typeof import('vue')['readonly']
@@ -91,7 +96,7 @@ declare global {
   const urqlClient: typeof import('./src/graphql/urqlClient')['urqlClient']
   const useAttrs: typeof import('vue')['useAttrs']
   const useAuth: typeof import('./src/domains/auth/composables/useAuth/useAuth')['useAuth']
-  const useAuthError: typeof import('./src/domains/auth/composables/useAuthError')['useAuthError']
+  const useAuthError: (typeof import('./src/domains/auth/composables/useAuthError'))['useAuthError']
   const useAuthMock: typeof import('./src/test/mocks/useAuthMock')['useAuthMock']
   const useAuthStore: typeof import('./src/domains/auth/stores/auth')['useAuthStore']
   const useContextStore: typeof import('./src/stores/context/context')['useContextStore']
@@ -99,7 +104,9 @@ declare global {
   const useCssModule: typeof import('vue')['useCssModule']
   const useCssVars: typeof import('vue')['useCssVars']
   const useFragment: typeof import('./src/graphql/__generated__/fragment-masking')['useFragment']
-  const useGetCountriesQuery: typeof import('./src/pages/SupabaseTest/Country.generated')['useGetCountriesQuery']
+  const useGetCountriesQuery: (typeof import('./src/pages/SupabaseTest/Country.generated'))['useGetCountriesQuery']
+  const useGetProfileQuery: typeof import('./src/domains/profile/pages/Me/Me.generated')['useGetProfileQuery']
+  const useGetProfilesQuery: (typeof import('./src/domains/profile/pages/Me/Test.generated'))['useGetProfilesQuery']
   const useHost: typeof import('./src/domains/functional/composables/useHost/useHost')['useHost']
   const useI18n: typeof import('vue-i18n')['useI18n']
   const useI18nMock: typeof import('./src/test/mocks/vue-i18n')['useI18nMock']
@@ -112,7 +119,7 @@ declare global {
   const useRouterMock: typeof import('./src/test/mocks/vue-router')['useRouterMock']
   const useSlots: typeof import('vue')['useSlots']
   const useSupabase: typeof import('./src/composables/useSupabase/useSupabase')['useSupabase']
-  const useTheme: typeof import('./src/domains/functional/composables/useTheme/useTheme')['useTheme']
+  const useTheme: (typeof import('./src/domains/functional/composables/useTheme/useTheme'))['useTheme']
   const useThemeMock: typeof import('./src/test/mocks/vue-hyper-components')['useThemeMock']
   const watch: typeof import('vue')['watch']
   const watchEffect: typeof import('vue')['watchEffect']
@@ -135,10 +142,12 @@ declare module 'vue' {
     readonly DEFAULT_LOCALE: UnwrapRef<typeof import('./src/i18n/index')['DEFAULT_LOCALE']>
     readonly EffectScope: UnwrapRef<typeof import('vue')['EffectScope']>
     readonly FilterIs: UnwrapRef<typeof import('./src/graphql/__generated__/graphql')['FilterIs']>
-    readonly GetCountriesDocument: UnwrapRef<typeof import('./src/pages/SupabaseTest/Country.generated')['GetCountriesDocument']>
+    readonly GetProfileDocument: UnwrapRef<typeof import('./src/domains/profile/pages/Me/Me.generated')['GetProfileDocument']>
     readonly LAYOUT_THEME_STORAGE_KEY: UnwrapRef<typeof import('./src/domains/functional/composables/useLayout/useLayout')['LAYOUT_THEME_STORAGE_KEY']>
     readonly Layout: UnwrapRef<typeof import('./src/domains/functional/composables/useLayout/useLayout')['Layout']>
     readonly OrderByDirection: UnwrapRef<typeof import('./src/graphql/__generated__/graphql')['OrderByDirection']>
+    readonly PROFILE_ROUTES: UnwrapRef<typeof import('./src/domains/profile/routes')['PROFILE_ROUTES']>
+    readonly ProfileFragmentFragmentDoc: UnwrapRef<typeof import('./src/domains/profile/pages/Me/Me.generated')['ProfileFragmentFragmentDoc']>
     readonly ROUTES: UnwrapRef<typeof import('./src/router/index')['ROUTES']>
     readonly acceptHMRUpdate: UnwrapRef<typeof import('pinia')['acceptHMRUpdate']>
     readonly adminRoutes: UnwrapRef<typeof import('./src/domains/admin/routes')['adminRoutes']>
@@ -187,6 +196,7 @@ declare module 'vue' {
     readonly onServerPrefetch: UnwrapRef<typeof import('vue')['onServerPrefetch']>
     readonly onUnmounted: UnwrapRef<typeof import('vue')['onUnmounted']>
     readonly onUpdated: UnwrapRef<typeof import('vue')['onUpdated']>
+    readonly profileRoutes: UnwrapRef<typeof import('./src/domains/profile/routes')['profileRoutes']>
     readonly provide: UnwrapRef<typeof import('vue')['provide']>
     readonly reactive: UnwrapRef<typeof import('vue')['reactive']>
     readonly readonly: UnwrapRef<typeof import('vue')['readonly']>
@@ -209,7 +219,6 @@ declare module 'vue' {
     readonly urqlClient: UnwrapRef<typeof import('./src/graphql/urqlClient')['urqlClient']>
     readonly useAttrs: UnwrapRef<typeof import('vue')['useAttrs']>
     readonly useAuth: UnwrapRef<typeof import('./src/domains/auth/composables/useAuth/useAuth')['useAuth']>
-    readonly useAuthError: UnwrapRef<typeof import('./src/domains/auth/composables/useAuthError')['useAuthError']>
     readonly useAuthMock: UnwrapRef<typeof import('./src/test/mocks/useAuthMock')['useAuthMock']>
     readonly useAuthStore: UnwrapRef<typeof import('./src/domains/auth/stores/auth')['useAuthStore']>
     readonly useContextStore: UnwrapRef<typeof import('./src/stores/context/context')['useContextStore']>
@@ -217,7 +226,7 @@ declare module 'vue' {
     readonly useCssModule: UnwrapRef<typeof import('vue')['useCssModule']>
     readonly useCssVars: UnwrapRef<typeof import('vue')['useCssVars']>
     readonly useFragment: UnwrapRef<typeof import('./src/graphql/__generated__/fragment-masking')['useFragment']>
-    readonly useGetCountriesQuery: UnwrapRef<typeof import('./src/pages/SupabaseTest/Country.generated')['useGetCountriesQuery']>
+    readonly useGetProfileQuery: UnwrapRef<typeof import('./src/domains/profile/pages/Me/Me.generated')['useGetProfileQuery']>
     readonly useHost: UnwrapRef<typeof import('./src/domains/functional/composables/useHost/useHost')['useHost']>
     readonly useI18n: UnwrapRef<typeof import('vue-i18n')['useI18n']>
     readonly useI18nMock: UnwrapRef<typeof import('./src/test/mocks/vue-i18n')['useI18nMock']>
@@ -246,10 +255,12 @@ declare module '@vue/runtime-core' {
     readonly DEFAULT_LOCALE: UnwrapRef<typeof import('./src/i18n/index')['DEFAULT_LOCALE']>
     readonly EffectScope: UnwrapRef<typeof import('vue')['EffectScope']>
     readonly FilterIs: UnwrapRef<typeof import('./src/graphql/__generated__/graphql')['FilterIs']>
-    readonly GetCountriesDocument: UnwrapRef<typeof import('./src/pages/SupabaseTest/Country.generated')['GetCountriesDocument']>
+    readonly GetProfileDocument: UnwrapRef<typeof import('./src/domains/profile/pages/Me/Me.generated')['GetProfileDocument']>
     readonly LAYOUT_THEME_STORAGE_KEY: UnwrapRef<typeof import('./src/domains/functional/composables/useLayout/useLayout')['LAYOUT_THEME_STORAGE_KEY']>
     readonly Layout: UnwrapRef<typeof import('./src/domains/functional/composables/useLayout/useLayout')['Layout']>
     readonly OrderByDirection: UnwrapRef<typeof import('./src/graphql/__generated__/graphql')['OrderByDirection']>
+    readonly PROFILE_ROUTES: UnwrapRef<typeof import('./src/domains/profile/routes')['PROFILE_ROUTES']>
+    readonly ProfileFragmentFragmentDoc: UnwrapRef<typeof import('./src/domains/profile/pages/Me/Me.generated')['ProfileFragmentFragmentDoc']>
     readonly ROUTES: UnwrapRef<typeof import('./src/router/index')['ROUTES']>
     readonly acceptHMRUpdate: UnwrapRef<typeof import('pinia')['acceptHMRUpdate']>
     readonly adminRoutes: UnwrapRef<typeof import('./src/domains/admin/routes')['adminRoutes']>
@@ -298,6 +309,7 @@ declare module '@vue/runtime-core' {
     readonly onServerPrefetch: UnwrapRef<typeof import('vue')['onServerPrefetch']>
     readonly onUnmounted: UnwrapRef<typeof import('vue')['onUnmounted']>
     readonly onUpdated: UnwrapRef<typeof import('vue')['onUpdated']>
+    readonly profileRoutes: UnwrapRef<typeof import('./src/domains/profile/routes')['profileRoutes']>
     readonly provide: UnwrapRef<typeof import('vue')['provide']>
     readonly reactive: UnwrapRef<typeof import('vue')['reactive']>
     readonly readonly: UnwrapRef<typeof import('vue')['readonly']>
@@ -320,7 +332,6 @@ declare module '@vue/runtime-core' {
     readonly urqlClient: UnwrapRef<typeof import('./src/graphql/urqlClient')['urqlClient']>
     readonly useAttrs: UnwrapRef<typeof import('vue')['useAttrs']>
     readonly useAuth: UnwrapRef<typeof import('./src/domains/auth/composables/useAuth/useAuth')['useAuth']>
-    readonly useAuthError: UnwrapRef<typeof import('./src/domains/auth/composables/useAuthError')['useAuthError']>
     readonly useAuthMock: UnwrapRef<typeof import('./src/test/mocks/useAuthMock')['useAuthMock']>
     readonly useAuthStore: UnwrapRef<typeof import('./src/domains/auth/stores/auth')['useAuthStore']>
     readonly useContextStore: UnwrapRef<typeof import('./src/stores/context/context')['useContextStore']>
@@ -328,7 +339,7 @@ declare module '@vue/runtime-core' {
     readonly useCssModule: UnwrapRef<typeof import('vue')['useCssModule']>
     readonly useCssVars: UnwrapRef<typeof import('vue')['useCssVars']>
     readonly useFragment: UnwrapRef<typeof import('./src/graphql/__generated__/fragment-masking')['useFragment']>
-    readonly useGetCountriesQuery: UnwrapRef<typeof import('./src/pages/SupabaseTest/Country.generated')['useGetCountriesQuery']>
+    readonly useGetProfileQuery: UnwrapRef<typeof import('./src/domains/profile/pages/Me/Me.generated')['useGetProfileQuery']>
     readonly useHost: UnwrapRef<typeof import('./src/domains/functional/composables/useHost/useHost')['useHost']>
     readonly useI18n: UnwrapRef<typeof import('vue-i18n')['useI18n']>
     readonly useI18nMock: UnwrapRef<typeof import('./src/test/mocks/vue-i18n')['useI18nMock']>

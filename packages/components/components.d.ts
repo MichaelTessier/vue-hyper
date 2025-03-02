@@ -24,6 +24,8 @@ declare module 'vue' {
     'HypLink.story': typeof import('./src/lib/components/base/HypLink/HypLink.story.vue')['default']
     HypTypo: typeof import('./src/lib/components/base/HypTypo/HypTypo.vue')['default']
     'HypTypo.story': typeof import('./src/lib/components/base/HypTypo/HypTypo.story.vue')['default']
+    NavigationMenuMultiLevelB: typeof import('./src/lib/TOTO/NavigationMenuMultiLevelB.vue')['default']
+    'NavigationMenuMultiLevelB.story': typeof import('./src/lib/TOTO/NavigationMenuMultiLevelB.story.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     'Theme.story': typeof import('./src/histoire/Theme/Theme.story.vue')['default']

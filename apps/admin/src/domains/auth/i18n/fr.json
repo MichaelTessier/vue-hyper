@@ -14,6 +14,7 @@
         "invalid": "L'email est invalide",
         "required": "L'email est requis"
       },
+      "identical-password": "Les mots de passe doivent être différents",
       "invalid-credentials": "Email ou mot de passe invalide",
       "not-found": "Cet email n'existe pas",
       "password": {
@@ -39,11 +40,11 @@
       "title": "Réinitialiser votre mot de passe"
     },
     "passwordUpdate": {
+      "login": "Connexion",
       "message": "Veuillez entrer votre nouveau mot de passe ci-dessous.",
       "submit": "Envoyer",
       "success": "Votre mot de passe a été mis à jour avec succès.",
-      "title": "Mettre à jour votre mot de passe",
-      "login": "Connexion"
+      "title": "Mettre à jour votre mot de passe"
     },
     "register": {
       "login": "Vous avez un compte ? Connectez-vous !",

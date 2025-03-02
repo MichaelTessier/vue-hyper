@@ -11,6 +11,9 @@ export const ICON_NAME = {
   EYE_OUTLINE: 'eye-outline',
   EYE_OFF_OUTLINE: 'eye-off-outline',
   CHECKBOX_MULTIPLE_BLANK_OUTLINE: 'checkbox-multiple-blank-outline',
+  EMAIL_OUTLINE: 'email-outline',
+  LINKEDIN: 'linkedin',
+  FACEBOOK: 'facebook',
 } as const
 
 export const ICON_NAMES = Object.values(ICON_NAME)

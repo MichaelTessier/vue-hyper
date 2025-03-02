@@ -1,0 +1,8 @@
+{
+  "admin": {
+    "navigation": {
+      "dashboard": "Tableau de bord",
+      "me": "Mon Profil"
+    }
+  }
+}

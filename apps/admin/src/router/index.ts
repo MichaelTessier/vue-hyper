@@ -21,7 +21,16 @@ export const routes = [
       const contextStore = useContextStore()
       return { name: 'admin', params: { locale: contextStore.locale } }
     },
-    children: [adminRoutes, authRoutes],
+    children: [
+      {
+        path: 'admin',
+        name: ADMIN_ROUTES.ADMIN,
+        component: () => import('@/domains/admin/pages/Admin/Admin.vue'),
+        redirect: { name: ADMIN_ROUTES.DASHBOARD },
+        children: [...adminRoutes, ...profileRoutes],
+      },
+      authRoutes,
+    ],
   },
 ]
 

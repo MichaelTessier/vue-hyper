@@ -1,0 +1,8 @@
+{
+  "admin": {
+    "navigation": {
+      "dashboard": "Dashboard",
+      "me": "My Profile"
+    }
+  }
+}

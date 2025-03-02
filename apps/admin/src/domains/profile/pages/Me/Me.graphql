@@ -1,0 +1,20 @@
+fragment ProfileFragment on profile {
+  first_name
+  last_name
+  email
+  about
+  linkedin
+  facebook
+  username
+  avatar_url
+}
+
+query getProfile($id: UUID!) {
+  profileCollection(filter: { id: { eq: $id } }) {
+    edges {
+      node {
+        ...ProfileFragment
+      }
+    }
+  }
+}

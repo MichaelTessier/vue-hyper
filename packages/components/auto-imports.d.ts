@@ -9,6 +9,10 @@ declare global {
   const BASE_SIZES: typeof import('./src/lib/components/base/HypBase/HypBase.model')['BASE_SIZES']
   const BOX_ELEVATION: typeof import('./src/lib/components/base/HypBox/HypBox.model')['BOX_ELEVATION']
   const BOX_ELEVATIONS: typeof import('./src/lib/components/base/HypBox/HypBox.model')['BOX_ELEVATIONS']
+  const BOX_ELEVATION_DEFAULT: typeof import('./src/lib/components/base/HypBox/HypBox.model')['BOX_ELEVATION_DEFAULT']
+  const BOX_PADDING: typeof import('./src/lib/components/base/HypBox/HypBox.model')['BOX_PADDING']
+  const BOX_PADDINGS: typeof import('./src/lib/components/base/HypBox/HypBox.model')['BOX_PADDINGS']
+  const BOX_PADDING_DEFAULT: typeof import('./src/lib/components/base/HypBox/HypBox.model')['BOX_PADDING_DEFAULT']
   const BUTTON_RADIUS: typeof import('./src/lib/components/base/HypButton/HypButton.model')['BUTTON_RADIUS']
   const BUTTON_RADIUSES: typeof import('./src/lib/components/base/HypButton/HypButton.model')['BUTTON_RADIUSES']
   const BUTTON_SIZE: typeof import('./src/lib/components/base/HypButton/HypButton.model')['BUTTON_SIZE']
@@ -48,6 +52,7 @@ declare global {
   const UNO_BORDER_COLORS: typeof import('./src/config/unocss/unocss.const')['UNO_BORDER_COLORS']
   const UNO_COLORS: typeof import('./src/config/unocss/unocss.const')['UNO_COLORS']
   const UNO_RADIUSES: typeof import('./src/config/unocss/unocss.const')['UNO_RADIUSES']
+  const UNO_SURFACE_COLORS: typeof import('./src/config/unocss/unocss.const')['UNO_SURFACE_COLORS']
   const UNO_TEXT_COLORS: typeof import('./src/config/unocss/unocss.const')['UNO_TEXT_COLORS']
   const VARIANT_THEME_STORAGE_KEY: typeof import('./src/lib/composables/useTheme/useTheme')['VARIANT_THEME_STORAGE_KEY']
   const VariantTheme: typeof import('./src/lib/composables/useTheme/useTheme')['VariantTheme']
@@ -87,6 +92,7 @@ declare global {
   const readonly: typeof import('vue')['readonly']
   const ref: typeof import('vue')['ref']
   const resolveComponent: typeof import('vue')['resolveComponent']
+  const rules: typeof import('./src/config/unocss/rules')['rules']
   const safelist: typeof import('./src/config/unocss/safelist')['safelist']
   const shallowReactive: typeof import('vue')['shallowReactive']
   const shallowReadonly: typeof import('vue')['shallowReadonly']
@@ -126,6 +132,10 @@ declare module 'vue' {
     readonly BASE_SIZES: UnwrapRef<typeof import('./src/lib/components/base/HypBase/HypBase.model')['BASE_SIZES']>
     readonly BOX_ELEVATION: UnwrapRef<typeof import('./src/lib/components/base/HypBox/HypBox.model')['BOX_ELEVATION']>
     readonly BOX_ELEVATIONS: UnwrapRef<typeof import('./src/lib/components/base/HypBox/HypBox.model')['BOX_ELEVATIONS']>
+    readonly BOX_ELEVATION_DEFAULT: UnwrapRef<typeof import('./src/lib/components/base/HypBox/HypBox.model')['BOX_ELEVATION_DEFAULT']>
+    readonly BOX_PADDING: UnwrapRef<typeof import('./src/lib/components/base/HypBox/HypBox.model')['BOX_PADDING']>
+    readonly BOX_PADDINGS: UnwrapRef<typeof import('./src/lib/components/base/HypBox/HypBox.model')['BOX_PADDINGS']>
+    readonly BOX_PADDING_DEFAULT: UnwrapRef<typeof import('./src/lib/components/base/HypBox/HypBox.model')['BOX_PADDING_DEFAULT']>
     readonly BUTTON_RADIUS: UnwrapRef<typeof import('./src/lib/components/base/HypButton/HypButton.model')['BUTTON_RADIUS']>
     readonly BUTTON_RADIUSES: UnwrapRef<typeof import('./src/lib/components/base/HypButton/HypButton.model')['BUTTON_RADIUSES']>
     readonly BUTTON_SIZES: UnwrapRef<typeof import('./src/lib/components/base/HypButton/HypButton.model')['BUTTON_SIZES']>
@@ -162,6 +172,7 @@ declare module 'vue' {
     readonly UNO_BORDER_COLORS: UnwrapRef<typeof import('./src/config/unocss/unocss.const')['UNO_BORDER_COLORS']>
     readonly UNO_COLORS: UnwrapRef<typeof import('./src/config/unocss/unocss.const')['UNO_COLORS']>
     readonly UNO_RADIUSES: UnwrapRef<typeof import('./src/config/unocss/unocss.const')['UNO_RADIUSES']>
+    readonly UNO_SURFACE_COLORS: UnwrapRef<typeof import('./src/config/unocss/unocss.const')['UNO_SURFACE_COLORS']>
     readonly UNO_TEXT_COLORS: UnwrapRef<typeof import('./src/config/unocss/unocss.const')['UNO_TEXT_COLORS']>
     readonly VARIANT_THEME_STORAGE_KEY: UnwrapRef<typeof import('./src/lib/composables/useTheme/useTheme')['VARIANT_THEME_STORAGE_KEY']>
     readonly VariantTheme: UnwrapRef<typeof import('./src/lib/composables/useTheme/useTheme')['VariantTheme']>
@@ -201,6 +212,7 @@ declare module 'vue' {
     readonly readonly: UnwrapRef<typeof import('vue')['readonly']>
     readonly ref: UnwrapRef<typeof import('vue')['ref']>
     readonly resolveComponent: UnwrapRef<typeof import('vue')['resolveComponent']>
+    readonly rules: UnwrapRef<typeof import('./src/config/unocss/rules')['rules']>
     readonly safelist: UnwrapRef<typeof import('./src/config/unocss/safelist')['safelist']>
     readonly shallowReactive: UnwrapRef<typeof import('vue')['shallowReactive']>
     readonly shallowReadonly: UnwrapRef<typeof import('vue')['shallowReadonly']>
@@ -234,6 +246,10 @@ declare module '@vue/runtime-core' {
     readonly BASE_SIZES: UnwrapRef<typeof import('./src/lib/components/base/HypBase/HypBase.model')['BASE_SIZES']>
     readonly BOX_ELEVATION: UnwrapRef<typeof import('./src/lib/components/base/HypBox/HypBox.model')['BOX_ELEVATION']>
     readonly BOX_ELEVATIONS: UnwrapRef<typeof import('./src/lib/components/base/HypBox/HypBox.model')['BOX_ELEVATIONS']>
+    readonly BOX_ELEVATION_DEFAULT: UnwrapRef<typeof import('./src/lib/components/base/HypBox/HypBox.model')['BOX_ELEVATION_DEFAULT']>
+    readonly BOX_PADDING: UnwrapRef<typeof import('./src/lib/components/base/HypBox/HypBox.model')['BOX_PADDING']>
+    readonly BOX_PADDINGS: UnwrapRef<typeof import('./src/lib/components/base/HypBox/HypBox.model')['BOX_PADDINGS']>
+    readonly BOX_PADDING_DEFAULT: UnwrapRef<typeof import('./src/lib/components/base/HypBox/HypBox.model')['BOX_PADDING_DEFAULT']>
     readonly BUTTON_RADIUS: UnwrapRef<typeof import('./src/lib/components/base/HypButton/HypButton.model')['BUTTON_RADIUS']>
     readonly BUTTON_RADIUSES: UnwrapRef<typeof import('./src/lib/components/base/HypButton/HypButton.model')['BUTTON_RADIUSES']>
     readonly BUTTON_SIZES: UnwrapRef<typeof import('./src/lib/components/base/HypButton/HypButton.model')['BUTTON_SIZES']>
@@ -270,6 +286,7 @@ declare module '@vue/runtime-core' {
     readonly UNO_BORDER_COLORS: UnwrapRef<typeof import('./src/config/unocss/unocss.const')['UNO_BORDER_COLORS']>
     readonly UNO_COLORS: UnwrapRef<typeof import('./src/config/unocss/unocss.const')['UNO_COLORS']>
     readonly UNO_RADIUSES: UnwrapRef<typeof import('./src/config/unocss/unocss.const')['UNO_RADIUSES']>
+    readonly UNO_SURFACE_COLORS: UnwrapRef<typeof import('./src/config/unocss/unocss.const')['UNO_SURFACE_COLORS']>
     readonly UNO_TEXT_COLORS: UnwrapRef<typeof import('./src/config/unocss/unocss.const')['UNO_TEXT_COLORS']>
     readonly VARIANT_THEME_STORAGE_KEY: UnwrapRef<typeof import('./src/lib/composables/useTheme/useTheme')['VARIANT_THEME_STORAGE_KEY']>
     readonly VariantTheme: UnwrapRef<typeof import('./src/lib/composables/useTheme/useTheme')['VariantTheme']>
@@ -309,6 +326,7 @@ declare module '@vue/runtime-core' {
     readonly readonly: UnwrapRef<typeof import('vue')['readonly']>
     readonly ref: UnwrapRef<typeof import('vue')['ref']>
     readonly resolveComponent: UnwrapRef<typeof import('vue')['resolveComponent']>
+    readonly rules: UnwrapRef<typeof import('./src/config/unocss/rules')['rules']>
     readonly safelist: UnwrapRef<typeof import('./src/config/unocss/safelist')['safelist']>
     readonly shallowReactive: UnwrapRef<typeof import('vue')['shallowReactive']>
     readonly shallowReadonly: UnwrapRef<typeof import('vue')['shallowReadonly']>

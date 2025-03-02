@@ -9,6 +9,8 @@ describe('router', () => {
       [
         'root',
         'login',
+        'me',
+        'profile-list',
         'register',
         'register-confirmed',
         'verify-email',

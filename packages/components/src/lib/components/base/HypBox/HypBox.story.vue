@@ -4,10 +4,16 @@
 
   const controls: Record<string, Controls> = reactive({
     elevation: {
-      model: BOX_ELEVATION[0],
+      model: BOX_ELEVATION_DEFAULT,
       type: 'select',
       title: 'Elevation',
       options: BOX_ELEVATIONS,
+    },
+    padding: {
+      model: BOX_PADDING_DEFAULT,
+      type: 'select',
+      title: 'Padding',
+      options: BOX_PADDINGS,
     },
   })
 </script>
@@ -28,8 +34,11 @@
       auto-props-disabled
     >
       <div class="p-4">
-        <HypBox :elevation="controls.elevation.model">
-          {{ controls.elevation.model }}
+        <HypBox
+          :elevation="controls.elevation.model"
+          :padding="controls.padding.model"
+        >
+          some content
         </HypBox>
       </div>
     </Variant>

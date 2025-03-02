@@ -8,6 +8,7 @@ import {
   UNO_BORDER_COLORS,
   UNO_COLORS,
   UNO_RADIUSES,
+  UNO_SURFACE_COLORS,
   UNO_TEXT_COLORS,
 } from './unocss.const'
 
@@ -74,6 +75,16 @@ const safelistRadius = () => {
   return safelist
 }
 
+const safelistSurfaceColors = () => {
+  const safelist: string[] = []
+
+  Object.keys(UNO_SURFACE_COLORS).forEach((color) => {
+    safelist.push(`surface-${color}`)
+  })
+
+  return safelist
+}
+
 const safelistTypo = () => {
   const safelist: string[] = []
 
@@ -103,4 +114,5 @@ export const safelist = [
   ...safelistRadius(),
   ...safelistTextColors(),
   ...safelistTypo(),
+  ...safelistSurfaceColors(),
 ]

@@ -3,6 +3,7 @@ import {
   UNO_BORDER_COLORS,
   UNO_COLORS,
   UNO_RADIUSES,
+  UNO_SURFACE_COLORS,
   UNO_TEXT_COLORS,
 } from './unocss.const'
 
@@ -14,5 +15,6 @@ export const theme = {
   container: {
     center: true,
   },
+  surfaceColors: UNO_SURFACE_COLORS,
   textColors: UNO_TEXT_COLORS,
 }
