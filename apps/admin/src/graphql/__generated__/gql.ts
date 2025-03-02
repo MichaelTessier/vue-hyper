@@ -13,7 +13,7 @@ import type { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-
  * Therefore it is highly recommended to use the babel or swc plugin for production.
  */
 const documents = {
-    "query getCountries {\n  countriesCollection {\n    edges {\n      node {\n        name\n        id\n      }\n    }\n  }\n}": types.GetCountriesDocument,
+    "fragment ProfileFragment on profile {\n  first_name\n  last_name\n  email\n  about\n  linkedin\n  facebook\n  username\n  avatar_url\n}\n\nquery getProfile($id: UUID!) {\n  profileCollection(filter: {id: {eq: $id}}) {\n    edges {\n      node {\n        ...ProfileFragment\n      }\n    }\n  }\n}": types.ProfileFragmentFragmentDoc,
 };
 
 /**
@@ -33,7 +33,7 @@ export function graphql(source: string): unknown;
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(source: "query getCountries {\n  countriesCollection {\n    edges {\n      node {\n        name\n        id\n      }\n    }\n  }\n}"): (typeof documents)["query getCountries {\n  countriesCollection {\n    edges {\n      node {\n        name\n        id\n      }\n    }\n  }\n}"];
+export function graphql(source: "fragment ProfileFragment on profile {\n  first_name\n  last_name\n  email\n  about\n  linkedin\n  facebook\n  username\n  avatar_url\n}\n\nquery getProfile($id: UUID!) {\n  profileCollection(filter: {id: {eq: $id}}) {\n    edges {\n      node {\n        ...ProfileFragment\n      }\n    }\n  }\n}"): (typeof documents)["fragment ProfileFragment on profile {\n  first_name\n  last_name\n  email\n  about\n  linkedin\n  facebook\n  username\n  avatar_url\n}\n\nquery getProfile($id: UUID!) {\n  profileCollection(filter: {id: {eq: $id}}) {\n    edges {\n      node {\n        ...ProfileFragment\n      }\n    }\n  }\n}"];
 
 export function graphql(source: string) {
   return (documents as any)[source] ?? {};

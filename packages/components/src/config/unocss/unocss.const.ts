@@ -22,6 +22,10 @@ export const UNO_BACKGROUND_COLORS = {
   inverse: 'var(--hyp-color-background-inverse)',
 }
 
+export const UNO_SURFACE_COLORS = {
+  default: 'var(--hyp-color-surface-default)',
+}
+
 export const UNO_BORDER_COLORS = {
   default: 'var(--hyp-color-border-default)',
   inverse: 'var(--hyp-color-border-inverse)',

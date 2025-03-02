@@ -24,8 +24,11 @@ html[data-variant-theme='blue'] {
   --hyp-color-background-inverse: #1f1f20;
 
   /* BORDER */
-  --hyp-color-border-default: #d1dcdc;
+  --hyp-color-border-default: #eef0f0;
   --hyp-color-border-inverse: #869292;
+
+  /* SURFACE */
+  --hyp-color-surface-default: #fff;
 }
 
 html[data-color-scheme='dark'] {
@@ -40,8 +43,11 @@ html[data-color-scheme='dark'] {
   --hyp-color-background-inverse: #eef5f9;
 
   /* BORDER */
-  --hyp-color-border-default: #869292;
+  --hyp-color-border-default: #575b5b;
   --hyp-color-border-inverse: #d1dcdc;
+
+  /* SURFACE */
+  --hyp-color-surface-default: #1d2125;
 }
 
 html[data-variant-theme='purple'] {

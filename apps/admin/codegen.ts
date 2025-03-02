@@ -1,7 +1,7 @@
 import type { CodegenConfig } from '@graphql-codegen/cli'
 import dotenv from 'dotenv'
 
-dotenv.config({ path: `.env.local`, override: true })
+dotenv.config({ path: `.env`, override: true })
 
 const schemaUrl = `${process.env.VITE_SUPABASE_URL}/graphql/v1`
 

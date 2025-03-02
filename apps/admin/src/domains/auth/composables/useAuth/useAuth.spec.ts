@@ -164,6 +164,7 @@ describe('useAuth', () => {
       expect(isUpdate).toEqual(true)
 
       expect(useSupabaseMock.supabase.auth.updateUser).toHaveBeenCalledWith({
+        email: "michael.tessier.paris@gmail.com",
         password: 'password',
       })
     })

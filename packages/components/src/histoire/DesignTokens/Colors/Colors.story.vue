@@ -15,16 +15,20 @@
       <TokenColorList :tokens="theme.colors" />
     </Variant>
 
-    <Variant title="Text">
-      <TokenColorList :tokens="theme.textColors" />
-    </Variant>
-
     <Variant title="Background">
       <TokenColorList :tokens="theme.backgroundColors" />
     </Variant>
 
     <Variant title="Border">
       <TokenColorList :tokens="theme.borderColors" />
+    </Variant>
+
+    <Variant title="Surface">
+      <TokenColorList :tokens="theme.surfaceColors" />
+    </Variant>
+
+    <Variant title="Text">
+      <TokenColorList :tokens="theme.textColors" />
     </Variant>
   </Story>
 </template>

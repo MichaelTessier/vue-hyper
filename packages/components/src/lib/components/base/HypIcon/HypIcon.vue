@@ -8,7 +8,7 @@
     },
     size: {
       type: String as PropType<IconSize>,
-      default: ICON_SIZE.MEDIUM,
+      default: ICON_SIZE_DEFAULT,
     },
     color: {
       type: String as PropType<IconColor>,
@@ -21,9 +21,9 @@
   <div
     :class="{
       [`i-mdi-${name}`]: true,
-      [`text-9`]: size === ICON_SIZE.LARGE,
-      [`text-7`]: size === ICON_SIZE.MEDIUM,
-      [`text-4`]: size === ICON_SIZE.SMALL,
+      [`text-9`]: size === SIZE.LARGE,
+      [`text-7`]: size === SIZE.MEDIUM,
+      [`text-4`]: size === SIZE.SMALL,
       [`text-${color}`]: true,
     }"
   />

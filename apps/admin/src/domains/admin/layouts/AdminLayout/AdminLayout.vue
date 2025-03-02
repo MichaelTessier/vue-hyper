@@ -22,6 +22,7 @@
 
     <section class="admin-layout-content flex items-center justify-center">
       <div
+        class="h-full w-full p-5 pb-0"
         :class="{
           container: isCompactLayout,
         }"

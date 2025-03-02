@@ -20,7 +20,7 @@
       options: BUTTON_RADIUSES,
     },
     size: {
-      model: BUTTON_SIZE.MEDIUM,
+      model: BUTTON_SIZE_DEFAULT,
       type: 'select',
       title: 'Sizes',
       options: BUTTON_SIZES,

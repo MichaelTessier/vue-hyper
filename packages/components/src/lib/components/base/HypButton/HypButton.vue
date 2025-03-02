@@ -17,7 +17,7 @@
     },
     size: {
       type: String as PropType<ButtonSize>,
-      default: BUTTON_SIZE.MEDIUM,
+      default: BUTTON_SIZE_DEFAULT,
     },
     radius: {
       type: String as PropType<ButtonRadius>,
@@ -84,9 +84,9 @@
       [`border-${variant} border-1! bg-transparent text-${variant}`]: outline,
       [`rounded-${radius}`]: true,
       [`shadow-btn-${variant}`]: shadow,
-      [`px-4 h-9 hyp-text-medium`]: size === BUTTON_SIZE.SMALL,
-      [`px-5 h-11 hyp-text-medium`]: size === BUTTON_SIZE.MEDIUM,
-      [`px-6 h-13 hyp-text-large`]: size === BUTTON_SIZE.LARGE,
+      [`px-4 h-9 hyp-text-medium`]: size === SIZE.SMALL,
+      [`px-5 h-11 hyp-text-medium`]: size === SIZE.MEDIUM,
+      [`px-6 h-13 hyp-text-large`]: size === SIZE.LARGE,
     }"
     :disabled="disabled"
     :href="href"

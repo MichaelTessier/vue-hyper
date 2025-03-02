@@ -125,33 +125,33 @@ export type IntFilter = {
 /** The root type for creating and mutating data */
 export type Mutation = {
   __typename?: 'Mutation';
-  /** Deletes zero or more records from the `countries` collection */
-  deleteFromcountriesCollection: CountriesDeleteResponse;
-  /** Adds one or more `countries` records to the collection */
-  insertIntocountriesCollection?: Maybe<CountriesInsertResponse>;
-  /** Updates zero or more records in the `countries` collection */
-  updatecountriesCollection: CountriesUpdateResponse;
+  /** Deletes zero or more records from the `profile` collection */
+  deleteFromprofileCollection: ProfileDeleteResponse;
+  /** Adds one or more `profile` records to the collection */
+  insertIntoprofileCollection?: Maybe<ProfileInsertResponse>;
+  /** Updates zero or more records in the `profile` collection */
+  updateprofileCollection: ProfileUpdateResponse;
 };
 
 
 /** The root type for creating and mutating data */
-export type MutationDeleteFromcountriesCollectionArgs = {
+export type MutationDeleteFromprofileCollectionArgs = {
   atMost?: Scalars['Int']['input'];
-  filter?: InputMaybe<CountriesFilter>;
+  filter?: InputMaybe<ProfileFilter>;
 };
 
 
 /** The root type for creating and mutating data */
-export type MutationInsertIntocountriesCollectionArgs = {
-  objects: Array<CountriesInsertInput>;
+export type MutationInsertIntoprofileCollectionArgs = {
+  objects: Array<ProfileInsertInput>;
 };
 
 
 /** The root type for creating and mutating data */
-export type MutationUpdatecountriesCollectionArgs = {
+export type MutationUpdateprofileCollectionArgs = {
   atMost?: Scalars['Int']['input'];
-  filter?: InputMaybe<CountriesFilter>;
-  set: CountriesUpdateInput;
+  filter?: InputMaybe<ProfileFilter>;
+  set: ProfileUpdateInput;
 };
 
 export type Node = {
@@ -188,27 +188,27 @@ export type PageInfo = {
 /** The root type for querying data */
 export type Query = {
   __typename?: 'Query';
-  /** A pagable collection of type `countries` */
-  countriesCollection?: Maybe<CountriesConnection>;
   /** Retrieve a record by its `ID` */
   node?: Maybe<Node>;
-};
-
-
-/** The root type for querying data */
-export type QueryCountriesCollectionArgs = {
-  after?: InputMaybe<Scalars['Cursor']['input']>;
-  before?: InputMaybe<Scalars['Cursor']['input']>;
-  filter?: InputMaybe<CountriesFilter>;
-  first?: InputMaybe<Scalars['Int']['input']>;
-  last?: InputMaybe<Scalars['Int']['input']>;
-  orderBy?: InputMaybe<Array<CountriesOrderBy>>;
+  /** A pagable collection of type `profile` */
+  profileCollection?: Maybe<ProfileConnection>;
 };
 
 
 /** The root type for querying data */
 export type QueryNodeArgs = {
   nodeId: Scalars['ID']['input'];
+};
+
+
+/** The root type for querying data */
+export type QueryProfileCollectionArgs = {
+  after?: InputMaybe<Scalars['Cursor']['input']>;
+  before?: InputMaybe<Scalars['Cursor']['input']>;
+  filter?: InputMaybe<ProfileFilter>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  last?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<Array<ProfileOrderBy>>;
 };
 
 /** Boolean expression comparing fields on type "String" */
@@ -248,79 +248,128 @@ export type UuidFilter = {
   neq?: InputMaybe<Scalars['UUID']['input']>;
 };
 
-export type Countries = Node & {
-  __typename?: 'countries';
-  id: Scalars['Int']['output'];
-  name: Scalars['String']['output'];
+export type Profile = Node & {
+  __typename?: 'profile';
+  about?: Maybe<Scalars['String']['output']>;
+  avatar_url?: Maybe<Scalars['String']['output']>;
+  email?: Maybe<Scalars['String']['output']>;
+  facebook?: Maybe<Scalars['String']['output']>;
+  first_name?: Maybe<Scalars['String']['output']>;
+  id: Scalars['UUID']['output'];
+  last_name?: Maybe<Scalars['String']['output']>;
+  linkedin?: Maybe<Scalars['String']['output']>;
   /** Globally Unique Record Identifier */
   nodeId: Scalars['ID']['output'];
+  updated_at?: Maybe<Scalars['Datetime']['output']>;
+  username?: Maybe<Scalars['String']['output']>;
 };
 
-export type CountriesConnection = {
-  __typename?: 'countriesConnection';
-  edges: Array<CountriesEdge>;
+export type ProfileConnection = {
+  __typename?: 'profileConnection';
+  edges: Array<ProfileEdge>;
   pageInfo: PageInfo;
 };
 
-export type CountriesDeleteResponse = {
-  __typename?: 'countriesDeleteResponse';
+export type ProfileDeleteResponse = {
+  __typename?: 'profileDeleteResponse';
   /** Count of the records impacted by the mutation */
   affectedCount: Scalars['Int']['output'];
   /** Array of records impacted by the mutation */
-  records: Array<Countries>;
+  records: Array<Profile>;
 };
 
-export type CountriesEdge = {
-  __typename?: 'countriesEdge';
+export type ProfileEdge = {
+  __typename?: 'profileEdge';
   cursor: Scalars['String']['output'];
-  node: Countries;
+  node: Profile;
 };
 
-export type CountriesFilter = {
+export type ProfileFilter = {
+  about?: InputMaybe<StringFilter>;
   /** Returns true only if all its inner filters are true, otherwise returns false */
-  and?: InputMaybe<Array<CountriesFilter>>;
-  id?: InputMaybe<IntFilter>;
-  name?: InputMaybe<StringFilter>;
+  and?: InputMaybe<Array<ProfileFilter>>;
+  avatar_url?: InputMaybe<StringFilter>;
+  email?: InputMaybe<StringFilter>;
+  facebook?: InputMaybe<StringFilter>;
+  first_name?: InputMaybe<StringFilter>;
+  id?: InputMaybe<UuidFilter>;
+  last_name?: InputMaybe<StringFilter>;
+  linkedin?: InputMaybe<StringFilter>;
   nodeId?: InputMaybe<IdFilter>;
   /** Negates a filter */
-  not?: InputMaybe<CountriesFilter>;
+  not?: InputMaybe<ProfileFilter>;
   /** Returns true if at least one of its inner filters is true, otherwise returns false */
-  or?: InputMaybe<Array<CountriesFilter>>;
+  or?: InputMaybe<Array<ProfileFilter>>;
+  updated_at?: InputMaybe<DatetimeFilter>;
+  username?: InputMaybe<StringFilter>;
 };
 
-export type CountriesInsertInput = {
-  name?: InputMaybe<Scalars['String']['input']>;
+export type ProfileInsertInput = {
+  about?: InputMaybe<Scalars['String']['input']>;
+  avatar_url?: InputMaybe<Scalars['String']['input']>;
+  email?: InputMaybe<Scalars['String']['input']>;
+  facebook?: InputMaybe<Scalars['String']['input']>;
+  first_name?: InputMaybe<Scalars['String']['input']>;
+  id?: InputMaybe<Scalars['UUID']['input']>;
+  last_name?: InputMaybe<Scalars['String']['input']>;
+  linkedin?: InputMaybe<Scalars['String']['input']>;
+  updated_at?: InputMaybe<Scalars['Datetime']['input']>;
+  username?: InputMaybe<Scalars['String']['input']>;
 };
 
-export type CountriesInsertResponse = {
-  __typename?: 'countriesInsertResponse';
+export type ProfileInsertResponse = {
+  __typename?: 'profileInsertResponse';
   /** Count of the records impacted by the mutation */
   affectedCount: Scalars['Int']['output'];
   /** Array of records impacted by the mutation */
-  records: Array<Countries>;
+  records: Array<Profile>;
 };
 
-export type CountriesOrderBy = {
+export type ProfileOrderBy = {
+  about?: InputMaybe<OrderByDirection>;
+  avatar_url?: InputMaybe<OrderByDirection>;
+  email?: InputMaybe<OrderByDirection>;
+  facebook?: InputMaybe<OrderByDirection>;
+  first_name?: InputMaybe<OrderByDirection>;
   id?: InputMaybe<OrderByDirection>;
-  name?: InputMaybe<OrderByDirection>;
+  last_name?: InputMaybe<OrderByDirection>;
+  linkedin?: InputMaybe<OrderByDirection>;
+  updated_at?: InputMaybe<OrderByDirection>;
+  username?: InputMaybe<OrderByDirection>;
 };
 
-export type CountriesUpdateInput = {
-  name?: InputMaybe<Scalars['String']['input']>;
+export type ProfileUpdateInput = {
+  about?: InputMaybe<Scalars['String']['input']>;
+  avatar_url?: InputMaybe<Scalars['String']['input']>;
+  email?: InputMaybe<Scalars['String']['input']>;
+  facebook?: InputMaybe<Scalars['String']['input']>;
+  first_name?: InputMaybe<Scalars['String']['input']>;
+  id?: InputMaybe<Scalars['UUID']['input']>;
+  last_name?: InputMaybe<Scalars['String']['input']>;
+  linkedin?: InputMaybe<Scalars['String']['input']>;
+  updated_at?: InputMaybe<Scalars['Datetime']['input']>;
+  username?: InputMaybe<Scalars['String']['input']>;
 };
 
-export type CountriesUpdateResponse = {
-  __typename?: 'countriesUpdateResponse';
+export type ProfileUpdateResponse = {
+  __typename?: 'profileUpdateResponse';
   /** Count of the records impacted by the mutation */
   affectedCount: Scalars['Int']['output'];
   /** Array of records impacted by the mutation */
-  records: Array<Countries>;
+  records: Array<Profile>;
 };
 
-export type GetCountriesQueryVariables = Exact<{ [key: string]: never; }>;
+export type ProfileFragmentFragment = { __typename?: 'profile', first_name?: string | null, last_name?: string | null, email?: string | null, about?: string | null, linkedin?: string | null, facebook?: string | null, username?: string | null, avatar_url?: string | null } & { ' $fragmentName'?: 'ProfileFragmentFragment' };
+
+export type GetProfileQueryVariables = Exact<{
+  id: Scalars['UUID']['input'];
+}>;
 
 
-export type GetCountriesQuery = { __typename?: 'Query', countriesCollection?: { __typename?: 'countriesConnection', edges: Array<{ __typename?: 'countriesEdge', node: { __typename?: 'countries', name: string, id: number } }> } | null };
+export type GetProfileQuery = { __typename?: 'Query', profileCollection?: { __typename?: 'profileConnection', edges: Array<{ __typename?: 'profileEdge', node: (
+        { __typename?: 'profile' }
+        & { ' $fragmentRefs'?: { 'ProfileFragmentFragment': ProfileFragmentFragment } }
+      ) }> } | null };
 
-
-export const GetCountriesDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"getCountries"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"countriesCollection"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"edges"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"node"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"id"}}]}}]}}]}}]}}]} as unknown as DocumentNode<GetCountriesQuery, GetCountriesQueryVariables>;
+export const ProfileFragmentFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ProfileFragment"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"profile"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"first_name"}},{"kind":"Field","name":{"kind":"Name","value":"last_name"}},{"kind":"Field","name":{"kind":"Name","value":"email"}},{"kind":"Field","name":{"kind":"Name","value":"about"}},{"kind":"Field","name":{"kind":"Name","value":"linkedin"}},{"kind":"Field","name":{"kind":"Name","value":"facebook"}},{"kind":"Field","name":{"kind":"Name","value":"username"}},{"kind":"Field","name":{"kind":"Name","value":"avatar_url"}}]}}]} as unknown as DocumentNode<ProfileFragmentFragment, unknown>;
+export const GetProfileDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"getProfile"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"id"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"UUID"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"profileCollection"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"filter"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"id"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"eq"},"value":{"kind":"Variable","name":{"kind":"Name","value":"id"}}}]}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"edges"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"node"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"ProfileFragment"}}]}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ProfileFragment"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"profile"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"first_name"}},{"kind":"Field","name":{"kind":"Name","value":"last_name"}},{"kind":"Field","name":{"kind":"Name","value":"email"}},{"kind":"Field","name":{"kind":"Name","value":"about"}},{"kind":"Field","name":{"kind":"Name","value":"linkedin"}},{"kind":"Field","name":{"kind":"Name","value":"facebook"}},{"kind":"Field","name":{"kind":"Name","value":"username"}},{"kind":"Field","name":{"kind":"Name","value":"avatar_url"}}]}}]} as unknown as DocumentNode<GetProfileQuery, GetProfileQueryVariables>;

@@ -7,6 +7,10 @@
       label: t('admin.navigation.dashboard'),
       routeName: ADMIN_ROUTES.DASHBOARD,
     },
+    {
+      label: t('admin.navigation.me'),
+      routeName: PROFILE_ROUTES.ME,
+    },
   ])
 </script>
 

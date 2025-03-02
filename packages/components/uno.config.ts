@@ -1,48 +1,13 @@
 import { type Preset, defineConfig, presetUno, presetIcons } from 'unocss'
 import presetRemToPx from '@unocss/preset-rem-to-px'
 import { safelist } from './src/config/unocss/safelist'
+import { rules } from './src/config/unocss/rules'
 import { theme } from './src/config/unocss/theme'
 
 export default defineConfig({
   theme,
-
-  rules: [
-    [
-      /^shadow-btn-(.+)$/,
-      ([, name]) => ({
-        'box-shadow': `0px 2px 5px rgb(from var(--hyp-color-${name}) r g b / 0.5)`,
-      }),
-    ],
-    [
-      /^grid-auto-(.+)$/,
-      ([, size]) => ({
-        'grid-template-columns': `repeat(auto-fit, minmax(${size}px, 1fr))`,
-      }),
-    ],
-    [
-      /^text-(.*)$/,
-      ([, c], { theme }: any) => {
-        if (theme.textColors[c]) return { color: theme.textColors[c] }
-      },
-    ],
-    [
-      /^bg-(.*)$/,
-      ([, c], { theme }: any) => {
-        if (theme.backgroundColors[c])
-          return { 'background-color': theme.backgroundColors[c] }
-      },
-    ],
-    [
-      /^border-(.*)$/,
-      ([, c], { theme }: any) => {
-        if (theme.borderColors[c])
-          return { 'border-color': theme.borderColors[c] }
-      },
-    ],
-  ],
-
+  rules,
   safelist: [...safelist],
-
   presets: [
     presetUno(),
     presetRemToPx() as Preset,
@@ -53,7 +18,6 @@ export default defineConfig({
       },
     }),
   ],
-
   shortcuts: {
     'hyp-display-heading-large': 'text-11  font-medium leading-tight ',
     'hyp-display-heading-medium': 'text-9 font-medium leading-tight',

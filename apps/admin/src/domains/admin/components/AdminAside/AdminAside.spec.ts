@@ -21,7 +21,7 @@ describe('AdminAside', () => {
     expect(links[0].props('color')).toEqual('light')
     expect(links[0].text()).toEqual('Tableau de bord')
 
-    expect(links.length).toEqual(1)
+    expect(links.length).toEqual(2)
 
     expect(wrapper.findComponent(Logo).exists()).toBe(false)
   })

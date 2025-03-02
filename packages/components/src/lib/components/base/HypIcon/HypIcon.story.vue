@@ -8,7 +8,7 @@
       title: 'Label',
     },
     size: {
-      model: ICON_SIZE.MEDIUM,
+      model: ICON_SIZE_DEFAULT,
       type: 'select',
       title: 'Size',
       options: ICON_SIZES,
